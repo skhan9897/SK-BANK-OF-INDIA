@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: skbankofindia-banking-system
+    env: docker
+    plan: free
+    region: frankfurt
+    branch: main
+    envVars:
+      - key: DB_HOST
+        value: bscwohsyy3rxb57tbled-mysql.services.clever-cloud.com
+      - key: DB_NAME
+        value: bscwohsyy3rxb57tbled
+      - key: DB_USER
+        value: u0zq1bi4ubou9kcv
+      - key: DB_PASSWORD
+        value: 6V6sCQgvlPDUHhilhPWn
