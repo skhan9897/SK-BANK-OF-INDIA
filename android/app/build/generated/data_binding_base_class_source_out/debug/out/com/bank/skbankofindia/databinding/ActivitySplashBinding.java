@@ -25,15 +25,20 @@ public final class ActivitySplashBinding implements ViewBinding {
   public final ImageView ivBankLogo;
 
   @NonNull
+  public final ImageView ivFlagWaveBg;
+
+  @NonNull
   public final ProgressBar pbSplashProgress;
 
   @NonNull
   public final TextView tvLogoTitle;
 
   private ActivitySplashBinding(@NonNull RelativeLayout rootView, @NonNull ImageView ivBankLogo,
-      @NonNull ProgressBar pbSplashProgress, @NonNull TextView tvLogoTitle) {
+      @NonNull ImageView ivFlagWaveBg, @NonNull ProgressBar pbSplashProgress,
+      @NonNull TextView tvLogoTitle) {
     this.rootView = rootView;
     this.ivBankLogo = ivBankLogo;
+    this.ivFlagWaveBg = ivFlagWaveBg;
     this.pbSplashProgress = pbSplashProgress;
     this.tvLogoTitle = tvLogoTitle;
   }
@@ -71,6 +76,12 @@ public final class ActivitySplashBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.ivFlagWaveBg;
+      ImageView ivFlagWaveBg = ViewBindings.findChildViewById(rootView, id);
+      if (ivFlagWaveBg == null) {
+        break missingId;
+      }
+
       id = R.id.pbSplashProgress;
       ProgressBar pbSplashProgress = ViewBindings.findChildViewById(rootView, id);
       if (pbSplashProgress == null) {
@@ -83,8 +94,8 @@ public final class ActivitySplashBinding implements ViewBinding {
         break missingId;
       }
 
-      return new ActivitySplashBinding((RelativeLayout) rootView, ivBankLogo, pbSplashProgress,
-          tvLogoTitle);
+      return new ActivitySplashBinding((RelativeLayout) rootView, ivBankLogo, ivFlagWaveBg,
+          pbSplashProgress, tvLogoTitle);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

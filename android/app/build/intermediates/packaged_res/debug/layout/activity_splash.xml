@@ -2,18 +2,29 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/indian_flag_wave_bg"
-    android:padding="32dp">
+    android:background="#0A192F"
+    android:clipChildren="false">
 
-    <!-- Center Content Structure Matching Web Splash -->
+    <!-- Animated Indian Flag Sea Wave Background View -->
+    <ImageView
+        android:id="@+id/ivFlagWaveBg"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="-60dp"
+        android:scaleType="centerCrop"
+        android:contentDescription="Indian Flag Sea Wave Background"
+        android:src="@drawable/indian_flag_wave_bg" />
+
+    <!-- Center Content Structure -->
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:gravity="center"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:padding="24dp">
 
-        <!-- Indian Flag Tricolor Wave Bank Logo -->
+        <!-- Indian Flag Bank Logo -->
         <ImageView
             android:id="@+id/ivBankLogo"
             android:layout_width="120dp"
@@ -28,7 +39,7 @@
             android:layout_height="wrap_content"
             android:text="SK Bank of India"
             android:textColor="#0A192F"
-            android:textSize="30sp"
+            android:textSize="32sp"
             android:textStyle="bold" />
 
         <TextView
@@ -43,7 +54,7 @@
             android:textSize="13sp"
             android:textStyle="bold" />
 
-        <!-- Tricolor Indian Flag Wave Progress Bar -->
+        <!-- Tricolor Progress Bar -->
         <ProgressBar
             android:id="@+id/pbSplashProgress"
             style="?android:attr/progressBarStyleHorizontal"
@@ -57,14 +68,15 @@
 
     </LinearLayout>
 
-    <!-- Bottom Developer Credits Matching Web Splash -->
+    <!-- Bottom Developer Credits -->
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:gravity="center"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:layout_marginBottom="24dp">
 
         <TextView
             android:layout_width="wrap_content"

@@ -19,6 +19,7 @@ color teal_700
 color white
 drawable ic_bank_logo
 drawable indian_flag_wave_bg
+drawable indian_flag_wave_bright
 drawable tricolor_progress_drawable
 id bottomNavContainer
 id bottomSheetDrawer
@@ -107,6 +108,7 @@ id etState
 id etUsername
 id headerScanner
 id ivBankLogo
+id ivFlagWaveBg
 id ivQrCodeBitmap
 id layoutOtpSection
 id llChatMessagesList

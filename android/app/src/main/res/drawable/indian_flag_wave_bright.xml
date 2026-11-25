@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Top Saffron Band -->
+    <item>
+        <shape android:shape="rectangle">
+            <gradient
+                android:angle="270"
+                android:startColor="#FF9933"
+                android:centerColor="#FFA500"
+                android:endColor="#FF8C00"
+                android:type="linear" />
+        </shape>
+    </item>
+
+    <!-- Center White Band -->
+    <item
+        android:top="220dp"
+        android:bottom="220dp">
+        <shape android:shape="rectangle">
+            <gradient
+                android:angle="270"
+                android:startColor="#FFFFFF"
+                android:centerColor="#FAFAFA"
+                android:endColor="#F0F0F0"
+                android:type="linear" />
+        </shape>
+    </item>
+
+    <!-- Bottom India Green Band -->
+    <item android:top="480dp">
+        <shape android:shape="rectangle">
+            <gradient
+                android:angle="270"
+                android:startColor="#138808"
+                android:centerColor="#0E6B05"
+                android:endColor="#054502"
+                android:type="linear" />
+        </shape>
+    </item>
+
+</layer-list>
