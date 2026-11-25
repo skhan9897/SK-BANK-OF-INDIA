@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Layer 1: Bright Saffron Top (Tricolor Top Band) -->
+    <item>
+        <shape android:shape="rectangle">
+            <gradient
+                android:angle="270"
+                android:startColor="#FF9933"
+                android:centerColor="#FFAA44"
+                android:endColor="#FFBB55"
+                android:type="linear" />
+        </shape>
+    </item>
+
+    <!-- Layer 2: Middle Bright White Wave Band -->
+    <item
+        android:top="180dp"
+        android:bottom="180dp">
+        <shape android:shape="rectangle">
+            <gradient
+                android:angle="270"
+                android:startColor="#FFFFFF"
+                android:centerColor="#F8F9FA"
+                android:endColor="#E9ECEF"
+                android:type="linear" />
+        </shape>
+    </item>
+
+    <!-- Layer 3: Bright India Green Bottom Band -->
+    <item android:top="460dp">
+        <shape android:shape="rectangle">
+            <gradient
+                android:angle="270"
+                android:startColor="#138808"
+                android:centerColor="#0E6B05"
+                android:endColor="#094E03"
+                android:type="linear" />
+        </shape>
+    </item>
+
+</layer-list>
