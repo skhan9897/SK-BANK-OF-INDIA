@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#F4F6F9">
+
+    <!-- Top Chat Header -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="#0A192F"
+        android:padding="16dp"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:id="@+id/tvChatPartnerName"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="Chat &amp; Send Money"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btnChatSendMoney"
+            android:layout_width="wrap_content"
+            android:layout_height="36dp"
+            android:text="Send Money 💸"
+            android:textSize="11sp"
+            android:backgroundTint="#FF9933"
+            android:textColor="#000000"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+    <!-- Customer Search Bar -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="10dp"
+        android:background="#FFFFFF">
+
+        <EditText
+            android:id="@+id/etSearchQuery"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="40dp"
+            android:hint="Search customer, phone or VPA..."
+            android:padding="8dp"
+            android:textSize="13sp"
+            android:background="@android:drawable/editbox_background" />
+
+        <Button
+            android:id="@+id/btnSearchCustomer"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:text="Search"
+            android:textSize="12sp"
+            android:backgroundTint="#0052CC"
+            android:textColor="#FFFFFF"
+            android:layout_marginStart="6dp" />
+
+    </LinearLayout>
+
+    <!-- Chat Messages Scroll View -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:padding="12dp">
+
+        <LinearLayout
+            android:id="@+id/llChatMessagesList"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Default Welcome Message Card -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="#FFFFFF"
+                android:padding="14dp"
+                android:layout_marginBottom="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="💬 Verified Chat &amp; Instant Banking Active"
+                    android:textColor="#0052CC"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Send encrypted text messages or instant double-entry money transfers to any verified SK Bank customer."
+                    android:textColor="#666666"
+                    android:textSize="12sp"
+                    android:layout_marginTop="4dp" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <!-- Bottom Message Input Bar -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="10dp"
+        android:background="#FFFFFF">
+
+        <EditText
+            android:id="@+id/etChatMessage"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="44dp"
+            android:hint="Type message..."
+            android:padding="10dp"
+            android:background="@android:drawable/editbox_background" />
+
+        <Button
+            android:id="@+id/btnSendMsg"
+            android:layout_width="wrap_content"
+            android:layout_height="44dp"
+            android:text="Send ➔"
+            android:backgroundTint="#0052CC"
+            android:textColor="#FFFFFF"
+            android:layout_marginStart="6dp" />
+
+    </LinearLayout>
+
+</LinearLayout>

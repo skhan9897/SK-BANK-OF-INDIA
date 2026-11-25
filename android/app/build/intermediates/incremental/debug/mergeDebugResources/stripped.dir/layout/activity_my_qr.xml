@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#0A192F"
+    android:padding="20dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center_horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="My Payment QR Code"
+            android:textColor="#FFFFFF"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="4dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="SK Bank of India • Official Unified Payment QR"
+            android:textColor="#FF9933"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="24dp" />
+
+        <!-- White Card Container for QR -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:background="#FFFFFF"
+            android:padding="24dp"
+            android:layout_marginBottom="24dp">
+
+            <TextView
+                android:id="@+id/tvQrCustName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="SK Bank Customer"
+                android:textColor="#0A192F"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="4dp" />
+
+            <TextView
+                android:id="@+id/tvQrVpa"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="customer@skbank"
+                android:textColor="#0052CC"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="16dp" />
+
+            <ImageView
+                android:id="@+id/ivQrCodeBitmap"
+                android:layout_width="220dp"
+                android:layout_height="220dp"
+                android:scaleType="fitCenter"
+                android:contentDescription="Payment QR Code"
+                android:layout_marginBottom="16dp" />
+
+            <TextView
+                android:id="@+id/tvQrAccDetails"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Account: 10018877665544 • IFSC: SKBI0000001"
+                android:textColor="#666666"
+                android:textSize="11sp"
+                android:textAlignment="center" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btnShareQr"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="52dp"
+                android:text="Share QR Code"
+                android:backgroundTint="#0052CC"
+                android:textColor="#FFFFFF"
+                android:layout_marginEnd="6dp" />
+
+            <Button
+                android:id="@+id/btnDownloadQr"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="52dp"
+                android:text="Save to Phone"
+                android:backgroundTint="#FF9933"
+                android:textColor="#000000"
+                android:textStyle="bold"
+                android:layout_marginStart="6dp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>

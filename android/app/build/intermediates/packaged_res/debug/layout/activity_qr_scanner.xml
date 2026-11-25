@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#0A192F">
+
+    <!-- Camera Viewport Overlay Frame -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:padding="20dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Align QR Code within Frame"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="24dp" />
+
+        <!-- Scanner Square Frame -->
+        <FrameLayout
+            android:layout_width="260dp"
+            android:layout_height="260dp"
+            android:background="@android:drawable/dialog_holo_light_frame"
+            android:padding="12dp"
+            android:layout_marginBottom="24dp">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="#FF9933"
+                android:layout_gravity="center" />
+
+        </FrameLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="SK Bank of India Scan &amp; Pay Engine Active"
+            android:textColor="#FF9933"
+            android:textSize="12sp"
+            android:layout_marginBottom="28dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <Button
+                android:id="@+id/btnToggleFlash"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:text="Flash On/Off 💡"
+                android:backgroundTint="#0052CC"
+                android:textColor="#FFFFFF"
+                android:layout_marginEnd="10dp" />
+
+            <Button
+                android:id="@+id/btnSimulateScan"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:text="Scan Test QR 🔍"
+                android:backgroundTint="#FF9933"
+                android:textColor="#000000"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>

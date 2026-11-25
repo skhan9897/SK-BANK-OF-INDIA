@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\Sajid Khan\OneDrive\Documents\NetBeansProjects\SKBankOfIndia\android\app\src\main\AndroidManifest.xml:2:1-39:12
-INJECTED from C:\Users\Sajid Khan\OneDrive\Documents\NetBeansProjects\SKBankOfIndia\android\app\src\main\AndroidManifest.xml:2:1-39:12
-INJECTED from C:\Users\Sajid Khan\OneDrive\Documents\NetBeansProjects\SKBankOfIndia\android\app\src\main\AndroidManifest.xml:2:1-39:12
-INJECTED from C:\Users\Sajid Khan\OneDrive\Documents\NetBeansProjects\SKBankOfIndia\android\app\src\main\AndroidManifest.xml:2:1-39:12
+ADDED from C:\Users\Sajid Khan\OneDrive\Documents\NetBeansProjects\SKBankOfIndia\android\app\src\main\AndroidManifest.xml:2:1-52:12
+INJECTED from C:\Users\Sajid Khan\OneDrive\Documents\NetBeansProjects\SKBankOfIndia\android\app\src\main\AndroidManifest.xml:2:1-52:12
+INJECTED from C:\Users\Sajid Khan\OneDrive\Documents\NetBeansProjects\SKBankOfIndia\android\app\src\main\AndroidManifest.xml:2:1-52:12
+INJECTED from C:\Users\Sajid Khan\OneDrive\Documents\NetBeansProjects\SKBankOfIndia\android\app\src\main\AndroidManifest.xml:2:1-52:12
 MERGED from [androidx.databinding:viewbinding:8.2.2] C:\Users\Sajid Khan\.gradle\caches\transforms-3\6e283455aa44dde7a12b4aba9d25f127\transformed\jetified-viewbinding-8.2.2\AndroidManifest.xml:2:1-7:12
 MERGED from [com.google.android.material:material:1.11.0] C:\Users\Sajid Khan\.gradle\caches\transforms-3\2b09c2cd4192fe4b7b686a651ae8eff3\transformed\material-1.11.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.constraintlayout:constraintlayout:2.1.4] C:\Users\Sajid Khan\.gradle\caches\transforms-3\80bc2211690f56e6063d66d7e4cf0117\transformed\constraintlayout-2.1.4\AndroidManifest.xml:2:1-11:12
@@ -118,8 +118,8 @@ MERGED from [com.google.firebase:firebase-messaging:23.4.0] C:\Users\Sajid Khan\
 	android:name
 		ADDED from C:\Users\Sajid Khan\OneDrive\Documents\NetBeansProjects\SKBankOfIndia\android\app\src\main\AndroidManifest.xml:8:22-74
 application
-ADDED from C:\Users\Sajid Khan\OneDrive\Documents\NetBeansProjects\SKBankOfIndia\android\app\src\main\AndroidManifest.xml:10:5-37:19
-INJECTED from C:\Users\Sajid Khan\OneDrive\Documents\NetBeansProjects\SKBankOfIndia\android\app\src\main\AndroidManifest.xml:10:5-37:19
+ADDED from C:\Users\Sajid Khan\OneDrive\Documents\NetBeansProjects\SKBankOfIndia\android\app\src\main\AndroidManifest.xml:10:5-50:19
+INJECTED from C:\Users\Sajid Khan\OneDrive\Documents\NetBeansProjects\SKBankOfIndia\android\app\src\main\AndroidManifest.xml:10:5-50:19
 MERGED from [com.google.android.material:material:1.11.0] C:\Users\Sajid Khan\.gradle\caches\transforms-3\2b09c2cd4192fe4b7b686a651ae8eff3\transformed\material-1.11.0\AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.material:material:1.11.0] C:\Users\Sajid Khan\.gradle\caches\transforms-3\2b09c2cd4192fe4b7b686a651ae8eff3\transformed\material-1.11.0\AndroidManifest.xml:22:5-20
 MERGED from [androidx.constraintlayout:constraintlayout:2.1.4] C:\Users\Sajid Khan\.gradle\caches\transforms-3\80bc2211690f56e6063d66d7e4cf0117\transformed\constraintlayout-2.1.4\AndroidManifest.xml:9:5-20
@@ -242,6 +242,42 @@ ADDED from C:\Users\Sajid Khan\OneDrive\Documents\NetBeansProjects\SKBankOfIndia
 		ADDED from C:\Users\Sajid Khan\OneDrive\Documents\NetBeansProjects\SKBankOfIndia\android\app\src\main\AndroidManifest.xml:35:52-76
 	android:name
 		ADDED from C:\Users\Sajid Khan\OneDrive\Documents\NetBeansProjects\SKBankOfIndia\android\app\src\main\AndroidManifest.xml:35:19-51
+activity#com.bank.skbankofindia.ui.QrScannerActivity
+ADDED from C:\Users\Sajid Khan\OneDrive\Documents\NetBeansProjects\SKBankOfIndia\android\app\src\main\AndroidManifest.xml:36:9-83
+	android:exported
+		ADDED from C:\Users\Sajid Khan\OneDrive\Documents\NetBeansProjects\SKBankOfIndia\android\app\src\main\AndroidManifest.xml:36:56-80
+	android:name
+		ADDED from C:\Users\Sajid Khan\OneDrive\Documents\NetBeansProjects\SKBankOfIndia\android\app\src\main\AndroidManifest.xml:36:19-55
+activity#com.bank.skbankofindia.ui.MyQrActivity
+ADDED from C:\Users\Sajid Khan\OneDrive\Documents\NetBeansProjects\SKBankOfIndia\android\app\src\main\AndroidManifest.xml:37:9-78
+	android:exported
+		ADDED from C:\Users\Sajid Khan\OneDrive\Documents\NetBeansProjects\SKBankOfIndia\android\app\src\main\AndroidManifest.xml:37:51-75
+	android:name
+		ADDED from C:\Users\Sajid Khan\OneDrive\Documents\NetBeansProjects\SKBankOfIndia\android\app\src\main\AndroidManifest.xml:37:19-50
+activity#com.bank.skbankofindia.ui.ScanPayConfirmActivity
+ADDED from C:\Users\Sajid Khan\OneDrive\Documents\NetBeansProjects\SKBankOfIndia\android\app\src\main\AndroidManifest.xml:38:9-88
+	android:exported
+		ADDED from C:\Users\Sajid Khan\OneDrive\Documents\NetBeansProjects\SKBankOfIndia\android\app\src\main\AndroidManifest.xml:38:61-85
+	android:name
+		ADDED from C:\Users\Sajid Khan\OneDrive\Documents\NetBeansProjects\SKBankOfIndia\android\app\src\main\AndroidManifest.xml:38:19-60
+activity#com.bank.skbankofindia.ui.ChatActivity
+ADDED from C:\Users\Sajid Khan\OneDrive\Documents\NetBeansProjects\SKBankOfIndia\android\app\src\main\AndroidManifest.xml:39:9-78
+	android:exported
+		ADDED from C:\Users\Sajid Khan\OneDrive\Documents\NetBeansProjects\SKBankOfIndia\android\app\src\main\AndroidManifest.xml:39:51-75
+	android:name
+		ADDED from C:\Users\Sajid Khan\OneDrive\Documents\NetBeansProjects\SKBankOfIndia\android\app\src\main\AndroidManifest.xml:39:19-50
+service#com.bank.skbankofindia.util.MyFirebaseMessagingService
+ADDED from C:\Users\Sajid Khan\OneDrive\Documents\NetBeansProjects\SKBankOfIndia\android\app\src\main\AndroidManifest.xml:42:9-48:19
+	android:exported
+		ADDED from C:\Users\Sajid Khan\OneDrive\Documents\NetBeansProjects\SKBankOfIndia\android\app\src\main\AndroidManifest.xml:44:13-37
+	android:name
+		ADDED from C:\Users\Sajid Khan\OneDrive\Documents\NetBeansProjects\SKBankOfIndia\android\app\src\main\AndroidManifest.xml:43:13-60
+intent-filter#action:name:com.google.firebase.MESSAGING_EVENT
+ADDED from C:\Users\Sajid Khan\OneDrive\Documents\NetBeansProjects\SKBankOfIndia\android\app\src\main\AndroidManifest.xml:45:13-47:29
+action#com.google.firebase.MESSAGING_EVENT
+ADDED from C:\Users\Sajid Khan\OneDrive\Documents\NetBeansProjects\SKBankOfIndia\android\app\src\main\AndroidManifest.xml:46:17-78
+	android:name
+		ADDED from C:\Users\Sajid Khan\OneDrive\Documents\NetBeansProjects\SKBankOfIndia\android\app\src\main\AndroidManifest.xml:46:25-75
 uses-sdk
 INJECTED from C:\Users\Sajid Khan\OneDrive\Documents\NetBeansProjects\SKBankOfIndia\android\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from C:\Users\Sajid Khan\OneDrive\Documents\NetBeansProjects\SKBankOfIndia\android\app\src\main\AndroidManifest.xml
@@ -446,14 +482,6 @@ ADDED from [com.google.firebase:firebase-messaging:23.4.0] C:\Users\Sajid Khan\.
 		ADDED from [com.google.firebase:firebase-messaging:23.4.0] C:\Users\Sajid Khan\.gradle\caches\transforms-3\bb4473a3332d98fe51443e92ee18e7fb\transformed\jetified-firebase-messaging-23.4.0\AndroidManifest.xml:48:13-43
 	android:name
 		ADDED from [com.google.firebase:firebase-messaging:23.4.0] C:\Users\Sajid Khan\.gradle\caches\transforms-3\bb4473a3332d98fe51443e92ee18e7fb\transformed\jetified-firebase-messaging-23.4.0\AndroidManifest.xml:47:13-82
-intent-filter#action:name:com.google.firebase.MESSAGING_EVENT
-ADDED from [com.google.firebase:firebase-messaging:23.4.0] C:\Users\Sajid Khan\.gradle\caches\transforms-3\bb4473a3332d98fe51443e92ee18e7fb\transformed\jetified-firebase-messaging-23.4.0\AndroidManifest.xml:50:13-52:29
-	android:priority
-		ADDED from [com.google.firebase:firebase-messaging:23.4.0] C:\Users\Sajid Khan\.gradle\caches\transforms-3\bb4473a3332d98fe51443e92ee18e7fb\transformed\jetified-firebase-messaging-23.4.0\AndroidManifest.xml:50:28-51
-action#com.google.firebase.MESSAGING_EVENT
-ADDED from [com.google.firebase:firebase-messaging:23.4.0] C:\Users\Sajid Khan\.gradle\caches\transforms-3\bb4473a3332d98fe51443e92ee18e7fb\transformed\jetified-firebase-messaging-23.4.0\AndroidManifest.xml:51:17-78
-	android:name
-		ADDED from [com.google.firebase:firebase-messaging:23.4.0] C:\Users\Sajid Khan\.gradle\caches\transforms-3\bb4473a3332d98fe51443e92ee18e7fb\transformed\jetified-firebase-messaging-23.4.0\AndroidManifest.xml:51:25-75
 service#com.google.firebase.components.ComponentDiscoveryService
 ADDED from [com.google.firebase:firebase-messaging:23.4.0] C:\Users\Sajid Khan\.gradle\caches\transforms-3\bb4473a3332d98fe51443e92ee18e7fb\transformed\jetified-firebase-messaging-23.4.0\AndroidManifest.xml:54:9-63:19
 MERGED from [com.google.firebase:firebase-installations:17.2.0] C:\Users\Sajid Khan\.gradle\caches\transforms-3\b9f1a3fc622139a688ad4fb75d757643\transformed\jetified-firebase-installations-17.2.0\AndroidManifest.xml:12:9-21:19

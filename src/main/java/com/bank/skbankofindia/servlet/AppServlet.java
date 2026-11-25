@@ -32,12 +32,12 @@ public class AppServlet extends HttpServlet {
 
         if ("/version".equals(pathInfo) || "/check-update".equals(pathInfo)) {
             Map<String, Object> versionInfo = new HashMap<>();
-            versionInfo.put("latestVersionCode", 2);
-            versionInfo.put("latestVersionName", "1.1.0");
+            versionInfo.put("latestVersionCode", 3);
+            versionInfo.put("latestVersionName", "1.2.0");
             versionInfo.put("downloadUrl", "https://sk-bank-of-india-rzy4.onrender.com/download-app.jsp");
             versionInfo.put("apkUrl", "https://sk-bank-of-india-rzy4.onrender.com/downloads/SKBankOfIndia.apk");
             versionInfo.put("mandatoryUpdate", false);
-            versionInfo.put("releaseNotes", "SK Bank v1.1.0 Update: Live Render cloud data synchronization, ultra-fast UPI payment processing, biometric fingerprint unlock, card lock controls, and direct passbook statements!");
+            versionInfo.put("releaseNotes", "SK Bank v1.2.0 Release: Real-Time Camera QR Scanner, My Payment QR Code generation, Scan & Pay, and Chat & Send Money!");
 
             resp.setStatus(HttpServletResponse.SC_OK);
             resp.getWriter().write(objectMapper.writeValueAsString(JsonResponse.success("Latest app version info", versionInfo)));

@@ -577,3 +577,21 @@ CREATE TABLE IF NOT EXISTS `fraud_alerts` (
     CONSTRAINT `fk_fa_txn` FOREIGN KEY (`transaction_id`) REFERENCES `transactions` (`transaction_id`),
     CONSTRAINT `fk_fa_admin` FOREIGN KEY (`reviewed_by_admin_id`) REFERENCES `admins` (`admin_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- 35. Chat Messages Table
+CREATE TABLE IF NOT EXISTS `chat_messages` (
+    `message_id` BIGINT AUTO_INCREMENT PRIMARY KEY,
+    `sender_user_id` BIGINT NOT NULL,
+    `receiver_user_id` BIGINT NOT NULL,
+    `message_type` VARCHAR(20) DEFAULT 'TEXT', -- TEXT, PAYMENT_REQUEST, PAYMENT_SUCCESS
+    `content` TEXT NOT NULL,
+    `amount` DECIMAL(18, 2) NULL,
+    `transaction_ref` VARCHAR(50) NULL,
+    `is_read` BOOLEAN DEFAULT FALSE,
+    `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    CONSTRAINT `fk_chat_snd` FOREIGN KEY (`sender_user_id`) REFERENCES `users` (`user_id`),
+    CONSTRAINT `fk_chat_rcv` FOREIGN KEY (`receiver_user_id`) REFERENCES `users` (`user_id`),
+    INDEX `idx_chat_users` (`sender_user_id`, `receiver_user_id`),
+    INDEX `idx_chat_rcv` (`receiver_user_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+

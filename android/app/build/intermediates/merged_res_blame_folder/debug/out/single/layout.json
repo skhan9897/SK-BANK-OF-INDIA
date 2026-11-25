@@ -4,12 +4,32 @@
         "source": "com.bank.skbankofindia.app-main-42:/layout/activity_loans.xml"
     },
     {
+        "merged": "com.bank.skbankofindia.app-mergeDebugResources-39:/layout/activity_my_qr.xml",
+        "source": "com.bank.skbankofindia.app-main-42:/layout/activity_my_qr.xml"
+    },
+    {
         "merged": "com.bank.skbankofindia.app-mergeDebugResources-39:/layout/activity_cards.xml",
         "source": "com.bank.skbankofindia.app-main-42:/layout/activity_cards.xml"
     },
     {
         "merged": "com.bank.skbankofindia.app-mergeDebugResources-39:/layout/activity_transfer.xml",
         "source": "com.bank.skbankofindia.app-main-42:/layout/activity_transfer.xml"
+    },
+    {
+        "merged": "com.bank.skbankofindia.app-mergeDebugResources-39:/layout/activity_scan_pay_confirm.xml",
+        "source": "com.bank.skbankofindia.app-main-42:/layout/activity_scan_pay_confirm.xml"
+    },
+    {
+        "merged": "com.bank.skbankofindia.app-mergeDebugResources-39:/layout/activity_chat.xml",
+        "source": "com.bank.skbankofindia.app-main-42:/layout/activity_chat.xml"
+    },
+    {
+        "merged": "com.bank.skbankofindia.app-mergeDebugResources-39:/layout/activity_passbook.xml",
+        "source": "com.bank.skbankofindia.app-main-42:/layout/activity_passbook.xml"
+    },
+    {
+        "merged": "com.bank.skbankofindia.app-mergeDebugResources-39:/layout/activity_qr_scanner.xml",
+        "source": "com.bank.skbankofindia.app-main-42:/layout/activity_qr_scanner.xml"
     },
     {
         "merged": "com.bank.skbankofindia.app-mergeDebugResources-39:/layout/activity_splash.xml",
@@ -24,11 +44,11 @@
         "source": "com.bank.skbankofindia.app-main-42:/layout/activity_login.xml"
     },
     {
-        "merged": "com.bank.skbankofindia.app-mergeDebugResources-39:/layout/activity_register.xml",
-        "source": "com.bank.skbankofindia.app-main-42:/layout/activity_register.xml"
+        "merged": "com.bank.skbankofindia.app-mergeDebugResources-39:/layout/dialog_loading_overlay.xml",
+        "source": "com.bank.skbankofindia.app-main-42:/layout/dialog_loading_overlay.xml"
     },
     {
-        "merged": "com.bank.skbankofindia.app-mergeDebugResources-39:/layout/activity_passbook.xml",
-        "source": "com.bank.skbankofindia.app-main-42:/layout/activity_passbook.xml"
+        "merged": "com.bank.skbankofindia.app-mergeDebugResources-39:/layout/activity_register.xml",
+        "source": "com.bank.skbankofindia.app-main-42:/layout/activity_register.xml"
     }
 ]

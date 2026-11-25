@@ -6,7 +6,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.ScrollView;
+import android.widget.Spinner;
+import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.viewbinding.ViewBinding;
@@ -21,7 +24,28 @@ public final class ActivityRegisterBinding implements ViewBinding {
   private final ScrollView rootView;
 
   @NonNull
-  public final Button btnRegister;
+  public final Button btnAutoFillOtp;
+
+  @NonNull
+  public final Button btnFinalRegister;
+
+  @NonNull
+  public final Button btnSendOtp;
+
+  @NonNull
+  public final Button btnStep1Next;
+
+  @NonNull
+  public final Button btnStep2Back;
+
+  @NonNull
+  public final Button btnStep2Next;
+
+  @NonNull
+  public final Button btnStep3Back;
+
+  @NonNull
+  public final Button btnStep4Back;
 
   @NonNull
   public final EditText etAadhaar;
@@ -33,6 +57,9 @@ public final class ActivityRegisterBinding implements ViewBinding {
   public final EditText etCity;
 
   @NonNull
+  public final EditText etDob;
+
+  @NonNull
   public final EditText etEmail;
 
   @NonNull
@@ -40,6 +67,15 @@ public final class ActivityRegisterBinding implements ViewBinding {
 
   @NonNull
   public final EditText etLastName;
+
+  @NonNull
+  public final EditText etMiddleName;
+
+  @NonNull
+  public final EditText etOtpCode;
+
+  @NonNull
+  public final EditText etPan;
 
   @NonNull
   public final EditText etPassword;
@@ -56,24 +92,82 @@ public final class ActivityRegisterBinding implements ViewBinding {
   @NonNull
   public final EditText etUsername;
 
-  private ActivityRegisterBinding(@NonNull ScrollView rootView, @NonNull Button btnRegister,
-      @NonNull EditText etAadhaar, @NonNull EditText etAddress, @NonNull EditText etCity,
-      @NonNull EditText etEmail, @NonNull EditText etFirstName, @NonNull EditText etLastName,
-      @NonNull EditText etPassword, @NonNull EditText etPhone, @NonNull EditText etPincode,
-      @NonNull EditText etState, @NonNull EditText etUsername) {
+  @NonNull
+  public final LinearLayout llStep1;
+
+  @NonNull
+  public final LinearLayout llStep2;
+
+  @NonNull
+  public final LinearLayout llStep3;
+
+  @NonNull
+  public final LinearLayout llStep4;
+
+  @NonNull
+  public final Spinner spGender;
+
+  @NonNull
+  public final TextView tvOtpDemoCode;
+
+  @NonNull
+  public final TextView tvStep1Dot;
+
+  @NonNull
+  public final TextView tvStep2Dot;
+
+  @NonNull
+  public final TextView tvStep3Dot;
+
+  @NonNull
+  public final TextView tvStep4Dot;
+
+  private ActivityRegisterBinding(@NonNull ScrollView rootView, @NonNull Button btnAutoFillOtp,
+      @NonNull Button btnFinalRegister, @NonNull Button btnSendOtp, @NonNull Button btnStep1Next,
+      @NonNull Button btnStep2Back, @NonNull Button btnStep2Next, @NonNull Button btnStep3Back,
+      @NonNull Button btnStep4Back, @NonNull EditText etAadhaar, @NonNull EditText etAddress,
+      @NonNull EditText etCity, @NonNull EditText etDob, @NonNull EditText etEmail,
+      @NonNull EditText etFirstName, @NonNull EditText etLastName, @NonNull EditText etMiddleName,
+      @NonNull EditText etOtpCode, @NonNull EditText etPan, @NonNull EditText etPassword,
+      @NonNull EditText etPhone, @NonNull EditText etPincode, @NonNull EditText etState,
+      @NonNull EditText etUsername, @NonNull LinearLayout llStep1, @NonNull LinearLayout llStep2,
+      @NonNull LinearLayout llStep3, @NonNull LinearLayout llStep4, @NonNull Spinner spGender,
+      @NonNull TextView tvOtpDemoCode, @NonNull TextView tvStep1Dot, @NonNull TextView tvStep2Dot,
+      @NonNull TextView tvStep3Dot, @NonNull TextView tvStep4Dot) {
     this.rootView = rootView;
-    this.btnRegister = btnRegister;
+    this.btnAutoFillOtp = btnAutoFillOtp;
+    this.btnFinalRegister = btnFinalRegister;
+    this.btnSendOtp = btnSendOtp;
+    this.btnStep1Next = btnStep1Next;
+    this.btnStep2Back = btnStep2Back;
+    this.btnStep2Next = btnStep2Next;
+    this.btnStep3Back = btnStep3Back;
+    this.btnStep4Back = btnStep4Back;
     this.etAadhaar = etAadhaar;
     this.etAddress = etAddress;
     this.etCity = etCity;
+    this.etDob = etDob;
     this.etEmail = etEmail;
     this.etFirstName = etFirstName;
     this.etLastName = etLastName;
+    this.etMiddleName = etMiddleName;
+    this.etOtpCode = etOtpCode;
+    this.etPan = etPan;
     this.etPassword = etPassword;
     this.etPhone = etPhone;
     this.etPincode = etPincode;
     this.etState = etState;
     this.etUsername = etUsername;
+    this.llStep1 = llStep1;
+    this.llStep2 = llStep2;
+    this.llStep3 = llStep3;
+    this.llStep4 = llStep4;
+    this.spGender = spGender;
+    this.tvOtpDemoCode = tvOtpDemoCode;
+    this.tvStep1Dot = tvStep1Dot;
+    this.tvStep2Dot = tvStep2Dot;
+    this.tvStep3Dot = tvStep3Dot;
+    this.tvStep4Dot = tvStep4Dot;
   }
 
   @Override
@@ -103,9 +197,51 @@ public final class ActivityRegisterBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
-      id = R.id.btnRegister;
-      Button btnRegister = ViewBindings.findChildViewById(rootView, id);
-      if (btnRegister == null) {
+      id = R.id.btnAutoFillOtp;
+      Button btnAutoFillOtp = ViewBindings.findChildViewById(rootView, id);
+      if (btnAutoFillOtp == null) {
+        break missingId;
+      }
+
+      id = R.id.btnFinalRegister;
+      Button btnFinalRegister = ViewBindings.findChildViewById(rootView, id);
+      if (btnFinalRegister == null) {
+        break missingId;
+      }
+
+      id = R.id.btnSendOtp;
+      Button btnSendOtp = ViewBindings.findChildViewById(rootView, id);
+      if (btnSendOtp == null) {
+        break missingId;
+      }
+
+      id = R.id.btnStep1Next;
+      Button btnStep1Next = ViewBindings.findChildViewById(rootView, id);
+      if (btnStep1Next == null) {
+        break missingId;
+      }
+
+      id = R.id.btnStep2Back;
+      Button btnStep2Back = ViewBindings.findChildViewById(rootView, id);
+      if (btnStep2Back == null) {
+        break missingId;
+      }
+
+      id = R.id.btnStep2Next;
+      Button btnStep2Next = ViewBindings.findChildViewById(rootView, id);
+      if (btnStep2Next == null) {
+        break missingId;
+      }
+
+      id = R.id.btnStep3Back;
+      Button btnStep3Back = ViewBindings.findChildViewById(rootView, id);
+      if (btnStep3Back == null) {
+        break missingId;
+      }
+
+      id = R.id.btnStep4Back;
+      Button btnStep4Back = ViewBindings.findChildViewById(rootView, id);
+      if (btnStep4Back == null) {
         break missingId;
       }
 
@@ -127,6 +263,12 @@ public final class ActivityRegisterBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.etDob;
+      EditText etDob = ViewBindings.findChildViewById(rootView, id);
+      if (etDob == null) {
+        break missingId;
+      }
+
       id = R.id.etEmail;
       EditText etEmail = ViewBindings.findChildViewById(rootView, id);
       if (etEmail == null) {
@@ -142,6 +284,24 @@ public final class ActivityRegisterBinding implements ViewBinding {
       id = R.id.etLastName;
       EditText etLastName = ViewBindings.findChildViewById(rootView, id);
       if (etLastName == null) {
+        break missingId;
+      }
+
+      id = R.id.etMiddleName;
+      EditText etMiddleName = ViewBindings.findChildViewById(rootView, id);
+      if (etMiddleName == null) {
+        break missingId;
+      }
+
+      id = R.id.etOtpCode;
+      EditText etOtpCode = ViewBindings.findChildViewById(rootView, id);
+      if (etOtpCode == null) {
+        break missingId;
+      }
+
+      id = R.id.etPan;
+      EditText etPan = ViewBindings.findChildViewById(rootView, id);
+      if (etPan == null) {
         break missingId;
       }
 
@@ -175,9 +335,72 @@ public final class ActivityRegisterBinding implements ViewBinding {
         break missingId;
       }
 
-      return new ActivityRegisterBinding((ScrollView) rootView, btnRegister, etAadhaar, etAddress,
-          etCity, etEmail, etFirstName, etLastName, etPassword, etPhone, etPincode, etState,
-          etUsername);
+      id = R.id.llStep1;
+      LinearLayout llStep1 = ViewBindings.findChildViewById(rootView, id);
+      if (llStep1 == null) {
+        break missingId;
+      }
+
+      id = R.id.llStep2;
+      LinearLayout llStep2 = ViewBindings.findChildViewById(rootView, id);
+      if (llStep2 == null) {
+        break missingId;
+      }
+
+      id = R.id.llStep3;
+      LinearLayout llStep3 = ViewBindings.findChildViewById(rootView, id);
+      if (llStep3 == null) {
+        break missingId;
+      }
+
+      id = R.id.llStep4;
+      LinearLayout llStep4 = ViewBindings.findChildViewById(rootView, id);
+      if (llStep4 == null) {
+        break missingId;
+      }
+
+      id = R.id.spGender;
+      Spinner spGender = ViewBindings.findChildViewById(rootView, id);
+      if (spGender == null) {
+        break missingId;
+      }
+
+      id = R.id.tvOtpDemoCode;
+      TextView tvOtpDemoCode = ViewBindings.findChildViewById(rootView, id);
+      if (tvOtpDemoCode == null) {
+        break missingId;
+      }
+
+      id = R.id.tvStep1Dot;
+      TextView tvStep1Dot = ViewBindings.findChildViewById(rootView, id);
+      if (tvStep1Dot == null) {
+        break missingId;
+      }
+
+      id = R.id.tvStep2Dot;
+      TextView tvStep2Dot = ViewBindings.findChildViewById(rootView, id);
+      if (tvStep2Dot == null) {
+        break missingId;
+      }
+
+      id = R.id.tvStep3Dot;
+      TextView tvStep3Dot = ViewBindings.findChildViewById(rootView, id);
+      if (tvStep3Dot == null) {
+        break missingId;
+      }
+
+      id = R.id.tvStep4Dot;
+      TextView tvStep4Dot = ViewBindings.findChildViewById(rootView, id);
+      if (tvStep4Dot == null) {
+        break missingId;
+      }
+
+      return new ActivityRegisterBinding((ScrollView) rootView, btnAutoFillOtp, btnFinalRegister,
+          btnSendOtp, btnStep1Next, btnStep2Back, btnStep2Next, btnStep3Back, btnStep4Back,
+          etAadhaar, etAddress, etCity, etDob, etEmail, etFirstName, etLastName, etMiddleName,
+          etOtpCode, etPan, etPassword, etPhone, etPincode, etState, etUsername, llStep1, llStep2,
+          llStep3, llStep4, spGender, tvOtpDemoCode, tvStep1Dot, tvStep2Dot, tvStep3Dot,
+          tvStep4Dot);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

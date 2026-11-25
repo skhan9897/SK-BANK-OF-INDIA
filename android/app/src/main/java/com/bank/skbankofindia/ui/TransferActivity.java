@@ -73,10 +73,20 @@ public class TransferActivity extends AppCompatActivity implements TextToSpeech.
             public void onResponse(Call<ApiResponse> call, Response<ApiResponse> response) {
                 progressDialog.dismiss();
                 if (response.isSuccessful() && response.body() != null && response.body().isSuccess()) {
+                    String txnRef = "TXN" + System.currentTimeMillis();
+                    if (response.body().getData() != null && response.body().getData().isJsonObject()) {
+                        com.google.gson.JsonObject dataObj = response.body().getData().getAsJsonObject();
+                        if (dataObj.has("transactionRef")) {
+                            txnRef = dataObj.get("transactionRef").getAsString();
+                        }
+                    }
+
                     Toast.makeText(TransferActivity.this, "Payment Successful!", Toast.LENGTH_LONG).show();
 
-                    // Speak Real-Time Voice Announcement!
-                    speakVoiceAnnouncement(amountStr);
+                    // Trigger Sender Notification & Voice Announcement
+                    com.bank.skbankofindia.util.NotificationHandler.processPaymentEvent(
+                            TransferActivity.this, "PAYMENT_SENT", txnRef, amountStr, destination
+                    );
 
                     finish();
                 } else {

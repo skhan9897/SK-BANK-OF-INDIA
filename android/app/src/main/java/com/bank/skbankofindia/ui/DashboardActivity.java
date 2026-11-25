@@ -24,7 +24,7 @@ import retrofit2.Response;
 public class DashboardActivity extends AppCompatActivity {
 
     private TextView tvDashBalance, tvDashAccountNo, tvWelcomeUser;
-    private Button btnToggleBalance, btnSendMoney, btnLogout, btnPassbook, btnCards, btnLoans, btnBills, btnQrPay;
+    private Button btnToggleBalance, btnSendMoney, btnLogout, btnPassbook, btnCards, btnLoans, btnBills, btnQrPay, btnMyQr, btnChat;
     private Button navHome, navTransfer, navCards, navPassbook;
     private SessionManager sessionManager;
     private boolean isBalanceHidden = false;
@@ -49,6 +49,8 @@ public class DashboardActivity extends AppCompatActivity {
         btnLoans = findViewById(R.id.btnLoans);
         btnBills = findViewById(R.id.btnBills);
         btnQrPay = findViewById(R.id.btnQrPay);
+        btnMyQr = findViewById(R.id.btnMyQr);
+        btnChat = findViewById(R.id.btnChat);
 
         navHome = findViewById(R.id.navHome);
         navTransfer = findViewById(R.id.navTransfer);
@@ -60,7 +62,15 @@ public class DashboardActivity extends AppCompatActivity {
         }
 
         if (btnQrPay != null) {
-            btnQrPay.setOnClickListener(v -> startActivity(new Intent(this, TransferActivity.class)));
+            btnQrPay.setOnClickListener(v -> startActivity(new Intent(this, QrScannerActivity.class)));
+        }
+
+        if (btnMyQr != null) {
+            btnMyQr.setOnClickListener(v -> startActivity(new Intent(this, MyQrActivity.class)));
+        }
+
+        if (btnChat != null) {
+            btnChat.setOnClickListener(v -> startActivity(new Intent(this, ChatActivity.class)));
         }
 
         if (btnPassbook != null) {

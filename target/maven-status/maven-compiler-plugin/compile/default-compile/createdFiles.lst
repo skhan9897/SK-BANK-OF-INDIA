@@ -8,6 +8,8 @@ com\bank\skbankofindia\model\BankAccount.class
 com\bank\skbankofindia\model\User.class
 com\bank\skbankofindia\JAXRSConfiguration.class
 com\bank\skbankofindia\servlet\AdminServlet.class
+com\bank\skbankofindia\servlet\ChatServlet.class
+com\bank\skbankofindia\service\UpiService.class
 com\bank\skbankofindia\dao\LedgerDAO.class
 com\bank\skbankofindia\config\DatabaseConfig.class
 com\bank\skbankofindia\dao\TransactionDAO.class
@@ -23,6 +25,7 @@ com\bank\skbankofindia\service\AuthService.class
 com\bank\skbankofindia\config\AppEventListener.class
 com\bank\skbankofindia\servlet\AppServlet.class
 com\bank\skbankofindia\servlet\NotificationServlet.class
+com\bank\skbankofindia\service\ChatService.class
 com\bank\skbankofindia\servlet\AuthServlet.class
 com\bank\skbankofindia\util\JwtUtil.class
 com\bank\skbankofindia\model\LedgerEntry.class
@@ -35,3 +38,4 @@ com\bank\skbankofindia\model\Transaction.class
 com\bank\skbankofindia\servlet\ApkDownloadServlet.class
 com\bank\skbankofindia\util\IDGenerator.class
 com\bank\skbankofindia\servlet\HealthServlet.class
+com\bank\skbankofindia\servlet\UpiServlet.class

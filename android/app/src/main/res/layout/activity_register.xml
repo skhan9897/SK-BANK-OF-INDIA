@@ -3,13 +3,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#F4F6F9"
-    android:padding="20dp">
+    android:padding="16dp">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
+        <!-- Title Header -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -17,137 +18,477 @@
             android:textColor="#0A192F"
             android:textSize="22sp"
             android:textStyle="bold"
-            android:layout_marginBottom="4dp" />
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="2dp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Instant Digital Onboarding • SK Bank of India"
-            android:textColor="#8892B0"
+            android:text="RBI Regulated Digital Onboarding • SK Bank"
+            android:textColor="#FF9933"
             android:textSize="12sp"
-            android:layout_marginBottom="20dp" />
+            android:textStyle="bold"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="16dp" />
 
-        <EditText
-            android:id="@+id/etFirstName"
-            android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:hint="First Name"
-            android:padding="12dp"
-            android:background="@android:drawable/editbox_background"
-            android:layout_marginBottom="12dp" />
-
-        <EditText
-            android:id="@+id/etLastName"
-            android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:hint="Last Name"
-            android:padding="12dp"
-            android:background="@android:drawable/editbox_background"
-            android:layout_marginBottom="12dp" />
-
-        <EditText
-            android:id="@+id/etUsername"
-            android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:hint="Username"
-            android:padding="12dp"
-            android:background="@android:drawable/editbox_background"
-            android:layout_marginBottom="12dp" />
-
-        <EditText
-            android:id="@+id/etEmail"
-            android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:hint="Email Address"
-            android:inputType="textEmailAddress"
-            android:padding="12dp"
-            android:background="@android:drawable/editbox_background"
-            android:layout_marginBottom="12dp" />
-
-        <EditText
-            android:id="@+id/etPhone"
-            android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:hint="Mobile Number"
-            android:inputType="phone"
-            android:padding="12dp"
-            android:background="@android:drawable/editbox_background"
-            android:layout_marginBottom="12dp" />
-
-        <EditText
-            android:id="@+id/etPassword"
-            android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:hint="Password (Min 8 chars)"
-            android:inputType="textPassword"
-            android:padding="12dp"
-            android:background="@android:drawable/editbox_background"
-            android:layout_marginBottom="12dp" />
-
-        <EditText
-            android:id="@+id/etAadhaar"
-            android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:hint="Aadhaar Number (12 digits)"
-            android:inputType="number"
-            android:padding="12dp"
-            android:background="@android:drawable/editbox_background"
-            android:layout_marginBottom="12dp" />
-
-        <EditText
-            android:id="@+id/etAddress"
-            android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:hint="Address Line 1"
-            android:padding="12dp"
-            android:background="@android:drawable/editbox_background"
-            android:layout_marginBottom="12dp" />
-
+        <!-- Step Wizard Indicator (1 - 2 - 3 - 4) -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_marginBottom="16dp">
+            android:gravity="center"
+            android:layout_marginBottom="20dp">
 
-            <EditText
-                android:id="@+id/etCity"
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="48dp"
-                android:hint="City"
-                android:padding="12dp"
-                android:background="@android:drawable/editbox_background"
-                android:layout_marginEnd="6dp" />
+            <TextView
+                android:id="@+id/tvStep1Dot"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:background="#0052CC"
+                android:textColor="#FFFFFF"
+                android:text="1"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:textSize="14sp" />
 
-            <EditText
-                android:id="@+id/etState"
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="48dp"
-                android:hint="State"
-                android:padding="12dp"
-                android:background="@android:drawable/editbox_background"
-                android:layout_marginStart="6dp" />
+            <View
+                android:layout_width="24dp"
+                android:layout_height="2dp"
+                android:background="#CCCCCC" />
+
+            <TextView
+                android:id="@+id/tvStep2Dot"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:background="#CCCCCC"
+                android:textColor="#666666"
+                android:text="2"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:textSize="14sp" />
+
+            <View
+                android:layout_width="24dp"
+                android:layout_height="2dp"
+                android:background="#CCCCCC" />
+
+            <TextView
+                android:id="@+id/tvStep3Dot"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:background="#CCCCCC"
+                android:textColor="#666666"
+                android:text="3"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:textSize="14sp" />
+
+            <View
+                android:layout_width="24dp"
+                android:layout_height="2dp"
+                android:background="#CCCCCC" />
+
+            <TextView
+                android:id="@+id/tvStep4Dot"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:background="#CCCCCC"
+                android:textColor="#666666"
+                android:text="4"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:textSize="14sp" />
 
         </LinearLayout>
 
-        <EditText
-            android:id="@+id/etPincode"
+        <!-- ================= STEP 1: PERSONAL DETAILS ================= -->
+        <LinearLayout
+            android:id="@+id/llStep1"
             android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:hint="Pincode"
-            android:inputType="number"
-            android:padding="12dp"
-            android:background="@android:drawable/editbox_background"
-            android:layout_marginBottom="24dp" />
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="visible">
 
-        <Button
-            android:id="@+id/btnRegister"
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Step 1: Personal Details"
+                android:textColor="#0052CC"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="12dp" />
+
+            <EditText
+                android:id="@+id/etFirstName"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:hint="First Name *"
+                android:padding="12dp"
+                android:background="@android:drawable/editbox_background"
+                android:layout_marginBottom="10dp" />
+
+            <EditText
+                android:id="@+id/etMiddleName"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:hint="Middle Name"
+                android:padding="12dp"
+                android:background="@android:drawable/editbox_background"
+                android:layout_marginBottom="10dp" />
+
+            <EditText
+                android:id="@+id/etLastName"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:hint="Last Name *"
+                android:padding="12dp"
+                android:background="@android:drawable/editbox_background"
+                android:layout_marginBottom="10dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="16dp">
+
+                <EditText
+                    android:id="@+id/etDob"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="48dp"
+                    android:hint="DOB (YYYY-MM-DD) *"
+                    android:inputType="date"
+                    android:padding="12dp"
+                    android:background="@android:drawable/editbox_background"
+                    android:layout_marginEnd="6dp" />
+
+                <Spinner
+                    android:id="@+id/spGender"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="48dp"
+                    android:padding="12dp"
+                    android:background="@android:drawable/editbox_background"
+                    android:layout_marginStart="6dp" />
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btnStep1Next"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text="Next: Account Credentials ➔"
+                android:backgroundTint="#0052CC"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+        <!-- ================= STEP 2: CREDENTIALS & CONTACT ================= -->
+        <LinearLayout
+            android:id="@+id/llStep2"
             android:layout_width="match_parent"
-            android:layout_height="52dp"
-            android:text="Submit &amp; Open Account"
-            android:backgroundTint="#0052CC"
-            android:textColor="#FFFFFF" />
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Step 2: Credentials &amp; Contact Details"
+                android:textColor="#0052CC"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="12dp" />
+
+            <EditText
+                android:id="@+id/etUsername"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:hint="Username *"
+                android:padding="12dp"
+                android:background="@android:drawable/editbox_background"
+                android:layout_marginBottom="10dp" />
+
+            <EditText
+                android:id="@+id/etEmail"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:hint="Email Address *"
+                android:inputType="textEmailAddress"
+                android:padding="12dp"
+                android:background="@android:drawable/editbox_background"
+                android:layout_marginBottom="10dp" />
+
+            <EditText
+                android:id="@+id/etPhone"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:hint="Mobile Number *"
+                android:inputType="phone"
+                android:padding="12dp"
+                android:background="@android:drawable/editbox_background"
+                android:layout_marginBottom="10dp" />
+
+            <EditText
+                android:id="@+id/etPassword"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:hint="Password (Min 8 chars) *"
+                android:inputType="textPassword"
+                android:padding="12dp"
+                android:background="@android:drawable/editbox_background"
+                android:layout_marginBottom="16dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btnStep2Back"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="50dp"
+                    android:text="⬅ Back"
+                    android:backgroundTint="#8892B0"
+                    android:textColor="#FFFFFF"
+                    android:layout_marginEnd="6dp" />
+
+                <Button
+                    android:id="@+id/btnStep2Next"
+                    android:layout_width="0dp"
+                    android:layout_weight="2"
+                    android:layout_height="50dp"
+                    android:text="Next: Verification ➔"
+                    android:backgroundTint="#0052CC"
+                    android:textColor="#FFFFFF"
+                    android:textStyle="bold"
+                    android:layout_marginStart="6dp" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <!-- ================= STEP 3: IDENTITY & ADDRESS ================= -->
+        <LinearLayout
+            android:id="@+id/llStep3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Step 3: Identity &amp; Address Verification"
+                android:textColor="#0052CC"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="12dp" />
+
+            <EditText
+                android:id="@+id/etPan"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:hint="PAN Number (e.g. ABCDE1234F)"
+                android:inputType="textCapCharacters"
+                android:padding="12dp"
+                android:background="@android:drawable/editbox_background"
+                android:layout_marginBottom="10dp" />
+
+            <EditText
+                android:id="@+id/etAadhaar"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:hint="Aadhaar Number (12 digits) *"
+                android:inputType="number"
+                android:padding="12dp"
+                android:background="@android:drawable/editbox_background"
+                android:layout_marginBottom="10dp" />
+
+            <EditText
+                android:id="@+id/etAddress"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:hint="Address Line 1 *"
+                android:padding="12dp"
+                android:background="@android:drawable/editbox_background"
+                android:layout_marginBottom="10dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="10dp">
+
+                <EditText
+                    android:id="@+id/etCity"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="48dp"
+                    android:hint="City *"
+                    android:padding="12dp"
+                    android:background="@android:drawable/editbox_background"
+                    android:layout_marginEnd="6dp" />
+
+                <EditText
+                    android:id="@+id/etState"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="48dp"
+                    android:hint="State *"
+                    android:padding="12dp"
+                    android:background="@android:drawable/editbox_background"
+                    android:layout_marginStart="6dp" />
+
+            </LinearLayout>
+
+            <EditText
+                android:id="@+id/etPincode"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:hint="Pincode *"
+                android:inputType="number"
+                android:padding="12dp"
+                android:background="@android:drawable/editbox_background"
+                android:layout_marginBottom="16dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btnStep3Back"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="50dp"
+                    android:text="⬅ Back"
+                    android:backgroundTint="#8892B0"
+                    android:textColor="#FFFFFF"
+                    android:layout_marginEnd="6dp" />
+
+                <Button
+                    android:id="@+id/btnSendOtp"
+                    android:layout_width="0dp"
+                    android:layout_weight="2"
+                    android:layout_height="50dp"
+                    android:text="Send Instant OTP ✉"
+                    android:backgroundTint="#0052CC"
+                    android:textColor="#FFFFFF"
+                    android:textStyle="bold"
+                    android:layout_marginStart="6dp" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <!-- ================= STEP 4: OTP VERIFICATION & CONFIRMATION ================= -->
+        <LinearLayout
+            android:id="@+id/llStep4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Step 4: Instant OTP Verification"
+                android:textColor="#138808"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="12dp" />
+
+            <!-- Prominent OTP Code Banner matching Website -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="#E8F5E9"
+                android:padding="14dp"
+                android:layout_marginBottom="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="✅ OTP Sent to Mobile &amp; Email!"
+                    android:textColor="#138808"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginTop="4dp">
+
+                    <TextView
+                        android:id="@+id/tvOtpDemoCode"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:text="891204"
+                        android:textColor="#0052CC"
+                        android:textSize="22sp"
+                        android:textStyle="bold" />
+
+                    <Button
+                        android:id="@+id/btnAutoFillOtp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="36dp"
+                        android:text="Auto-Fill OTP"
+                        android:textSize="11sp"
+                        android:backgroundTint="#138808"
+                        android:textColor="#FFFFFF" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <EditText
+                android:id="@+id/etOtpCode"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:hint="6-Digit OTP Code"
+                android:inputType="number"
+                android:maxLength="6"
+                android:gravity="center"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:background="@android:drawable/editbox_background"
+                android:layout_marginBottom="16dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btnStep4Back"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="50dp"
+                    android:text="⬅ Back"
+                    android:backgroundTint="#8892B0"
+                    android:textColor="#FFFFFF"
+                    android:layout_marginEnd="6dp" />
+
+                <Button
+                    android:id="@+id/btnFinalRegister"
+                    android:layout_width="0dp"
+                    android:layout_weight="2"
+                    android:layout_height="50dp"
+                    android:text="Verify &amp; Open Account ✔"
+                    android:backgroundTint="#FF9933"
+                    android:textColor="#000000"
+                    android:textStyle="bold"
+                    android:layout_marginStart="6dp" />
+
+            </LinearLayout>
+
+        </LinearLayout>
 
     </LinearLayout>
 </ScrollView>

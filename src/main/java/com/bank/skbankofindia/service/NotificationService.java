@@ -37,42 +37,32 @@ public class NotificationService {
             BankAccount dstAcc = txn.getDestinationAccountId() != null ? bankAccountDAO.findByAccountIdForUpdate(DatabaseConfig.getConnection(), txn.getDestinationAccountId()) : null;
 
             String timeStr = new SimpleDateFormat("dd-MMM-yyyy HH:mm").format(txn.getCreatedAt() != null ? txn.getCreatedAt() : new Date());
-            String formattedAmount = "₹ " + Number(txn.getAmount());
+            String formattedAmount = Number(txn.getAmount());
 
-            // 1. Sender Notification (DEBIT ALERT)
-            if (srcAcc != null) {
-                Customer senderCust = customerDAO.findByCustomerId(srcAcc.getCustomerId());
-                if (senderCust != null) {
-                    String senderTitle = "Account Debited - SK Bank of India";
-                    String senderMsg = String.format("A/c %s DEBITED for %s on %s. Transfer to %s. Avail Bal: ₹ %s. TxnRef: %s.",
-                            maskAccountNumber(srcAcc.getAccountNumber()),
-                            formattedAmount,
-                            timeStr,
-                            dstAcc != null ? maskAccountNumber(dstAcc.getAccountNumber()) : "Beneficiary",
-                            srcAcc.getAvailableBalance(),
-                            txn.getTransactionRef());
+            Customer senderCust = srcAcc != null ? customerDAO.findByCustomerId(srcAcc.getCustomerId()) : null;
+            Customer receiverCust = dstAcc != null ? customerDAO.findByCustomerId(dstAcc.getCustomerId()) : null;
 
-                    saveNotification(senderCust.getUserId(), senderTitle, senderMsg, "TRANSACTION", "SMS");
-                    LOGGER.info("[SMS / PUSH SENT TO SENDER]: " + senderMsg);
-                }
+            String senderName = senderCust != null ? senderCust.getFirstName() + " " + senderCust.getLastName() : "SK Bank Customer";
+            String receiverName = receiverCust != null ? receiverCust.getFirstName() + " " + receiverCust.getLastName() : "Beneficiary";
+
+            // 1. Sender Notification (Payment Sent + Debited)
+            if (senderCust != null) {
+                String senderTitle = "Payment Sent Successfully";
+                String senderMsg = String.format("₹%s sent to %s. Your account has been debited by ₹%s. TxnRef: %s.",
+                        formattedAmount, receiverName, formattedAmount, txn.getTransactionRef());
+
+                saveNotification(senderCust.getUserId(), senderTitle, senderMsg, "PAYMENT_SENT", "PUSH_AND_INAPP");
+                LOGGER.info("[SENDER DEBIT NOTIFICATION]: " + senderMsg);
             }
 
-            // 2. Receiver Notification (CREDIT ALERT)
-            if (dstAcc != null) {
-                Customer receiverCust = customerDAO.findByCustomerId(dstAcc.getCustomerId());
-                if (receiverCust != null) {
-                    String receiverTitle = "Account Credited - SK Bank of India";
-                    String receiverMsg = String.format("A/c %s CREDITED for %s on %s by %s. Avail Bal: ₹ %s. TxnRef: %s.",
-                            maskAccountNumber(dstAcc.getAccountNumber()),
-                            formattedAmount,
-                            timeStr,
-                            srcAcc != null ? maskAccountNumber(srcAcc.getAccountNumber()) : "SKBI Customer",
-                            dstAcc.getAvailableBalance(),
-                            txn.getTransactionRef());
+            // 2. Receiver Event (Voice Event Only - No Visible Push Notification)
+            if (receiverCust != null) {
+                String receiverTitle = "Payment Received Voice Event";
+                String receiverMsg = String.format("You have received ₹%s from %s. TxnRef: %s.",
+                        formattedAmount, senderName, txn.getTransactionRef());
 
-                    saveNotification(receiverCust.getUserId(), receiverTitle, receiverMsg, "TRANSACTION", "SMS");
-                    LOGGER.info("[SMS / PUSH SENT TO RECEIVER]: " + receiverMsg);
-                }
+                saveNotification(receiverCust.getUserId(), receiverTitle, receiverMsg, "PAYMENT_RECEIVED", "SILENT_VOICE_ONLY");
+                LOGGER.info("[RECEIVER SILENT VOICE EVENT]: " + receiverMsg);
             }
 
         } catch (Exception e) {
