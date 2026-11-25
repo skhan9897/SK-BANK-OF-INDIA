@@ -28,8 +28,7 @@ public class DashboardActivity extends AppCompatActivity {
     private Button navHome, navTransfer, navCards, navPassbook;
     private SessionManager sessionManager;
     private boolean isBalanceHidden = false;
-    private String realBalance = "10,000.00";
-    private static final int CURRENT_VERSION_CODE = 1;
+    private String realBalance = "0.00";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -101,6 +100,20 @@ public class DashboardActivity extends AppCompatActivity {
         checkForAppUpdate();
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        fetchAccountsFromBackend();
+    }
+
+    private int getInstalledVersionCode() {
+        try {
+            return getPackageManager().getPackageInfo(getPackageName(), 0).versionCode;
+        } catch (Exception e) {
+            return 1;
+        }
+    }
+
     private void toggleBalance() {
         if (tvDashBalance == null) return;
         if (isBalanceHidden) {
@@ -116,7 +129,7 @@ public class DashboardActivity extends AppCompatActivity {
         String token = sessionManager.getAuthToken();
         if (token == null) return;
 
-        ApiClient.getApiService().getCustomerAccounts(token).enqueue(new Callback<ApiResponse>() {
+        ApiClient.getApiService(this).getCustomerAccounts(token).enqueue(new Callback<ApiResponse>() {
             @Override
             public void onResponse(Call<ApiResponse> call, Response<ApiResponse> response) {
                 if (response.isSuccessful() && response.body() != null && response.body().isSuccess()) {
@@ -144,18 +157,19 @@ public class DashboardActivity extends AppCompatActivity {
     }
 
     private void checkForAppUpdate() {
-        ApiClient.getApiService().getAppVersion().enqueue(new Callback<ApiResponse>() {
+        ApiClient.getApiService(this).getAppVersion().enqueue(new Callback<ApiResponse>() {
             @Override
             public void onResponse(Call<ApiResponse> call, Response<ApiResponse> response) {
                 if (response.isSuccessful() && response.body() != null && response.body().isSuccess()) {
                     JsonObject data = response.body().getData().getAsJsonObject();
                     int latestCode = data.has("latestVersionCode") ? data.get("latestVersionCode").getAsInt() : 1;
-                    String latestName = data.has("latestVersionName") ? data.get("latestVersionName").getAsString() : "1.0.0";
-                    String notes = data.has("releaseNotes") ? data.get("releaseNotes").getAsString() : "New features and security improvements.";
-                    String downloadUrl = data.has("downloadUrl") ? data.get("downloadUrl").getAsString() : "https://sk-bank-of-india-rzy4.onrender.com/download-app.jsp";
+                    String latestName = data.has("latestVersionName") ? data.get("latestVersionName").getAsString() : "1.1.0";
+                    String notes = data.has("releaseNotes") ? data.get("releaseNotes").getAsString() : "New features and performance improvements.";
+                    String downloadUrl = data.has("downloadUrl") ? data.get("downloadUrl").getAsString() : ApiClient.WEBSITE_DOWNLOAD_URL;
+                    boolean mandatory = data.has("mandatoryUpdate") && data.get("mandatoryUpdate").getAsBoolean();
 
-                    if (latestCode > CURRENT_VERSION_CODE) {
-                        showInAppUpdateDialog(latestName, notes, downloadUrl);
+                    if (latestCode > getInstalledVersionCode()) {
+                        showInAppUpdateDialog(latestName, notes, downloadUrl, mandatory);
                     }
                 }
             }
@@ -167,16 +181,21 @@ public class DashboardActivity extends AppCompatActivity {
         });
     }
 
-    private void showInAppUpdateDialog(String versionName, String releaseNotes, String downloadUrl) {
-        new AlertDialog.Builder(this)
-                .setTitle("🚀 New Update Available! (v" + versionName + ")")
-                .setMessage("A new version of SK Bank of India is available.\n\nWhat's New:\n" + releaseNotes + "\n\nWould you like to update now?")
-                .setCancelable(false)
+    private void showInAppUpdateDialog(String versionName, String releaseNotes, String downloadUrl, boolean mandatory) {
+        if (isFinishing()) return;
+        AlertDialog.Builder builder = new AlertDialog.Builder(this)
+                .setTitle("New Update Available (v" + versionName + ")")
+                .setMessage("SK Payment Bank has a new version available. Update now to get the latest features and improvements.\n\nWhat's New:\n" + releaseNotes)
+                .setCancelable(!mandatory)
                 .setPositiveButton("Update Now", (dialog, which) -> {
                     Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(downloadUrl));
                     startActivity(intent);
-                })
-                .setNegativeButton("Later", (dialog, which) -> dialog.dismiss())
-                .show();
+                });
+
+        if (!mandatory) {
+            builder.setNegativeButton("Later", (dialog, which) -> dialog.dismiss());
+        }
+
+        builder.show();
     }
 }

@@ -29,12 +29,21 @@ public interface ApiService {
             @Path("accountNo") String accountNo
     );
 
-    @POST("protected/transfers/internal")
+    @POST("protected/transfers")
     Call<ApiResponse> processFundTransfer(
+            @Header("Authorization") String token,
+            @Body TransferRequest transferRequest
+    );
+
+    @POST("protected/transfers/internal")
+    Call<ApiResponse> processInternalTransfer(
             @Header("Authorization") String token,
             @Body TransferRequest transferRequest
     );
 
     @GET("app/version")
     Call<ApiResponse> getAppVersion();
+
+    @GET("app/check-update")
+    Call<ApiResponse> checkAppUpdate();
 }

@@ -22,6 +22,11 @@ public class AppServlet extends HttpServlet {
         resp.setContentType("application/json");
         resp.setCharacterEncoding("UTF-8");
 
+        // Disable HTTP caching for app version manifest so mobile app detects updates instantly
+        resp.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
+        resp.setHeader("Pragma", "no-cache");
+        resp.setHeader("Expires", "0");
+
         String pathInfo = req.getPathInfo();
         if (pathInfo == null) pathInfo = "";
 
@@ -31,8 +36,8 @@ public class AppServlet extends HttpServlet {
             versionInfo.put("latestVersionName", "1.1.0");
             versionInfo.put("downloadUrl", "https://sk-bank-of-india-rzy4.onrender.com/download-app.jsp");
             versionInfo.put("apkUrl", "https://sk-bank-of-india-rzy4.onrender.com/downloads/SKBankOfIndia.apk");
-            versionInfo.put("forceUpdate", false);
-            versionInfo.put("releaseNotes", "SK Bank v1.1.0 Update: Ultra-fast UPI payment processing, biometric fingerprint unlock, card lock controls, and direct passbook statements!");
+            versionInfo.put("mandatoryUpdate", false);
+            versionInfo.put("releaseNotes", "SK Bank v1.1.0 Update: Live Render cloud data synchronization, ultra-fast UPI payment processing, biometric fingerprint unlock, card lock controls, and direct passbook statements!");
 
             resp.setStatus(HttpServletResponse.SC_OK);
             resp.getWriter().write(objectMapper.writeValueAsString(JsonResponse.success("Latest app version info", versionInfo)));

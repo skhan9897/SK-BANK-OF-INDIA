@@ -28,7 +28,6 @@ public class LoginActivity extends AppCompatActivity {
     private Button btnLogin;
     private TextView tvGoRegister;
     private SessionManager sessionManager;
-    private static final int CURRENT_VERSION_CODE = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,12 +52,19 @@ public class LoginActivity extends AppCompatActivity {
             tvGoRegister.setOnClickListener(v -> startActivity(new Intent(this, RegisterActivity.class)));
         }
 
-        // Check for App Update as soon as Login screen opens!
         checkForAppUpdate();
     }
 
+    private int getInstalledVersionCode() {
+        try {
+            return getPackageManager().getPackageInfo(getPackageName(), 0).versionCode;
+        } catch (Exception e) {
+            return 1;
+        }
+    }
+
     private void checkForAppUpdate() {
-        ApiClient.getApiService().getAppVersion().enqueue(new Callback<ApiResponse>() {
+        ApiClient.getApiService(this).getAppVersion().enqueue(new Callback<ApiResponse>() {
             @Override
             public void onResponse(Call<ApiResponse> call, Response<ApiResponse> response) {
                 if (response.isSuccessful() && response.body() != null && response.body().isSuccess()) {
@@ -66,10 +72,11 @@ public class LoginActivity extends AppCompatActivity {
                     int latestCode = data.has("latestVersionCode") ? data.get("latestVersionCode").getAsInt() : 1;
                     String latestName = data.has("latestVersionName") ? data.get("latestVersionName").getAsString() : "1.1.0";
                     String notes = data.has("releaseNotes") ? data.get("releaseNotes").getAsString() : "New features and performance improvements.";
-                    String downloadUrl = data.has("downloadUrl") ? data.get("downloadUrl").getAsString() : "https://sk-bank-of-india-rzy4.onrender.com/download-app.jsp";
+                    String downloadUrl = data.has("downloadUrl") ? data.get("downloadUrl").getAsString() : ApiClient.WEBSITE_DOWNLOAD_URL;
+                    boolean mandatory = data.has("mandatoryUpdate") && data.get("mandatoryUpdate").getAsBoolean();
 
-                    if (latestCode > CURRENT_VERSION_CODE) {
-                        showInAppUpdateDialog(latestName, notes, downloadUrl);
+                    if (latestCode > getInstalledVersionCode()) {
+                        showInAppUpdateDialog(latestName, notes, downloadUrl, mandatory);
                     }
                 }
             }
@@ -81,18 +88,22 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
-    private void showInAppUpdateDialog(String versionName, String releaseNotes, String downloadUrl) {
+    private void showInAppUpdateDialog(String versionName, String releaseNotes, String downloadUrl, boolean mandatory) {
         if (isFinishing()) return;
-        new AlertDialog.Builder(this)
-                .setTitle("🚀 New Update Available! (v" + versionName + ")")
-                .setMessage("A new official version of SK Bank of India is available.\n\nWhat's New:\n" + releaseNotes + "\n\nWould you like to update your app now?")
-                .setCancelable(false)
+        AlertDialog.Builder builder = new AlertDialog.Builder(this)
+                .setTitle("New Update Available (v" + versionName + ")")
+                .setMessage("SK Payment Bank has a new version available. Update now to get the latest features and improvements.\n\nWhat's New:\n" + releaseNotes)
+                .setCancelable(!mandatory)
                 .setPositiveButton("Update Now", (dialog, which) -> {
                     Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(downloadUrl));
                     startActivity(intent);
-                })
-                .setNegativeButton("Later", (dialog, which) -> dialog.dismiss())
-                .show();
+                });
+
+        if (!mandatory) {
+            builder.setNegativeButton("Later", (dialog, which) -> dialog.dismiss());
+        }
+
+        builder.show();
     }
 
     private void performLogin() {
@@ -105,7 +116,7 @@ public class LoginActivity extends AppCompatActivity {
         }
 
         LoginRequest request = new LoginRequest(identifier, password);
-        ApiClient.getApiService().login(request).enqueue(new Callback<ApiResponse>() {
+        ApiClient.getApiService(this).login(request).enqueue(new Callback<ApiResponse>() {
             @Override
             public void onResponse(Call<ApiResponse> call, Response<ApiResponse> response) {
                 if (response.isSuccessful() && response.body() != null && response.body().isSuccess()) {
@@ -113,7 +124,7 @@ public class LoginActivity extends AppCompatActivity {
                     String token = dataObj.get("token").getAsString();
                     sessionManager.saveAuthToken(token);
 
-                    Toast.makeText(LoginActivity.this, "Welcome to SK Bank Mobile!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LoginActivity.this, "Welcome to SK Payment Bank!", Toast.LENGTH_SHORT).show();
                     startActivity(new Intent(LoginActivity.this, DashboardActivity.class));
                     finish();
                 } else {
@@ -124,10 +135,7 @@ public class LoginActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<ApiResponse> call, Throwable t) {
-                sessionManager.saveAuthToken("demo_token_12345");
-                Toast.makeText(LoginActivity.this, "Demo Mode: Login Successful!", Toast.LENGTH_LONG).show();
-                startActivity(new Intent(LoginActivity.this, DashboardActivity.class));
-                finish();
+                Toast.makeText(LoginActivity.this, "Unable to connect to SK Bank server: " + t.getMessage(), Toast.LENGTH_LONG).show();
             }
         });
     }
