@@ -16,8 +16,8 @@
             </button>
 
             <!-- Direct APK Package Download -->
-            <a href="${pageContext.request.contextPath}/downloads/SKBankOfIndia.apk" download="SKBankOfIndia.apk" type="application/vnd.android.package-archive" class="btn btn-outline-light btn-lg px-4 py-3 fs-5 fw-bold">
-                <i class="fa-solid fa-download me-2"></i> Download APK Package (v1.0.0)
+            <a id="btnDirectApk" href="${pageContext.request.contextPath}/downloads/SKBankOfIndia.apk" download="SKBankOfIndia.apk" type="application/vnd.android.package-archive" class="btn btn-warning btn-lg px-4 py-3 fs-5 fw-bold text-dark shadow-lg">
+                <i class="fa-solid fa-download me-2"></i> Download Latest APK v1.4.0 (SKBankOfIndia.apk)
             </a>
         </div>
     </div>
@@ -66,6 +66,18 @@
 
 <script>
 let deferredPrompt;
+
+document.addEventListener('DOMContentLoaded', () => {
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.get('autodownload') === 'true' || urlParams.get('update') === 'true') {
+        const link = document.createElement('a');
+        link.href = '${pageContext.request.contextPath}/downloads/SKBankOfIndia.apk';
+        link.download = 'SKBankOfIndia.apk';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    }
+});
 
 window.addEventListener('beforeinstallprompt', (e) => {
     e.preventDefault();

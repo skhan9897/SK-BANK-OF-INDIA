@@ -5,7 +5,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#0A192F">
-    <title>SK Bank of India - Secure Digital Banking</title>
+    <title>SK Bank of India - Official Digital Banking Portal &amp; SK Payment Bank Mobile App</title>
+    <!-- Google Search Engine Optimization (SEO) Meta Tags -->
+    <meta name="description" content="SK Bank of India Official Digital Banking Portal &amp; SK Payment Bank Mobile App. Ultra-fast UPI payments, 4-step digital onboarding, Scan &amp; Pay QR, instant transfers, and 24x7 digital banking.">
+    <meta name="keywords" content="SK Bank of India, SK Payment Bank, SK Bank APK, SK Payment Bank App, SK Bank Online Banking, Official SK Bank Portal">
+    <meta name="author" content="SK Bank of India">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://sk-bank-of-india-rzy4.onrender.com/">
+
+    <!-- OpenGraph Social & Google Rich Snippets -->
+    <meta property="og:title" content="SK Bank of India - Official Digital Banking Portal">
+    <meta property="og:description" content="Official portal &amp; Mobile App for SK Bank of India. Instant UPI transfers, QR payments, and digital banking.">
+    <meta property="og:url" content="https://sk-bank-of-india-rzy4.onrender.com/">
+    <meta property="og:site_name" content="SK Bank of India">
+    <meta property="og:type" content="website">
+
+    <!-- Schema.org JSON-LD Google Rich Search Indexing -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FinancialService",
+      "name": "SK Bank of India",
+      "alternateName": "SK Payment Bank",
+      "url": "https://sk-bank-of-india-rzy4.onrender.com/",
+      "logo": "https://sk-bank-of-india-rzy4.onrender.com/images/logo.png",
+      "description": "Official SK Bank of India Mobile Banking & Digital Financial Services.",
+      "telephone": "+91-1800-11-2211",
+      "areaServed": "IN"
+    }
+    </script>
     <!-- Web App PWA Manifest -->
     <link rel="manifest" href="${pageContext.request.contextPath}/manifest.json">
     <!-- Bootstrap 5 CSS -->
@@ -16,6 +44,9 @@
     <link href="${pageContext.request.contextPath}/css/style.css" rel="stylesheet">
 </head>
 <body>
+
+<!-- Top Indian Tricolor Identity Strip -->
+<div style="height: 5px; background: linear-gradient(to right, #FF9933 33.33%, #FFFFFF 33.33%, #FFFFFF 66.66%, #138808 66.66%);"></div>
 
 <nav class="navbar navbar-expand-lg sk-navbar">
     <div class="container">

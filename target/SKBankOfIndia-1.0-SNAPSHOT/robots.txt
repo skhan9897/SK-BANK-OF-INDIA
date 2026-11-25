@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /api/v1/protected/
+Sitemap: https://sk-bank-of-india-rzy4.onrender.com/sitemap.xml
