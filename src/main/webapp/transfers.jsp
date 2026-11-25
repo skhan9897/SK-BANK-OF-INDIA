@@ -57,7 +57,7 @@
                     </div>
 
                     <button type="submit" id="btnTransferSubmit" class="btn btn-sk-primary w-100 py-2 fs-6">
-                        <i class="fa-solid fa-bolt me-2 text-warning"></i> Instant Confirm & Send Money
+                        <i class="fa-solid fa-bolt me-2 text-warning"></i> Instant Confirm &amp; Send Money
                     </button>
                 </form>
             </div>
@@ -112,7 +112,7 @@
                     <strong id="succPayee">Account Number</strong>
                 </div>
             </div>
-            <button class="btn btn-sk-primary w-100" data-bs-dismiss="modal">Done & Close</button>
+            <button class="btn btn-sk-primary w-100" data-bs-dismiss="modal">Done &amp; Close</button>
         </div>
     </div>
 </div>
@@ -125,7 +125,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 async function loadSourceAccounts() {
     try {
-        const res = await fetch('/SKBankOfIndia/api/v1/protected/accounts', {
+        const res = await fetch('${pageContext.request.contextPath}/api/v1/protected/accounts', {
             headers: getAuthHeaders()
         });
         const data = await res.json();
@@ -171,7 +171,7 @@ async function handleFundTransfer() {
             remarks: remarks || "Instant Transfer"
         };
 
-        const response = await fetch('/SKBankOfIndia/api/v1/protected/transfers/internal', {
+        const response = await fetch('${pageContext.request.contextPath}/api/v1/protected/transfers/internal', {
             method: 'POST',
             headers: getAuthHeaders(),
             body: JSON.stringify(payload)

@@ -275,7 +275,7 @@ async function sendOtpAndProceed() {
     currentOtpCode = generatedOtp;
 
     try {
-        const response = await fetch('/SKBankOfIndia/api/v1/auth/send-otp', {
+        const response = await fetch('${pageContext.request.contextPath}/api/v1/auth/send-otp', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ recipient: email, purpose: 'REGISTER' })
@@ -338,7 +338,7 @@ async function handleFinalAccountOpening() {
     showLoadingOverlay("Verifying OTP & Opening Savings Account...");
 
     try {
-        const response = await fetch('/SKBankOfIndia/api/v1/auth/register', {
+        const response = await fetch('${pageContext.request.contextPath}/api/v1/auth/register', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(payload)
@@ -364,7 +364,7 @@ async function handleFinalAccountOpening() {
         }
     } catch (err) {
         hideLoadingOverlay();
-        alertDiv.innerText = "Network connection timeout while opening account. Please try again.";
+        alertDiv.innerText = "Network connection error while opening account. Please try again.";
         alertDiv.classList.remove('d-none');
     }
 }

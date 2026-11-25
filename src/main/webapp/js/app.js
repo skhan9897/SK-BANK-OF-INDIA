@@ -3,7 +3,13 @@
    Includes Professional Loading Overlay & Real-Time Voice Feedback
    ============================================================================== */
 
-const API_BASE_URL = '/SKBankOfIndia/api/v1';
+function getApiBaseUrl() {
+    const path = window.location.pathname;
+    if (path.startsWith('/SKBankOfIndia')) {
+        return '/SKBankOfIndia/api/v1';
+    }
+    return '/api/v1';
+}
 
 function getToken() {
     return localStorage.getItem('sk_auth_token');

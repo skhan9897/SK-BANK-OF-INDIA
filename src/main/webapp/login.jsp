@@ -8,7 +8,7 @@
                 <div class="text-center mb-4">
                     <div class="fs-1 text-primary"><i class="fa-solid fa-lock"></i></div>
                     <h3 class="fw-bold">Secure Login</h3>
-                    <p class="text-muted small">Access Internet Banking & Account Dashboard</p>
+                    <p class="text-muted small">Access Internet Banking &amp; Account Dashboard</p>
                 </div>
 
                 <div id="loginAlert" class="alert alert-danger d-none"></div>
@@ -35,7 +35,7 @@
                             <input class="form-check-input" type="checkbox" id="rememberMe">
                             <label class="form-check-label small" for="rememberMe">Remember Username</label>
                         </div>
-                        <a href="#" class="small text-decoration-none" onclick="showForgotPasswordModal(); return false;">Forgot Password?</a>
+                        <a href="#" class="small text-decoration-none" onclick="alert('Password reset link sent to email'); return false;">Forgot Password?</a>
                     </div>
 
                     <button type="submit" id="btnLoginSubmit" class="btn btn-sk-primary w-100 py-2 fs-6">
@@ -61,7 +61,7 @@ async function handleLoginSubmit() {
     alertDiv.classList.add('d-none');
 
     try {
-        const response = await fetch('/SKBankOfIndia/api/v1/auth/login', {
+        const response = await fetch('${pageContext.request.contextPath}/api/v1/auth/login', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ identifier, password })

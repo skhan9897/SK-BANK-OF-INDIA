@@ -31,4 +31,5 @@ com\bank\skbankofindia\util\PasswordUtil.class
 com\bank\skbankofindia\servlet\CorsFilter.class
 com\bank\skbankofindia\dao\UserDAO.class
 com\bank\skbankofindia\model\Transaction.class
+com\bank\skbankofindia\servlet\ApkDownloadServlet.class
 com\bank\skbankofindia\util\IDGenerator.class

@@ -6,7 +6,7 @@
     <div class="d-flex justify-content-between align-items-center mb-4">
         <div>
             <h2 class="fw-bold mb-1" id="welcomeUserHeader">Welcome, Customer</h2>
-            <p class="text-muted small mb-0"><i class="fa-solid fa-clock me-1 text-warning"></i> Last Login: Today, Online | Account Status: <span class="badge bg-success">ACTIVE & VERIFIED</span></p>
+            <p class="text-muted small mb-0"><i class="fa-solid fa-clock me-1 text-warning"></i> Last Login: Today, Online | Account Status: <span class="badge bg-success">ACTIVE &amp; VERIFIED</span></p>
         </div>
         <div>
             <a href="transfers.jsp" class="btn btn-sk-primary"><i class="fa-solid fa-paper-plane me-1"></i> Quick Send Money</a>
@@ -46,7 +46,7 @@
                     <span class="badge bg-success"><i class="fa-solid fa-qrcode me-1"></i> ACTIVE</span>
                 </div>
                 <div class="fs-5 fw-bold text-dark mb-2" id="dashUpiVpa">user@skbank</div>
-                <p class="small text-muted">Scan & Pay enabled across BHIM, Google Pay, PhonePe & Paytm</p>
+                <p class="small text-muted">Scan &amp; Pay enabled across BHIM, Google Pay, PhonePe &amp; Paytm</p>
                 <div class="mt-3 pt-3 border-top d-flex justify-content-between">
                     <a href="transfers.jsp" class="btn btn-sm btn-outline-primary"><i class="fa-solid fa-qrcode me-1"></i> My QR Code</a>
                     <a href="transfers.jsp" class="btn btn-sm btn-sk-primary">Send UPI</a>
@@ -114,7 +114,7 @@
                         <span class="badge bg-warning text-dark">v1.0.0 Update Available</span>
                     </div>
                 </div>
-                <p class="small text-white-50 mt-2 mb-3">Install or update the official Android App for instant UPI transfers & biometric login.</p>
+                <p class="small text-white-50 mt-2 mb-3">Install or update the official Android App for instant UPI transfers &amp; biometric login.</p>
                 <a href="download-app.jsp" class="btn btn-sk-accent btn-sm fw-bold w-100"><i class="fa-solid fa-download me-1"></i> Download / Update App</a>
             </div>
 
@@ -122,8 +122,8 @@
                 <h5 class="fw-bold mb-3"><i class="fa-solid fa-bolt me-2 text-warning"></i> Quick Actions</h5>
                 <div class="d-grid gap-2">
                     <a href="transfers.jsp" class="btn btn-outline-primary text-start py-2"><i class="fa-solid fa-money-bill-transfer me-2"></i> IMPS / NEFT Money Transfer</a>
-                    <a href="loans.jsp" class="btn btn-outline-primary text-start py-2"><i class="fa-solid fa-calculator me-2"></i> Loan EMI Calculator & Apply</a>
-                    <a href="services.jsp" class="btn btn-outline-primary text-start py-2"><i class="fa-solid fa-file-invoice-dollar me-2"></i> Pay Electricity & Utility Bills</a>
+                    <a href="loans.jsp" class="btn btn-outline-primary text-start py-2"><i class="fa-solid fa-calculator me-2"></i> Loan EMI Calculator &amp; Apply</a>
+                    <a href="services.jsp" class="btn btn-outline-primary text-start py-2"><i class="fa-solid fa-file-invoice-dollar me-2"></i> Pay Electricity &amp; Utility Bills</a>
                 </div>
             </div>
         </div>
@@ -138,7 +138,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 async function loadDashboardData() {
     try {
-        const res = await fetch('/SKBankOfIndia/api/v1/protected/accounts', {
+        const res = await fetch('${pageContext.request.contextPath}/api/v1/protected/accounts', {
             headers: getAuthHeaders()
         });
 
