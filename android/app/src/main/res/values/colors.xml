@@ -1,21 +1,25 @@
 <resources>
-    <color name="purple_200">#FFBB86FC</color>
-    <color name="purple_500">#5F259F</color>
-    <color name="purple_700">#1B0B2E</color>
-    <color name="teal_200">#FF03DAC5</color>
-    <color name="teal_700">#FF018786</color>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
-
-    <!-- SK Payment Bank PhonePe Premium Theme Colors -->
-    <color name="sk_dark_bg">#130722</color>
-    <color name="sk_purple_bg">#1B0B2E</color>
-    <color name="sk_card_bg">#281343</color>
-    <color name="sk_card_light">#351A57</color>
-    <color name="sk_purple_primary">#5F259F</color>
-    <color name="sk_purple_glow">#8A35E5</color>
+    <!-- Official SK Bank of India Indian Tricolor Theme Colors -->
+    <color name="sk_saffron">#FF9933</color>
+    <color name="sk_white">#FFFFFF</color>
+    <color name="sk_green">#138808</color>
+    <color name="sk_navy">#0B1F3A</color>
+    <color name="sk_chakra_blue">#000080</color>
+    <color name="sk_bg_light">#F7F9FC</color>
+    <color name="sk_card_bg">#1B2E4B</color>
+    <color name="sk_card_light">#243B5E</color>
+    <color name="sk_dark_bg">#0B1F3A</color>
+    <color name="sk_purple_primary">#0B1F3A</color>
+    <color name="sk_purple_glow">#FF9933</color>
+    <color name="sk_text_dark">#0B1F3A</color>
+    <color name="sk_text_muted">#8A9BB5</color>
     <color name="sk_gold">#FFB800</color>
-    <color name="sk_text_white">#FFFFFF</color>
-    <color name="sk_text_muted">#B8A7D1</color>
-    <color name="sk_green">#10B981</color>
+
+    <color name="purple_200">#FF9933</color>
+    <color name="purple_500">#0B1F3A</color>
+    <color name="purple_700">#000080</color>
+    <color name="teal_200">#138808</color>
+    <color name="teal_700">#138808</color>
+    <color name="black">#000000</color>
+    <color name="white">#FFFFFF</color>
 </resources>
