@@ -1,0 +1,358 @@
+/* ==============================================================================
+   SK BANK OF INDIA - PREMIUM BANKING STYLESHEET
+   Includes Indian Flag Tricolor Wave Background & Multi-Step Wizard Styles
+   ============================================================================== */
+
+:root {
+    --sk-primary: #0A192F;
+    --sk-secondary: #0052CC;
+    --sk-accent: #D4AF37;
+    --sk-success: #00B8D9;
+    --sk-bg-light: #F4F6F9;
+    --sk-card-bg: #FFFFFF;
+    --sk-text-dark: #172B4D;
+    --sk-text-muted: #6B778C;
+    --sk-saffron: #FF9933;
+    --sk-green: #138808;
+    --sk-font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+body {
+    font-family: var(--sk-font-family);
+    background-color: var(--sk-bg-light);
+    color: var(--sk-text-dark);
+    margin: 0;
+    padding: 0;
+}
+
+/* Indian Flag Tricolor Wave Background */
+.tricolor-wave-bg {
+    background: linear-gradient(-45deg, #0A192F 0%, rgba(255,153,51,0.25) 30%, rgba(255,255,255,0.2) 60%, rgba(19,136,8,0.25) 100%),
+                radial-gradient(circle at top right, rgba(255,153,51,0.3), transparent 60%),
+                radial-gradient(circle at bottom left, rgba(19,136,8,0.3), transparent 60%),
+                #0A192F;
+    background-size: 200% 200%;
+    animation: waveMotion 12s ease infinite;
+    min-height: 100vh;
+}
+
+@keyframes waveMotion {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Navbar */
+.sk-navbar {
+    background-color: var(--sk-primary);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    padding: 12px 0;
+}
+
+.sk-navbar .navbar-brand {
+    font-weight: 700;
+    font-size: 1.4rem;
+    color: #FFFFFF !important;
+    letter-spacing: 0.5px;
+}
+
+.sk-navbar .navbar-brand span {
+    color: var(--sk-accent);
+}
+
+.sk-navbar .nav-link {
+    color: rgba(255, 255, 255, 0.85) !important;
+    font-weight: 500;
+    margin: 0 5px;
+    transition: all 0.2s ease;
+}
+
+.sk-navbar .nav-link:hover, .sk-navbar .nav-link.active {
+    color: var(--sk-accent) !important;
+}
+
+/* Navbar Auth Buttons Layer */
+.nav-auth-btn-login {
+    border: 1.5px solid rgba(255, 255, 255, 0.4);
+    color: #FFFFFF !important;
+    font-weight: 600;
+    font-size: 0.88rem;
+    padding: 7px 18px;
+    border-radius: 20px;
+    transition: all 0.25s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    text-decoration: none;
+}
+
+.nav-auth-btn-login:hover {
+    border-color: #D4AF37;
+    color: #D4AF37 !important;
+    background: rgba(212, 175, 55, 0.1);
+}
+
+.nav-auth-btn-register {
+    background: linear-gradient(135deg, #D4AF37 0%, #FF9933 100%);
+    color: #0A192F !important;
+    font-weight: 700;
+    font-size: 0.88rem;
+    padding: 8px 20px;
+    border-radius: 20px;
+    border: none;
+    box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3);
+    transition: all 0.25s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    text-decoration: none;
+}
+
+.nav-auth-btn-register:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 16px rgba(212, 175, 55, 0.5);
+    color: #0A192F !important;
+}
+
+/* Hero Section */
+.sk-hero {
+    background: linear-gradient(135deg, #0A192F 0%, #0052CC 100%);
+    color: #FFFFFF;
+    padding: 80px 0;
+    border-bottom: 4px solid var(--sk-accent);
+}
+
+.sk-hero h1 {
+    font-weight: 800;
+    font-size: 2.8rem;
+    line-height: 1.2;
+}
+
+/* Cards & Widgets */
+.sk-card {
+    background: var(--sk-card-bg);
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+    padding: 28px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.sk-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
+}
+
+.sk-credit-card {
+    background: linear-gradient(135deg, #0A192F 0%, #1A365D 100%);
+    color: #FFFFFF;
+    border-radius: 16px;
+    padding: 25px;
+    box-shadow: 0 10px 25px rgba(10, 25, 47, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.sk-credit-card::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -20%;
+    width: 250px;
+    height: 250px;
+    background: radial-gradient(circle, rgba(212, 175, 55, 0.15) 0%, transparent 70%);
+    border-radius: 50%;
+}
+
+.sk-credit-card .chip {
+    width: 45px;
+    height: 32px;
+    background: #D4AF37;
+    border-radius: 6px;
+    margin-bottom: 20px;
+}
+
+/* Buttons */
+.btn-sk-primary {
+    background-color: var(--sk-secondary);
+    color: #FFFFFF;
+    font-weight: 600;
+    border-radius: 8px;
+    padding: 10px 24px;
+    border: none;
+    transition: background-color 0.2s ease;
+}
+
+.btn-sk-primary:hover {
+    background-color: #003D99;
+    color: #FFFFFF;
+}
+
+.btn-sk-accent {
+    background-color: var(--sk-accent);
+    color: var(--sk-primary);
+    font-weight: 700;
+    border-radius: 8px;
+    padding: 10px 24px;
+    border: none;
+}
+
+.btn-sk-accent:hover {
+    background-color: #B59326;
+    color: var(--sk-primary);
+}
+
+/* Multi-Step Wizard Progress Dots */
+.step-wizard-indicator {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    margin-bottom: 30px;
+}
+
+.step-wizard-indicator::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: #E2E8F0;
+    z-index: 1;
+    transform: translateY(-50%);
+}
+
+.step-dot {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: #FFFFFF;
+    border: 3px solid #E2E8F0;
+    color: var(--sk-text-muted);
+    font-weight: 700;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+    transition: all 0.3s ease;
+}
+
+.step-dot.active {
+    border-color: var(--sk-saffron);
+    background: var(--sk-saffron);
+    color: #FFFFFF;
+    box-shadow: 0 0 12px rgba(255, 153, 51, 0.5);
+}
+
+.step-dot.completed {
+    border-color: var(--sk-green);
+    background: var(--sk-green);
+    color: #FFFFFF;
+}
+
+/* Tables */
+.sk-table {
+    background: #FFFFFF;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.sk-table th {
+    background-color: #F8FAFC;
+    color: var(--sk-text-muted);
+    font-weight: 600;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-bottom: 1px solid #E2E8F0;
+    padding: 14px 18px;
+}
+
+.sk-table td {
+    padding: 14px 18px;
+    vertical-align: middle;
+    border-bottom: 1px solid #F1F5F9;
+    font-size: 0.95rem;
+}
+
+/* Badges */
+.badge-debit {
+    background-color: #FFEBE6;
+    color: #DE350B;
+    font-weight: 600;
+    padding: 6px 12px;
+    border-radius: 20px;
+}
+
+.badge-credit {
+    background-color: #E3FCEF;
+    color: #006644;
+    font-weight: 600;
+    padding: 6px 12px;
+    border-radius: 20px;
+}
+
+/* Footer */
+footer {
+    background-color: var(--sk-primary);
+    color: rgba(255, 255, 255, 0.7);
+    padding: 40px 0 20px;
+    margin-top: 60px;
+}
+
+footer a {
+    color: rgba(255, 255, 255, 0.85);
+    text-decoration: none;
+}
+
+footer a:hover {
+    color: var(--sk-accent);
+}
+
+/* Professional Glassmorphic Loading Overlay with Indian Flag Wave Spinner */
+.sk-loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(10, 25, 47, 0.88);
+    backdrop-filter: blur(10px);
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #FFFFFF;
+    transition: opacity 0.3s ease;
+}
+
+.tricolor-spinner {
+    width: 70px;
+    height: 70px;
+    border: 5px solid transparent;
+    border-top: 5px solid var(--sk-saffron);
+    border-right: 5px solid #FFFFFF;
+    border-bottom: 5px solid var(--sk-green);
+    border-radius: 50%;
+    animation: tricolorSpin 0.9s linear infinite;
+    box-shadow: 0 0 20px rgba(255, 153, 51, 0.3);
+}
+
+@keyframes tricolorSpin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.sound-wave-icon {
+    font-size: 2.5rem;
+    color: var(--sk-accent);
+    animation: pulse 1s infinite alternate;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); opacity: 0.8; }
+    100% { transform: scale(1.2); opacity: 1; }
+}

@@ -1,0 +1,21 @@
+{
+  "short_name": "SK Bank",
+  "name": "SK Bank of India - Mobile Banking",
+  "icons": [
+    {
+      "src": "css/logo192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "css/logo512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": "index.jsp",
+  "background_color": "#0A192F",
+  "theme_color": "#0A192F",
+  "display": "standalone",
+  "orientation": "portrait"
+}

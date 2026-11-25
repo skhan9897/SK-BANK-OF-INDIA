@@ -1,0 +1,57 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0A192F">
+    <title>SK Bank of India - Secure Digital Banking</title>
+    <!-- Web App PWA Manifest -->
+    <link rel="manifest" href="${pageContext.request.contextPath}/manifest.json">
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="${pageContext.request.contextPath}/css/style.css" rel="stylesheet">
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg sk-navbar">
+    <div class="container">
+        <a class="navbar-brand" href="${pageContext.request.contextPath}/index.jsp">
+            <i class="fa-solid fa-building-columns me-2 text-warning"></i>SK Bank <span>of India</span>
+        </a>
+        <button class="navbar-toggler text-white" type="button" data-bs-toggle="collapse" data-bs-target="#skNavbarContent">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+
+        <div class="collapse navbar-collapse" id="skNavbarContent">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-center">
+                <li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/index.jsp"><i class="fa-solid fa-house me-1"></i> Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/dashboard.jsp"><i class="fa-solid fa-gauge me-1"></i> Dashboard</a></li>
+                <li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/accounts.jsp"><i class="fa-solid fa-wallet me-1"></i> Accounts</a></li>
+                <li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/transfers.jsp"><i class="fa-solid fa-money-bill-transfer me-1"></i> Transfers</a></li>
+                <li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/cards.jsp"><i class="fa-regular fa-credit-card me-1"></i> Cards</a></li>
+                <li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/loans.jsp"><i class="fa-solid fa-hand-holding-dollar me-1"></i> Loans</a></li>
+                <li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/services.jsp"><i class="fa-solid fa-sliders me-1"></i> Services</a></li>
+                <li class="nav-item me-3"><a class="nav-link text-warning fw-bold" href="${pageContext.request.contextPath}/download-app.jsp"><i class="fa-brands fa-android me-1"></i> Mobile App</a></li>
+
+                <li class="nav-item d-flex align-items-center gap-2" id="navAuthButtons">
+                    <a href="${pageContext.request.contextPath}/login.jsp" class="nav-auth-btn-login"><i class="fa-solid fa-right-to-bracket me-1"></i> Login</a>
+                    <a href="${pageContext.request.contextPath}/register.jsp" class="nav-auth-btn-register"><i class="fa-solid fa-user-plus me-1"></i> Register</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<script>
+if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+        navigator.serviceWorker.register('${pageContext.request.contextPath}/sw.js')
+            .then(reg => console.log('SK Bank Service Worker Registered:', reg.scope))
+            .catch(err => console.error('SK Bank Service Worker Error:', err));
+    });
+}
+</script>

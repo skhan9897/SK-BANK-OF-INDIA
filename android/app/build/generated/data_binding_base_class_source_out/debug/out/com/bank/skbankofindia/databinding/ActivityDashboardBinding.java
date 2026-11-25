@@ -5,8 +5,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.ImageButton;
-import android.widget.ScrollView;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -19,41 +19,90 @@ import java.lang.String;
 
 public final class ActivityDashboardBinding implements ViewBinding {
   @NonNull
-  private final ScrollView rootView;
+  private final RelativeLayout rootView;
+
+  @NonNull
+  public final LinearLayout bottomNav;
+
+  @NonNull
+  public final Button btnBills;
+
+  @NonNull
+  public final Button btnCards;
+
+  @NonNull
+  public final Button btnLoans;
 
   @NonNull
   public final Button btnLogout;
 
   @NonNull
+  public final Button btnPassbook;
+
+  @NonNull
+  public final Button btnQrPay;
+
+  @NonNull
   public final Button btnSendMoney;
 
   @NonNull
-  public final ImageButton btnToggleBalance;
+  public final Button btnToggleBalance;
 
   @NonNull
-  public final TextView tvAccountNo;
+  public final Button navCards;
 
   @NonNull
-  public final TextView tvBalance;
+  public final Button navHome;
+
+  @NonNull
+  public final Button navPassbook;
+
+  @NonNull
+  public final Button navTransfer;
+
+  @NonNull
+  public final TextView tvDashAccountNo;
+
+  @NonNull
+  public final TextView tvDashBalance;
+
+  @NonNull
+  public final TextView tvDashIfsc;
 
   @NonNull
   public final TextView tvWelcomeUser;
 
-  private ActivityDashboardBinding(@NonNull ScrollView rootView, @NonNull Button btnLogout,
-      @NonNull Button btnSendMoney, @NonNull ImageButton btnToggleBalance,
-      @NonNull TextView tvAccountNo, @NonNull TextView tvBalance, @NonNull TextView tvWelcomeUser) {
+  private ActivityDashboardBinding(@NonNull RelativeLayout rootView,
+      @NonNull LinearLayout bottomNav, @NonNull Button btnBills, @NonNull Button btnCards,
+      @NonNull Button btnLoans, @NonNull Button btnLogout, @NonNull Button btnPassbook,
+      @NonNull Button btnQrPay, @NonNull Button btnSendMoney, @NonNull Button btnToggleBalance,
+      @NonNull Button navCards, @NonNull Button navHome, @NonNull Button navPassbook,
+      @NonNull Button navTransfer, @NonNull TextView tvDashAccountNo,
+      @NonNull TextView tvDashBalance, @NonNull TextView tvDashIfsc,
+      @NonNull TextView tvWelcomeUser) {
     this.rootView = rootView;
+    this.bottomNav = bottomNav;
+    this.btnBills = btnBills;
+    this.btnCards = btnCards;
+    this.btnLoans = btnLoans;
     this.btnLogout = btnLogout;
+    this.btnPassbook = btnPassbook;
+    this.btnQrPay = btnQrPay;
     this.btnSendMoney = btnSendMoney;
     this.btnToggleBalance = btnToggleBalance;
-    this.tvAccountNo = tvAccountNo;
-    this.tvBalance = tvBalance;
+    this.navCards = navCards;
+    this.navHome = navHome;
+    this.navPassbook = navPassbook;
+    this.navTransfer = navTransfer;
+    this.tvDashAccountNo = tvDashAccountNo;
+    this.tvDashBalance = tvDashBalance;
+    this.tvDashIfsc = tvDashIfsc;
     this.tvWelcomeUser = tvWelcomeUser;
   }
 
   @Override
   @NonNull
-  public ScrollView getRoot() {
+  public RelativeLayout getRoot() {
     return rootView;
   }
 
@@ -78,9 +127,45 @@ public final class ActivityDashboardBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
+      id = R.id.bottomNav;
+      LinearLayout bottomNav = ViewBindings.findChildViewById(rootView, id);
+      if (bottomNav == null) {
+        break missingId;
+      }
+
+      id = R.id.btnBills;
+      Button btnBills = ViewBindings.findChildViewById(rootView, id);
+      if (btnBills == null) {
+        break missingId;
+      }
+
+      id = R.id.btnCards;
+      Button btnCards = ViewBindings.findChildViewById(rootView, id);
+      if (btnCards == null) {
+        break missingId;
+      }
+
+      id = R.id.btnLoans;
+      Button btnLoans = ViewBindings.findChildViewById(rootView, id);
+      if (btnLoans == null) {
+        break missingId;
+      }
+
       id = R.id.btnLogout;
       Button btnLogout = ViewBindings.findChildViewById(rootView, id);
       if (btnLogout == null) {
+        break missingId;
+      }
+
+      id = R.id.btnPassbook;
+      Button btnPassbook = ViewBindings.findChildViewById(rootView, id);
+      if (btnPassbook == null) {
+        break missingId;
+      }
+
+      id = R.id.btnQrPay;
+      Button btnQrPay = ViewBindings.findChildViewById(rootView, id);
+      if (btnQrPay == null) {
         break missingId;
       }
 
@@ -91,20 +176,50 @@ public final class ActivityDashboardBinding implements ViewBinding {
       }
 
       id = R.id.btnToggleBalance;
-      ImageButton btnToggleBalance = ViewBindings.findChildViewById(rootView, id);
+      Button btnToggleBalance = ViewBindings.findChildViewById(rootView, id);
       if (btnToggleBalance == null) {
         break missingId;
       }
 
-      id = R.id.tvAccountNo;
-      TextView tvAccountNo = ViewBindings.findChildViewById(rootView, id);
-      if (tvAccountNo == null) {
+      id = R.id.navCards;
+      Button navCards = ViewBindings.findChildViewById(rootView, id);
+      if (navCards == null) {
         break missingId;
       }
 
-      id = R.id.tvBalance;
-      TextView tvBalance = ViewBindings.findChildViewById(rootView, id);
-      if (tvBalance == null) {
+      id = R.id.navHome;
+      Button navHome = ViewBindings.findChildViewById(rootView, id);
+      if (navHome == null) {
+        break missingId;
+      }
+
+      id = R.id.navPassbook;
+      Button navPassbook = ViewBindings.findChildViewById(rootView, id);
+      if (navPassbook == null) {
+        break missingId;
+      }
+
+      id = R.id.navTransfer;
+      Button navTransfer = ViewBindings.findChildViewById(rootView, id);
+      if (navTransfer == null) {
+        break missingId;
+      }
+
+      id = R.id.tvDashAccountNo;
+      TextView tvDashAccountNo = ViewBindings.findChildViewById(rootView, id);
+      if (tvDashAccountNo == null) {
+        break missingId;
+      }
+
+      id = R.id.tvDashBalance;
+      TextView tvDashBalance = ViewBindings.findChildViewById(rootView, id);
+      if (tvDashBalance == null) {
+        break missingId;
+      }
+
+      id = R.id.tvDashIfsc;
+      TextView tvDashIfsc = ViewBindings.findChildViewById(rootView, id);
+      if (tvDashIfsc == null) {
         break missingId;
       }
 
@@ -114,8 +229,10 @@ public final class ActivityDashboardBinding implements ViewBinding {
         break missingId;
       }
 
-      return new ActivityDashboardBinding((ScrollView) rootView, btnLogout, btnSendMoney,
-          btnToggleBalance, tvAccountNo, tvBalance, tvWelcomeUser);
+      return new ActivityDashboardBinding((RelativeLayout) rootView, bottomNav, btnBills, btnCards,
+          btnLoans, btnLogout, btnPassbook, btnQrPay, btnSendMoney, btnToggleBalance, navCards,
+          navHome, navPassbook, navTransfer, tvDashAccountNo, tvDashBalance, tvDashIfsc,
+          tvWelcomeUser);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

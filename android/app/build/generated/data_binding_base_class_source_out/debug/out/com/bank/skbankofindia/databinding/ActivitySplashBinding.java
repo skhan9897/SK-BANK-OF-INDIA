@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
@@ -24,12 +25,16 @@ public final class ActivitySplashBinding implements ViewBinding {
   public final ImageView ivBankLogo;
 
   @NonNull
+  public final ProgressBar pbSplashProgress;
+
+  @NonNull
   public final TextView tvLogoTitle;
 
   private ActivitySplashBinding(@NonNull RelativeLayout rootView, @NonNull ImageView ivBankLogo,
-      @NonNull TextView tvLogoTitle) {
+      @NonNull ProgressBar pbSplashProgress, @NonNull TextView tvLogoTitle) {
     this.rootView = rootView;
     this.ivBankLogo = ivBankLogo;
+    this.pbSplashProgress = pbSplashProgress;
     this.tvLogoTitle = tvLogoTitle;
   }
 
@@ -66,13 +71,20 @@ public final class ActivitySplashBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.pbSplashProgress;
+      ProgressBar pbSplashProgress = ViewBindings.findChildViewById(rootView, id);
+      if (pbSplashProgress == null) {
+        break missingId;
+      }
+
       id = R.id.tvLogoTitle;
       TextView tvLogoTitle = ViewBindings.findChildViewById(rootView, id);
       if (tvLogoTitle == null) {
         break missingId;
       }
 
-      return new ActivitySplashBinding((RelativeLayout) rootView, ivBankLogo, tvLogoTitle);
+      return new ActivitySplashBinding((RelativeLayout) rootView, ivBankLogo, pbSplashProgress,
+          tvLogoTitle);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));
