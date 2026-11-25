@@ -2,6 +2,7 @@
 package com.bank.skbankofindia.databinding;
 
 import android.view.LayoutInflater;
+import android.view.SurfaceView;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -25,11 +26,16 @@ public final class ActivityQrScannerBinding implements ViewBinding {
   @NonNull
   public final Button btnToggleFlash;
 
+  @NonNull
+  public final SurfaceView svCameraPreview;
+
   private ActivityQrScannerBinding(@NonNull RelativeLayout rootView,
-      @NonNull Button btnSimulateScan, @NonNull Button btnToggleFlash) {
+      @NonNull Button btnSimulateScan, @NonNull Button btnToggleFlash,
+      @NonNull SurfaceView svCameraPreview) {
     this.rootView = rootView;
     this.btnSimulateScan = btnSimulateScan;
     this.btnToggleFlash = btnToggleFlash;
+    this.svCameraPreview = svCameraPreview;
   }
 
   @Override
@@ -71,8 +77,14 @@ public final class ActivityQrScannerBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.svCameraPreview;
+      SurfaceView svCameraPreview = ViewBindings.findChildViewById(rootView, id);
+      if (svCameraPreview == null) {
+        break missingId;
+      }
+
       return new ActivityQrScannerBinding((RelativeLayout) rootView, btnSimulateScan,
-          btnToggleFlash);
+          btnToggleFlash, svCameraPreview);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

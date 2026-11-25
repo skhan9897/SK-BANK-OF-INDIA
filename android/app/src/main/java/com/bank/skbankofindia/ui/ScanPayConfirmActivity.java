@@ -153,9 +153,23 @@ public class ScanPayConfirmActivity extends AppCompatActivity {
             public void onResponse(Call<ApiResponse> call, Response<ApiResponse> response) {
                 hideLoadingOverlay();
                 if (response.isSuccessful() && response.body() != null && response.body().isSuccess()) {
+                    String txnRef = "TXN" + System.currentTimeMillis();
+                    if (response.body().getData() != null && response.body().getData().isJsonObject()) {
+                        JsonObject obj = response.body().getData().getAsJsonObject();
+                        if (obj.has("transactionRef")) {
+                            txnRef = obj.get("transactionRef").getAsString();
+                        }
+                    }
+
                     speakVoiceNotification("SK Bank of India: Payment of " + amountStr + " Rupees successfully sent!");
-                    Toast.makeText(ScanPayConfirmActivity.this, "Scan & Pay Payment Successful!", Toast.LENGTH_LONG).show();
-                    finish();
+
+                    com.bank.skbankofindia.util.NotificationHandler.processPaymentEvent(
+                            ScanPayConfirmActivity.this, "PAYMENT_SENT", txnRef, amountStr, recipientVpaStr
+                    );
+
+                    com.bank.skbankofindia.util.ReceiptDialogHelper.showReceipt(
+                            ScanPayConfirmActivity.this, txnRef, amountStr, recipientVpaStr, "UPI_QR_SCAN_AND_PAY", () -> finish()
+                    );
                 } else {
                     String msg = response.body() != null ? response.body().getMessage() : "Payment failed";
                     Toast.makeText(ScanPayConfirmActivity.this, msg, Toast.LENGTH_LONG).show();

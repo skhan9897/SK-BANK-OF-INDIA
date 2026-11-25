@@ -46,7 +46,26 @@ public class MyQrActivity extends AppCompatActivity {
         btnShareQr.setOnClickListener(v -> shareQrDetails());
         btnDownloadQr.setOnClickListener(v -> Toast.makeText(this, "Payment QR Code saved to phone gallery", Toast.LENGTH_SHORT).show());
 
+        // Instantly generate default QR code so image is NEVER blank
+        generateDefaultQrCode();
+
         fetchMyPaymentQr();
+    }
+
+    private void generateDefaultQrCode() {
+        String username = sessionManager.getUsername();
+        if (username == null || username.isEmpty()) username = "Customer";
+        String accNo = sessionManager.getAccountNo();
+
+        String defaultVpa = username.toLowerCase().replaceAll("[^a-zA-Z0-9]", "") + "@skbank";
+        currentQrPayload = "upi://pay?pa=" + defaultVpa + "&pn=" + username + "&mc=0000";
+
+        tvQrCustName.setText(username);
+        tvQrVpa.setText(defaultVpa);
+        tvQrAccDetails.setText("Account: " + accNo + " • IFSC: SKBI0000001");
+
+        Bitmap bitmap = QrGeneratorUtil.generateQrBitmap(currentQrPayload, 500);
+        ivQrCodeBitmap.setImageBitmap(bitmap);
     }
 
     private void fetchMyPaymentQr() {

@@ -24,6 +24,10 @@
         "source": "com.bank.skbankofindia.app-main-42:/layout/activity_chat.xml"
     },
     {
+        "merged": "com.bank.skbankofindia.app-mergeDebugResources-39:/layout/dialog_payment_receipt.xml",
+        "source": "com.bank.skbankofindia.app-main-42:/layout/dialog_payment_receipt.xml"
+    },
+    {
         "merged": "com.bank.skbankofindia.app-mergeDebugResources-39:/layout/activity_passbook.xml",
         "source": "com.bank.skbankofindia.app-main-42:/layout/activity_passbook.xml"
     },

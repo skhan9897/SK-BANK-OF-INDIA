@@ -3239,6 +3239,10 @@ id btnLogout
 id btnMyQr
 id btnPassbook
 id btnQrPay
+id btnReceiptDone
+id btnReceiptDownload
+id btnReceiptPrint
+id btnReceiptShare
 id btnResetPin
 id btnSearchCustomer
 id btnSendMoney
@@ -3624,6 +3628,7 @@ id stretch
 id submenuarrow
 id submit_area
 id supportScrollUp
+id svCameraPreview
 id swIntl
 id swLock
 id tabMode
@@ -3684,6 +3689,11 @@ id tvOtpDemoCode
 id tvQrAccDetails
 id tvQrCustName
 id tvQrVpa
+id tvReceiptAmount
+id tvReceiptMode
+id tvReceiptPayee
+id tvReceiptTime
+id tvReceiptTxnRef
 id tvRecipientName
 id tvRecipientVpa
 id tvStep1Dot
@@ -3859,6 +3869,7 @@ layout design_navigation_menu_item
 layout design_text_input_end_icon
 layout design_text_input_start_icon
 layout dialog_loading_overlay
+layout dialog_payment_receipt
 layout fingerprint_dialog_layout
 layout m3_alert_dialog
 layout m3_alert_dialog_actions
