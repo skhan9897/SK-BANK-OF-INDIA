@@ -25,7 +25,7 @@ public class ApkDownloadServlet extends HttpServlet {
         String realPath = getServletContext().getRealPath("/downloads/SKBankOfIndia.apk");
         File file = realPath != null ? new File(realPath) : null;
 
-        if (file != null && file.exists() && file.length() >= (10 * 1024 * 1024)) {
+        if (file != null && file.exists() && file.length() > 1024) {
             resp.setContentLengthLong(file.length());
             try (FileInputStream fis = new FileInputStream(file);
                  OutputStream os = resp.getOutputStream()) {
