@@ -4,14 +4,16 @@
    ============================================================================== */
 
 :root {
-    --sk-primary: #0A192F;
-    --sk-secondary: #0052CC;
-    --sk-accent: #D4AF37;
-    --sk-success: #00B8D9;
-    --sk-bg-light: #F4F6F9;
-    --sk-card-bg: #FFFFFF;
-    --sk-text-dark: #172B4D;
-    --sk-text-muted: #6B778C;
+    --sk-primary: #130722;
+    --sk-secondary: #5F259F;
+    --sk-accent: #FFB800;
+    --sk-success: #10B981;
+    --sk-bg-dark: #130722;
+    --sk-bg-purple: #1B0B2E;
+    --sk-card-bg: #281343;
+    --sk-card-light: #351A57;
+    --sk-text-dark: #FFFFFF;
+    --sk-text-muted: #B8A7D1;
     --sk-saffron: #FF9933;
     --sk-green: #138808;
     --sk-font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
@@ -19,7 +21,7 @@
 
 body {
     font-family: var(--sk-font-family);
-    background-color: var(--sk-bg-light);
+    background-color: var(--sk-bg-dark);
     color: var(--sk-text-dark);
     margin: 0;
     padding: 0;

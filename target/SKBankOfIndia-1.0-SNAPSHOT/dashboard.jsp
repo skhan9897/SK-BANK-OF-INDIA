@@ -2,130 +2,202 @@
 <%@ include file="/WEB-INF/views/header.jspf" %>
 
 <div class="container py-4">
-    <!-- Welcome Header -->
+    <!-- PhonePe-Style Dashboard Welcome Header -->
     <div class="d-flex justify-content-between align-items-center mb-4">
-        <div>
-            <h2 class="fw-bold mb-1" id="welcomeUserHeader">Welcome, Customer</h2>
-            <p class="text-muted small mb-0"><i class="fa-solid fa-clock me-1 text-warning"></i> Last Login: Today, Online | Account Status: <span class="badge bg-success">ACTIVE &amp; VERIFIED</span></p>
+        <div class="d-flex align-items-center">
+            <div class="rounded-circle bg-warning text-dark fw-bold fs-4 d-flex justify-content-center align-items-center me-3" style="width: 50px; height: 50px;">
+                SK
+            </div>
+            <div>
+                <h2 class="fw-bold mb-0 text-white" id="welcomeUserHeader">SK Bank of India</h2>
+                <p class="text-warning small mb-0"><i class="fa-solid fa-location-dot me-1"></i> Mumbai Main Branch • A/c: <span id="dashAccountNo">10018877665544</span></p>
+            </div>
         </div>
-        <div>
-            <a href="transfers.jsp" class="btn btn-sk-primary"><i class="fa-solid fa-paper-plane me-1"></i> Quick Send Money</a>
-            <button onclick="logout()" class="btn btn-outline-danger ms-2"><i class="fa-solid fa-power-off me-1"></i> Logout</button>
+        <div class="d-flex gap-2">
+            <a href="services.jsp" class="btn btn-outline-light btn-sm"><i class="fa-solid fa-magnifying-glass me-1"></i> Search</a>
+            <a href="download-app.jsp" class="btn btn-warning btn-sm fw-bold"><i class="fa-brands fa-android me-1"></i> Mobile App</a>
+            <button onclick="logout()" class="btn btn-outline-danger btn-sm"><i class="fa-solid fa-power-off me-1"></i> Logout</button>
         </div>
     </div>
 
-    <!-- Account Cards Grid -->
-    <div class="row g-4 mb-4" id="accountCardsContainer">
-        <div class="col-md-6 col-lg-4">
-            <div class="sk-card">
-                <div class="d-flex justify-content-between align-items-center mb-2">
-                    <span class="text-muted small fw-semibold">PRIMARY SAVINGS ACCOUNT</span>
-                    <span class="badge bg-primary">SAVINGS</span>
-                </div>
-                <div class="fs-6 text-muted mb-2" id="dashAccountNo">1001••••••••9812</div>
-                <div class="d-flex justify-content-between align-items-center mt-3">
-                    <div>
-                        <div class="small text-muted">Available Balance</div>
-                        <div class="fs-3 fw-bold text-dark" id="dashBalance">₹ 10,000.00</div>
-                    </div>
-                    <button class="btn btn-light btn-sm" onclick="toggleBalanceVisibility('dashBalance')">
-                        <i class="fa-regular fa-eye"></i>
-                    </button>
-                </div>
-                <div class="mt-3 pt-3 border-top d-flex justify-content-between fs-7">
-                    <span class="text-muted">IFSC: <strong id="dashIfsc">SKBI0000001</strong></span>
-                    <a href="accounts.jsp" class="text-decoration-none fw-bold">View Statement <i class="fa-solid fa-arrow-right"></i></a>
-                </div>
+    <!-- Promotional Digital Loan Banner Card -->
+    <div class="sk-card bg-navy text-white mb-4 p-4 border-top border-4 border-warning" style="background: linear-gradient(135deg, #281343 0%, #351A57 100%);">
+        <div class="d-flex justify-content-between align-items-center">
+            <div>
+                <span class="badge bg-warning text-dark fw-bold mb-2">AD • 100% DIGITAL BANKING</span>
+                <h3 class="fw-bold mb-1">Loans &amp; Investments Under 7 mins</h3>
+                <p class="text-white-50 mb-3">Pre-approved instant personal loans &amp; fixed deposits up to ₹ 5,00,000</p>
+                <a href="loans.jsp" class="btn btn-sk-primary btn-sm px-4 fw-bold">Check Eligibility <i class="fa-solid fa-arrow-right ms-1"></i></a>
             </div>
-        </div>
-
-        <div class="col-md-6 col-lg-4">
-            <div class="sk-card">
-                <div class="d-flex justify-content-between align-items-center mb-2">
-                    <span class="text-muted small fw-semibold">UPI PAYMENT VPA</span>
-                    <span class="badge bg-success"><i class="fa-solid fa-qrcode me-1"></i> ACTIVE</span>
-                </div>
-                <div class="fs-5 fw-bold text-dark mb-2" id="dashUpiVpa">user@skbank</div>
-                <p class="small text-muted">Scan &amp; Pay enabled across BHIM, Google Pay, PhonePe &amp; Paytm</p>
-                <div class="mt-3 pt-3 border-top d-flex justify-content-between">
-                    <a href="transfers.jsp" class="btn btn-sm btn-outline-primary"><i class="fa-solid fa-qrcode me-1"></i> My QR Code</a>
-                    <a href="transfers.jsp" class="btn btn-sm btn-sk-primary">Send UPI</a>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-6 col-lg-4">
-            <div class="sk-card">
-                <div class="d-flex justify-content-between align-items-center mb-2">
-                    <span class="text-muted small fw-semibold">ACTIVE CARDS</span>
-                    <span class="badge bg-warning text-dark">DEBIT CARD</span>
-                </div>
-                <div class="fw-bold">Platinum International Debit</div>
-                <div class="small text-muted">Daily ATM Limit: ₹ 25,000</div>
-                <div class="mt-3 pt-3 border-top d-flex justify-content-between align-items-center">
-                    <span class="text-success small"><i class="fa-solid fa-lock-open me-1"></i> Card Unlocked</span>
-                    <a href="cards.jsp" class="btn btn-sm btn-outline-secondary">Manage Cards</a>
-                </div>
+            <div class="d-none d-md-block text-warning fs-1">
+                <i class="fa-solid fa-hand-holding-dollar"></i>
             </div>
         </div>
     </div>
 
-    <!-- Recent Transactions & Quick Actions -->
-    <div class="row g-4">
-        <div class="col-lg-8">
-            <div class="sk-card">
-                <div class="d-flex justify-content-between align-items-center mb-3">
-                    <h5 class="fw-bold mb-0"><i class="fa-solid fa-list-check me-2 text-primary"></i> Recent Transactions</h5>
-                    <a href="accounts.jsp" class="btn btn-sm btn-outline-primary">View All</a>
-                </div>
+    <!-- Section 1: Transfer Money (4 Circular Action Items Grid) -->
+    <div class="mb-4">
+        <h5 class="fw-bold text-white mb-3"><i class="fa-solid fa-money-bill-transfer text-warning me-2"></i> Transfer Money</h5>
 
-                <div class="table-responsive">
-                    <table class="table sk-table mb-0">
-                        <thead>
-                            <tr>
-                                <th>Transaction Ref</th>
-                                <th>Type / Method</th>
-                                <th>Amount</th>
-                                <th>Status</th>
-                                <th>Date</th>
-                            </tr>
-                        </thead>
-                        <tbody id="dashTxnTableBody">
-                            <tr>
-                                <td><span class="fw-bold">TXN20251125001</span></td>
-                                <td>Welcome Credit Deposit</td>
-                                <td><span class="badge-credit">+ ₹ 10,000.00</span></td>
-                                <td><span class="badge bg-success">COMPLETED</span></td>
-                                <td class="small text-muted">Today</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
+        <div class="row g-3 text-center">
+            <div class="col-6 col-md-3">
+                <a href="transfers.jsp" class="text-decoration-none">
+                    <div class="sk-card p-3 h-100 d-flex flex-column align-items-center justify-content-center hover-glow" style="background: #281343;">
+                        <div class="rounded-circle bg-primary bg-opacity-20 text-white fs-3 d-flex align-items-center justify-content-center mb-2" style="width: 56px; height: 56px;">
+                            <i class="fa-solid fa-user"></i>
+                        </div>
+                        <div class="fw-bold text-white fs-7">To Mobile Number</div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col-6 col-md-3">
+                <a href="transfers.jsp" class="text-decoration-none">
+                    <div class="sk-card p-3 h-100 d-flex flex-column align-items-center justify-content-center hover-glow" style="background: #281343;">
+                        <div class="rounded-circle bg-success bg-opacity-20 text-white fs-3 d-flex align-items-center justify-content-center mb-2" style="width: 56px; height: 56px;">
+                            <i class="fa-solid fa-building-columns"></i>
+                        </div>
+                        <div class="fw-bold text-white fs-7">To Bank / UPI ID</div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col-6 col-md-3">
+                <a href="accounts.jsp" class="text-decoration-none">
+                    <div class="sk-card p-3 h-100 d-flex flex-column align-items-center justify-content-center hover-glow" style="background: #281343;">
+                        <div class="rounded-circle bg-warning bg-opacity-20 text-white fs-3 d-flex align-items-center justify-content-center mb-2" style="width: 56px; height: 56px;">
+                            <i class="fa-solid fa-arrows-rotate"></i>
+                        </div>
+                        <div class="fw-bold text-white fs-7">To Self Account</div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col-6 col-md-3">
+                <a href="javascript:void(0)" onclick="toggleBalanceVisibility('dashBalance')" class="text-decoration-none">
+                    <div class="sk-card p-3 h-100 d-flex flex-column align-items-center justify-content-center hover-glow" style="background: #281343;">
+                        <div class="rounded-circle bg-info bg-opacity-20 text-white fs-3 d-flex align-items-center justify-content-center mb-2" style="width: 56px; height: 56px;">
+                            <i class="fa-solid fa-wallet"></i>
+                        </div>
+                        <div class="fw-bold text-white fs-7">Check Bank Balance</div>
+                    </div>
+                </a>
             </div>
         </div>
+    </div>
 
-        <div class="col-lg-4">
-            <!-- Mobile App Download & Update Widget -->
-            <div class="sk-card bg-navy text-white mb-4" style="background: linear-gradient(135deg, #0A192F 0%, #0052CC 100%);">
-                <div class="d-flex align-items-center mb-2">
-                    <i class="fa-brands fa-android text-warning fs-2 me-3"></i>
-                    <div>
-                        <h6 class="fw-bold text-white mb-0">SK Bank Mobile App</h6>
-                        <span class="badge bg-warning text-dark">v1.0.0 Update Available</span>
+    <!-- Section 2: UPI ID Strip & Balance Visibility -->
+    <div class="sk-card mb-4 p-3 d-flex flex-wrap justify-content-between align-items-center" style="background: #281343;">
+        <div class="d-flex align-items-center gap-2">
+            <span class="text-white-50 small">UPI ID:</span>
+            <strong class="text-warning fs-6" id="dashUpiVpa">customer@skbank</strong>
+        </div>
+        <div class="d-flex align-items-center gap-3">
+            <span class="text-white-50 small">Available Balance:</span>
+            <strong class="fs-4 text-white" id="dashBalance">₹ 10,000.00</strong>
+            <button class="btn btn-outline-light btn-sm" onclick="toggleBalanceVisibility('dashBalance')">
+                <i class="fa-regular fa-eye"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- Section 3: Quick Features Cards (SK Wallet, My QR Code, Chat & Send) -->
+    <div class="row g-3 mb-4">
+        <div class="col-md-4">
+            <a href="services.jsp" class="text-decoration-none">
+                <div class="sk-card p-3 text-center" style="background: #281343;">
+                    <i class="fa-solid fa-briefcase text-warning fs-2 mb-2"></i>
+                    <h6 class="fw-bold text-white mb-0">SK Wallet</h6>
+                </div>
+            </a>
+        </div>
+        <div class="col-md-4">
+            <a href="services.jsp" class="text-decoration-none">
+                <div class="sk-card p-3 text-center" style="background: #281343;">
+                    <i class="fa-solid fa-qrcode text-info fs-2 mb-2"></i>
+                    <h6 class="fw-bold text-white mb-0">My Payment QR</h6>
+                </div>
+            </a>
+        </div>
+        <div class="col-md-4">
+            <a href="transfers.jsp" class="text-decoration-none">
+                <div class="sk-card p-3 text-center" style="background: #281343;">
+                    <i class="fa-solid fa-comments text-success fs-2 mb-2"></i>
+                    <h6 class="fw-bold text-white mb-0">Chat &amp; Send Money</h6>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <!-- Section 4: Recharge & Pay Bills Grid -->
+    <div class="mb-4">
+        <h5 class="fw-bold text-white mb-3"><i class="fa-solid fa-bolt-lightning text-warning me-2"></i> Recharge &amp; Pay Bills</h5>
+
+        <div class="row g-3 text-center">
+            <div class="col-6 col-md-3">
+                <a href="services.jsp" class="text-decoration-none">
+                    <div class="sk-card p-3 h-100" style="background: #281343;">
+                        <i class="fa-solid fa-mobile-screen text-warning fs-2 mb-2"></i>
+                        <div class="fw-bold text-white fs-7">Mobile Recharge</div>
                     </div>
-                </div>
-                <p class="small text-white-50 mt-2 mb-3">Install or update the official Android App for instant UPI transfers &amp; biometric login.</p>
-                <a href="download-app.jsp" class="btn btn-sk-accent btn-sm fw-bold w-100"><i class="fa-solid fa-download me-1"></i> Download / Update App</a>
+                </a>
             </div>
 
-            <div class="sk-card mb-4">
-                <h5 class="fw-bold mb-3"><i class="fa-solid fa-bolt me-2 text-warning"></i> Quick Actions</h5>
-                <div class="d-grid gap-2">
-                    <a href="transfers.jsp" class="btn btn-outline-primary text-start py-2"><i class="fa-solid fa-money-bill-transfer me-2"></i> IMPS / NEFT Money Transfer</a>
-                    <a href="loans.jsp" class="btn btn-outline-primary text-start py-2"><i class="fa-solid fa-calculator me-2"></i> Loan EMI Calculator &amp; Apply</a>
-                    <a href="services.jsp" class="btn btn-outline-primary text-start py-2"><i class="fa-solid fa-file-invoice-dollar me-2"></i> Pay Electricity &amp; Utility Bills</a>
-                </div>
+            <div class="col-6 col-md-3">
+                <a href="services.jsp" class="text-decoration-none">
+                    <div class="sk-card p-3 h-100" style="background: #281343;">
+                        <i class="fa-solid fa-car text-info fs-2 mb-2"></i>
+                        <div class="fw-bold text-white fs-7">Buy FASTag</div>
+                    </div>
+                </a>
             </div>
+
+            <div class="col-6 col-md-3">
+                <a href="services.jsp" class="text-decoration-none">
+                    <div class="sk-card p-3 h-100" style="background: #281343;">
+                        <i class="fa-solid fa-satellite-dish text-success fs-2 mb-2"></i>
+                        <div class="fw-bold text-white fs-7">DTH Recharge</div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col-6 col-md-3">
+                <a href="services.jsp" class="text-decoration-none">
+                    <div class="sk-card p-3 h-100" style="background: #281343;">
+                        <i class="fa-solid fa-lightbulb text-warning fs-2 mb-2"></i>
+                        <div class="fw-bold text-white fs-7">Electricity Bill</div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Recent Passbook Transactions Table -->
+    <div class="sk-card" style="background: #281343;">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+            <h5 class="fw-bold text-white mb-0"><i class="fa-solid fa-receipt me-2 text-warning"></i> Recent Passbook Transactions</h5>
+            <a href="accounts.jsp" class="btn btn-sm btn-outline-light">View All</a>
+        </div>
+
+        <div class="table-responsive">
+            <table class="table table-dark table-hover align-middle mb-0">
+                <thead>
+                    <tr>
+                        <th>Transaction Ref</th>
+                        <th>Type / Method</th>
+                        <th>Amount</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody id="dashTxnTableBody">
+                    <tr>
+                        <td class="fw-bold">TXN20251125001</td>
+                        <td>Welcome Credit Deposit</td>
+                        <td class="text-success fw-bold">+ ₹ 10,000.00</td>
+                        <td><span class="badge bg-success">COMPLETED</span></td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </div>
 </div>
@@ -152,7 +224,6 @@ async function loadDashboardData() {
             const acc = data.data[0];
             document.getElementById('dashAccountNo').innerText = acc.accountNumber;
             document.getElementById('dashBalance').innerText = "₹ " + Number(acc.balance).toLocaleString('en-IN', { minimumFractionDigits: 2 });
-            document.getElementById('dashIfsc').innerText = acc.branchIfsc || "SKBI0000001";
         }
     } catch (e) {
         console.error("Error loading dashboard", e);
