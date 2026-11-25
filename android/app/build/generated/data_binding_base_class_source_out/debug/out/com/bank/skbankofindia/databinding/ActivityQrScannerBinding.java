@@ -5,8 +5,10 @@ import android.view.LayoutInflater;
 import android.view.SurfaceView;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
+import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.viewbinding.ViewBinding;
@@ -21,20 +23,65 @@ public final class ActivityQrScannerBinding implements ViewBinding {
   private final RelativeLayout rootView;
 
   @NonNull
-  public final Button btnSimulateScan;
+  public final LinearLayout bottomSheetDrawer;
 
   @NonNull
-  public final Button btnToggleFlash;
+  public final TextView btnBackScanner;
+
+  @NonNull
+  public final TextView btnHelpScanner;
+
+  @NonNull
+  public final TextView btnPickGallery;
+
+  @NonNull
+  public final TextView btnToggleFlash;
+
+  @NonNull
+  public final LinearLayout contactJose;
+
+  @NonNull
+  public final LinearLayout contactJuan;
+
+  @NonNull
+  public final LinearLayout contactManual;
+
+  @NonNull
+  public final LinearLayout contactMaria;
+
+  @NonNull
+  public final LinearLayout contactMarta;
+
+  @NonNull
+  public final EditText etSearchContact;
+
+  @NonNull
+  public final RelativeLayout headerScanner;
 
   @NonNull
   public final SurfaceView svCameraPreview;
 
   private ActivityQrScannerBinding(@NonNull RelativeLayout rootView,
-      @NonNull Button btnSimulateScan, @NonNull Button btnToggleFlash,
+      @NonNull LinearLayout bottomSheetDrawer, @NonNull TextView btnBackScanner,
+      @NonNull TextView btnHelpScanner, @NonNull TextView btnPickGallery,
+      @NonNull TextView btnToggleFlash, @NonNull LinearLayout contactJose,
+      @NonNull LinearLayout contactJuan, @NonNull LinearLayout contactManual,
+      @NonNull LinearLayout contactMaria, @NonNull LinearLayout contactMarta,
+      @NonNull EditText etSearchContact, @NonNull RelativeLayout headerScanner,
       @NonNull SurfaceView svCameraPreview) {
     this.rootView = rootView;
-    this.btnSimulateScan = btnSimulateScan;
+    this.bottomSheetDrawer = bottomSheetDrawer;
+    this.btnBackScanner = btnBackScanner;
+    this.btnHelpScanner = btnHelpScanner;
+    this.btnPickGallery = btnPickGallery;
     this.btnToggleFlash = btnToggleFlash;
+    this.contactJose = contactJose;
+    this.contactJuan = contactJuan;
+    this.contactManual = contactManual;
+    this.contactMaria = contactMaria;
+    this.contactMarta = contactMarta;
+    this.etSearchContact = etSearchContact;
+    this.headerScanner = headerScanner;
     this.svCameraPreview = svCameraPreview;
   }
 
@@ -65,15 +112,75 @@ public final class ActivityQrScannerBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
-      id = R.id.btnSimulateScan;
-      Button btnSimulateScan = ViewBindings.findChildViewById(rootView, id);
-      if (btnSimulateScan == null) {
+      id = R.id.bottomSheetDrawer;
+      LinearLayout bottomSheetDrawer = ViewBindings.findChildViewById(rootView, id);
+      if (bottomSheetDrawer == null) {
+        break missingId;
+      }
+
+      id = R.id.btnBackScanner;
+      TextView btnBackScanner = ViewBindings.findChildViewById(rootView, id);
+      if (btnBackScanner == null) {
+        break missingId;
+      }
+
+      id = R.id.btnHelpScanner;
+      TextView btnHelpScanner = ViewBindings.findChildViewById(rootView, id);
+      if (btnHelpScanner == null) {
+        break missingId;
+      }
+
+      id = R.id.btnPickGallery;
+      TextView btnPickGallery = ViewBindings.findChildViewById(rootView, id);
+      if (btnPickGallery == null) {
         break missingId;
       }
 
       id = R.id.btnToggleFlash;
-      Button btnToggleFlash = ViewBindings.findChildViewById(rootView, id);
+      TextView btnToggleFlash = ViewBindings.findChildViewById(rootView, id);
       if (btnToggleFlash == null) {
+        break missingId;
+      }
+
+      id = R.id.contactJose;
+      LinearLayout contactJose = ViewBindings.findChildViewById(rootView, id);
+      if (contactJose == null) {
+        break missingId;
+      }
+
+      id = R.id.contactJuan;
+      LinearLayout contactJuan = ViewBindings.findChildViewById(rootView, id);
+      if (contactJuan == null) {
+        break missingId;
+      }
+
+      id = R.id.contactManual;
+      LinearLayout contactManual = ViewBindings.findChildViewById(rootView, id);
+      if (contactManual == null) {
+        break missingId;
+      }
+
+      id = R.id.contactMaria;
+      LinearLayout contactMaria = ViewBindings.findChildViewById(rootView, id);
+      if (contactMaria == null) {
+        break missingId;
+      }
+
+      id = R.id.contactMarta;
+      LinearLayout contactMarta = ViewBindings.findChildViewById(rootView, id);
+      if (contactMarta == null) {
+        break missingId;
+      }
+
+      id = R.id.etSearchContact;
+      EditText etSearchContact = ViewBindings.findChildViewById(rootView, id);
+      if (etSearchContact == null) {
+        break missingId;
+      }
+
+      id = R.id.headerScanner;
+      RelativeLayout headerScanner = ViewBindings.findChildViewById(rootView, id);
+      if (headerScanner == null) {
         break missingId;
       }
 
@@ -83,8 +190,10 @@ public final class ActivityQrScannerBinding implements ViewBinding {
         break missingId;
       }
 
-      return new ActivityQrScannerBinding((RelativeLayout) rootView, btnSimulateScan,
-          btnToggleFlash, svCameraPreview);
+      return new ActivityQrScannerBinding((RelativeLayout) rootView, bottomSheetDrawer,
+          btnBackScanner, btnHelpScanner, btnPickGallery, btnToggleFlash, contactJose, contactJuan,
+          contactManual, contactMaria, contactMarta, etSearchContact, headerScanner,
+          svCameraPreview);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

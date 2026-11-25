@@ -22,49 +22,73 @@ public final class ActivityDashboardBinding implements ViewBinding {
   private final RelativeLayout rootView;
 
   @NonNull
-  public final LinearLayout bottomNav;
+  public final RelativeLayout bottomNavContainer;
 
   @NonNull
-  public final Button btnBills;
+  public final Button btnBannerCheck;
 
   @NonNull
-  public final Button btnCards;
+  public final TextView btnCentralScanPay;
 
   @NonNull
-  public final Button btnChat;
+  public final LinearLayout btnChatCard;
 
   @NonNull
-  public final Button btnLoans;
+  public final LinearLayout btnCheckBalance;
 
   @NonNull
-  public final Button btnLogout;
+  public final LinearLayout btnDth;
 
   @NonNull
-  public final Button btnMyQr;
+  public final LinearLayout btnElectricity;
 
   @NonNull
-  public final Button btnPassbook;
+  public final LinearLayout btnFastag;
 
   @NonNull
-  public final Button btnQrPay;
+  public final TextView btnHeaderNotif;
 
   @NonNull
-  public final Button btnSendMoney;
+  public final TextView btnHeaderSearch;
+
+  @NonNull
+  public final TextView btnLogout;
+
+  @NonNull
+  public final LinearLayout btnMobileRecharge;
+
+  @NonNull
+  public final LinearLayout btnMyQrCard;
 
   @NonNull
   public final Button btnToggleBalance;
 
   @NonNull
+  public final LinearLayout btnTransferBank;
+
+  @NonNull
+  public final LinearLayout btnTransferMobile;
+
+  @NonNull
+  public final LinearLayout btnTransferSelf;
+
+  @NonNull
+  public final LinearLayout btnUpiBar;
+
+  @NonNull
+  public final LinearLayout btnWalletCard;
+
+  @NonNull
+  public final Button navBank;
+
+  @NonNull
   public final Button navCards;
 
   @NonNull
-  public final Button navHome;
+  public final Button navLoans;
 
   @NonNull
   public final Button navPassbook;
-
-  @NonNull
-  public final Button navTransfer;
 
   @NonNull
   public final TextView tvDashAccountNo;
@@ -73,38 +97,56 @@ public final class ActivityDashboardBinding implements ViewBinding {
   public final TextView tvDashBalance;
 
   @NonNull
-  public final TextView tvDashIfsc;
+  public final TextView tvProfileAvatar;
+
+  @NonNull
+  public final TextView tvUpiIdDisplay;
 
   @NonNull
   public final TextView tvWelcomeUser;
 
   private ActivityDashboardBinding(@NonNull RelativeLayout rootView,
-      @NonNull LinearLayout bottomNav, @NonNull Button btnBills, @NonNull Button btnCards,
-      @NonNull Button btnChat, @NonNull Button btnLoans, @NonNull Button btnLogout,
-      @NonNull Button btnMyQr, @NonNull Button btnPassbook, @NonNull Button btnQrPay,
-      @NonNull Button btnSendMoney, @NonNull Button btnToggleBalance, @NonNull Button navCards,
-      @NonNull Button navHome, @NonNull Button navPassbook, @NonNull Button navTransfer,
-      @NonNull TextView tvDashAccountNo, @NonNull TextView tvDashBalance,
-      @NonNull TextView tvDashIfsc, @NonNull TextView tvWelcomeUser) {
+      @NonNull RelativeLayout bottomNavContainer, @NonNull Button btnBannerCheck,
+      @NonNull TextView btnCentralScanPay, @NonNull LinearLayout btnChatCard,
+      @NonNull LinearLayout btnCheckBalance, @NonNull LinearLayout btnDth,
+      @NonNull LinearLayout btnElectricity, @NonNull LinearLayout btnFastag,
+      @NonNull TextView btnHeaderNotif, @NonNull TextView btnHeaderSearch,
+      @NonNull TextView btnLogout, @NonNull LinearLayout btnMobileRecharge,
+      @NonNull LinearLayout btnMyQrCard, @NonNull Button btnToggleBalance,
+      @NonNull LinearLayout btnTransferBank, @NonNull LinearLayout btnTransferMobile,
+      @NonNull LinearLayout btnTransferSelf, @NonNull LinearLayout btnUpiBar,
+      @NonNull LinearLayout btnWalletCard, @NonNull Button navBank, @NonNull Button navCards,
+      @NonNull Button navLoans, @NonNull Button navPassbook, @NonNull TextView tvDashAccountNo,
+      @NonNull TextView tvDashBalance, @NonNull TextView tvProfileAvatar,
+      @NonNull TextView tvUpiIdDisplay, @NonNull TextView tvWelcomeUser) {
     this.rootView = rootView;
-    this.bottomNav = bottomNav;
-    this.btnBills = btnBills;
-    this.btnCards = btnCards;
-    this.btnChat = btnChat;
-    this.btnLoans = btnLoans;
+    this.bottomNavContainer = bottomNavContainer;
+    this.btnBannerCheck = btnBannerCheck;
+    this.btnCentralScanPay = btnCentralScanPay;
+    this.btnChatCard = btnChatCard;
+    this.btnCheckBalance = btnCheckBalance;
+    this.btnDth = btnDth;
+    this.btnElectricity = btnElectricity;
+    this.btnFastag = btnFastag;
+    this.btnHeaderNotif = btnHeaderNotif;
+    this.btnHeaderSearch = btnHeaderSearch;
     this.btnLogout = btnLogout;
-    this.btnMyQr = btnMyQr;
-    this.btnPassbook = btnPassbook;
-    this.btnQrPay = btnQrPay;
-    this.btnSendMoney = btnSendMoney;
+    this.btnMobileRecharge = btnMobileRecharge;
+    this.btnMyQrCard = btnMyQrCard;
     this.btnToggleBalance = btnToggleBalance;
+    this.btnTransferBank = btnTransferBank;
+    this.btnTransferMobile = btnTransferMobile;
+    this.btnTransferSelf = btnTransferSelf;
+    this.btnUpiBar = btnUpiBar;
+    this.btnWalletCard = btnWalletCard;
+    this.navBank = navBank;
     this.navCards = navCards;
-    this.navHome = navHome;
+    this.navLoans = navLoans;
     this.navPassbook = navPassbook;
-    this.navTransfer = navTransfer;
     this.tvDashAccountNo = tvDashAccountNo;
     this.tvDashBalance = tvDashBalance;
-    this.tvDashIfsc = tvDashIfsc;
+    this.tvProfileAvatar = tvProfileAvatar;
+    this.tvUpiIdDisplay = tvUpiIdDisplay;
     this.tvWelcomeUser = tvWelcomeUser;
   }
 
@@ -135,63 +177,81 @@ public final class ActivityDashboardBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
-      id = R.id.bottomNav;
-      LinearLayout bottomNav = ViewBindings.findChildViewById(rootView, id);
-      if (bottomNav == null) {
+      id = R.id.bottomNavContainer;
+      RelativeLayout bottomNavContainer = ViewBindings.findChildViewById(rootView, id);
+      if (bottomNavContainer == null) {
         break missingId;
       }
 
-      id = R.id.btnBills;
-      Button btnBills = ViewBindings.findChildViewById(rootView, id);
-      if (btnBills == null) {
+      id = R.id.btnBannerCheck;
+      Button btnBannerCheck = ViewBindings.findChildViewById(rootView, id);
+      if (btnBannerCheck == null) {
         break missingId;
       }
 
-      id = R.id.btnCards;
-      Button btnCards = ViewBindings.findChildViewById(rootView, id);
-      if (btnCards == null) {
+      id = R.id.btnCentralScanPay;
+      TextView btnCentralScanPay = ViewBindings.findChildViewById(rootView, id);
+      if (btnCentralScanPay == null) {
         break missingId;
       }
 
-      id = R.id.btnChat;
-      Button btnChat = ViewBindings.findChildViewById(rootView, id);
-      if (btnChat == null) {
+      id = R.id.btnChatCard;
+      LinearLayout btnChatCard = ViewBindings.findChildViewById(rootView, id);
+      if (btnChatCard == null) {
         break missingId;
       }
 
-      id = R.id.btnLoans;
-      Button btnLoans = ViewBindings.findChildViewById(rootView, id);
-      if (btnLoans == null) {
+      id = R.id.btnCheckBalance;
+      LinearLayout btnCheckBalance = ViewBindings.findChildViewById(rootView, id);
+      if (btnCheckBalance == null) {
+        break missingId;
+      }
+
+      id = R.id.btnDth;
+      LinearLayout btnDth = ViewBindings.findChildViewById(rootView, id);
+      if (btnDth == null) {
+        break missingId;
+      }
+
+      id = R.id.btnElectricity;
+      LinearLayout btnElectricity = ViewBindings.findChildViewById(rootView, id);
+      if (btnElectricity == null) {
+        break missingId;
+      }
+
+      id = R.id.btnFastag;
+      LinearLayout btnFastag = ViewBindings.findChildViewById(rootView, id);
+      if (btnFastag == null) {
+        break missingId;
+      }
+
+      id = R.id.btnHeaderNotif;
+      TextView btnHeaderNotif = ViewBindings.findChildViewById(rootView, id);
+      if (btnHeaderNotif == null) {
+        break missingId;
+      }
+
+      id = R.id.btnHeaderSearch;
+      TextView btnHeaderSearch = ViewBindings.findChildViewById(rootView, id);
+      if (btnHeaderSearch == null) {
         break missingId;
       }
 
       id = R.id.btnLogout;
-      Button btnLogout = ViewBindings.findChildViewById(rootView, id);
+      TextView btnLogout = ViewBindings.findChildViewById(rootView, id);
       if (btnLogout == null) {
         break missingId;
       }
 
-      id = R.id.btnMyQr;
-      Button btnMyQr = ViewBindings.findChildViewById(rootView, id);
-      if (btnMyQr == null) {
+      id = R.id.btnMobileRecharge;
+      LinearLayout btnMobileRecharge = ViewBindings.findChildViewById(rootView, id);
+      if (btnMobileRecharge == null) {
         break missingId;
       }
 
-      id = R.id.btnPassbook;
-      Button btnPassbook = ViewBindings.findChildViewById(rootView, id);
-      if (btnPassbook == null) {
-        break missingId;
-      }
-
-      id = R.id.btnQrPay;
-      Button btnQrPay = ViewBindings.findChildViewById(rootView, id);
-      if (btnQrPay == null) {
-        break missingId;
-      }
-
-      id = R.id.btnSendMoney;
-      Button btnSendMoney = ViewBindings.findChildViewById(rootView, id);
-      if (btnSendMoney == null) {
+      id = R.id.btnMyQrCard;
+      LinearLayout btnMyQrCard = ViewBindings.findChildViewById(rootView, id);
+      if (btnMyQrCard == null) {
         break missingId;
       }
 
@@ -201,27 +261,57 @@ public final class ActivityDashboardBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.btnTransferBank;
+      LinearLayout btnTransferBank = ViewBindings.findChildViewById(rootView, id);
+      if (btnTransferBank == null) {
+        break missingId;
+      }
+
+      id = R.id.btnTransferMobile;
+      LinearLayout btnTransferMobile = ViewBindings.findChildViewById(rootView, id);
+      if (btnTransferMobile == null) {
+        break missingId;
+      }
+
+      id = R.id.btnTransferSelf;
+      LinearLayout btnTransferSelf = ViewBindings.findChildViewById(rootView, id);
+      if (btnTransferSelf == null) {
+        break missingId;
+      }
+
+      id = R.id.btnUpiBar;
+      LinearLayout btnUpiBar = ViewBindings.findChildViewById(rootView, id);
+      if (btnUpiBar == null) {
+        break missingId;
+      }
+
+      id = R.id.btnWalletCard;
+      LinearLayout btnWalletCard = ViewBindings.findChildViewById(rootView, id);
+      if (btnWalletCard == null) {
+        break missingId;
+      }
+
+      id = R.id.navBank;
+      Button navBank = ViewBindings.findChildViewById(rootView, id);
+      if (navBank == null) {
+        break missingId;
+      }
+
       id = R.id.navCards;
       Button navCards = ViewBindings.findChildViewById(rootView, id);
       if (navCards == null) {
         break missingId;
       }
 
-      id = R.id.navHome;
-      Button navHome = ViewBindings.findChildViewById(rootView, id);
-      if (navHome == null) {
+      id = R.id.navLoans;
+      Button navLoans = ViewBindings.findChildViewById(rootView, id);
+      if (navLoans == null) {
         break missingId;
       }
 
       id = R.id.navPassbook;
       Button navPassbook = ViewBindings.findChildViewById(rootView, id);
       if (navPassbook == null) {
-        break missingId;
-      }
-
-      id = R.id.navTransfer;
-      Button navTransfer = ViewBindings.findChildViewById(rootView, id);
-      if (navTransfer == null) {
         break missingId;
       }
 
@@ -237,9 +327,15 @@ public final class ActivityDashboardBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.tvDashIfsc;
-      TextView tvDashIfsc = ViewBindings.findChildViewById(rootView, id);
-      if (tvDashIfsc == null) {
+      id = R.id.tvProfileAvatar;
+      TextView tvProfileAvatar = ViewBindings.findChildViewById(rootView, id);
+      if (tvProfileAvatar == null) {
+        break missingId;
+      }
+
+      id = R.id.tvUpiIdDisplay;
+      TextView tvUpiIdDisplay = ViewBindings.findChildViewById(rootView, id);
+      if (tvUpiIdDisplay == null) {
         break missingId;
       }
 
@@ -249,10 +345,12 @@ public final class ActivityDashboardBinding implements ViewBinding {
         break missingId;
       }
 
-      return new ActivityDashboardBinding((RelativeLayout) rootView, bottomNav, btnBills, btnCards,
-          btnChat, btnLoans, btnLogout, btnMyQr, btnPassbook, btnQrPay, btnSendMoney,
-          btnToggleBalance, navCards, navHome, navPassbook, navTransfer, tvDashAccountNo,
-          tvDashBalance, tvDashIfsc, tvWelcomeUser);
+      return new ActivityDashboardBinding((RelativeLayout) rootView, bottomNavContainer,
+          btnBannerCheck, btnCentralScanPay, btnChatCard, btnCheckBalance, btnDth, btnElectricity,
+          btnFastag, btnHeaderNotif, btnHeaderSearch, btnLogout, btnMobileRecharge, btnMyQrCard,
+          btnToggleBalance, btnTransferBank, btnTransferMobile, btnTransferSelf, btnUpiBar,
+          btnWalletCard, navBank, navCards, navLoans, navPassbook, tvDashAccountNo, tvDashBalance,
+          tvProfileAvatar, tvUpiIdDisplay, tvWelcomeUser);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

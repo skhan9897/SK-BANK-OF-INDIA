@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -27,7 +28,8 @@ public class QrScannerActivity extends AppCompatActivity implements SurfaceHolde
     private SurfaceHolder surfaceHolder;
     private Camera camera;
 
-    private Button btnToggleFlash, btnSimulateScan;
+    private TextView btnBackScanner, btnPickGallery, btnToggleFlash;
+    private android.view.View contactJuan, contactMaria, contactManual, contactMarta, contactJose;
     private boolean isFlashOn = false;
 
     @Override
@@ -36,16 +38,31 @@ public class QrScannerActivity extends AppCompatActivity implements SurfaceHolde
         setContentView(R.layout.activity_qr_scanner);
 
         svCameraPreview = findViewById(R.id.svCameraPreview);
+        btnBackScanner = findViewById(R.id.btnBackScanner);
+        btnPickGallery = findViewById(R.id.btnPickGallery);
         btnToggleFlash = findViewById(R.id.btnToggleFlash);
-        btnSimulateScan = findViewById(R.id.btnSimulateScan);
+
+        contactJuan = findViewById(R.id.contactJuan);
+        contactMaria = findViewById(R.id.contactMaria);
+        contactManual = findViewById(R.id.contactManual);
+        contactMarta = findViewById(R.id.contactMarta);
+        contactJose = findViewById(R.id.contactJose);
+
+        if (btnBackScanner != null) btnBackScanner.setOnClickListener(v -> finish());
+        if (btnPickGallery != null) btnPickGallery.setOnClickListener(v -> Toast.makeText(this, "Select QR Image from Gallery Active", Toast.LENGTH_SHORT).show());
+        if (btnToggleFlash != null) btnToggleFlash.setOnClickListener(v -> toggleFlashlight());
+
+        // Quick Send Contacts Listeners
+        if (contactJuan != null) contactJuan.setOnClickListener(v -> launchScanResult("juan@skbank"));
+        if (contactMaria != null) contactMaria.setOnClickListener(v -> launchScanResult("maria@skbank"));
+        if (contactManual != null) contactManual.setOnClickListener(v -> launchScanResult("manual@skbank"));
+        if (contactMarta != null) contactMarta.setOnClickListener(v -> launchScanResult("marta@skbank"));
+        if (contactJose != null) contactJose.setOnClickListener(v -> launchScanResult("josediaz@skbank"));
 
         if (svCameraPreview != null) {
             surfaceHolder = svCameraPreview.getHolder();
             surfaceHolder.addCallback(this);
         }
-
-        btnToggleFlash.setOnClickListener(v -> toggleFlashlight());
-        btnSimulateScan.setOnClickListener(v -> launchScanResult("customer1@skbank"));
 
         checkCameraPermission();
     }

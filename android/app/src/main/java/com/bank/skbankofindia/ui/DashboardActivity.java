@@ -23,9 +23,14 @@ import retrofit2.Response;
 
 public class DashboardActivity extends AppCompatActivity {
 
-    private TextView tvDashBalance, tvDashAccountNo, tvWelcomeUser;
-    private Button btnToggleBalance, btnSendMoney, btnLogout, btnPassbook, btnCards, btnLoans, btnBills, btnQrPay, btnMyQr, btnChat;
-    private Button navHome, navTransfer, navCards, navPassbook;
+    private TextView tvDashBalance, tvDashAccountNo, tvWelcomeUser, tvProfileAvatar, tvUpiIdDisplay;
+    private Button btnToggleBalance;
+    private TextView btnLogout, btnHeaderSearch, btnHeaderNotif, btnCentralScanPay;
+    private android.view.View btnTransferMobile, btnTransferBank, btnTransferSelf, btnCheckBalance;
+    private android.view.View btnWalletCard, btnMyQrCard, btnChatCard;
+    private android.view.View btnMobileRecharge, btnFastag, btnDth, btnElectricity;
+    private Button navBank, navCards, navLoans, navPassbook;
+
     private SessionManager sessionManager;
     private boolean isBalanceHidden = false;
     private String realBalance = "0.00";
@@ -40,53 +45,52 @@ public class DashboardActivity extends AppCompatActivity {
         tvDashBalance = findViewById(R.id.tvDashBalance);
         tvDashAccountNo = findViewById(R.id.tvDashAccountNo);
         tvWelcomeUser = findViewById(R.id.tvWelcomeUser);
+        tvProfileAvatar = findViewById(R.id.tvProfileAvatar);
+        tvUpiIdDisplay = findViewById(R.id.tvUpiIdDisplay);
 
-        btnSendMoney = findViewById(R.id.btnSendMoney);
-        btnLogout = findViewById(R.id.btnLogout);
         btnToggleBalance = findViewById(R.id.btnToggleBalance);
-        btnPassbook = findViewById(R.id.btnPassbook);
-        btnCards = findViewById(R.id.btnCards);
-        btnLoans = findViewById(R.id.btnLoans);
-        btnBills = findViewById(R.id.btnBills);
-        btnQrPay = findViewById(R.id.btnQrPay);
-        btnMyQr = findViewById(R.id.btnMyQr);
-        btnChat = findViewById(R.id.btnChat);
+        btnLogout = findViewById(R.id.btnLogout);
+        btnHeaderSearch = findViewById(R.id.btnHeaderSearch);
+        btnHeaderNotif = findViewById(R.id.btnHeaderNotif);
+        btnCentralScanPay = findViewById(R.id.btnCentralScanPay);
 
-        navHome = findViewById(R.id.navHome);
-        navTransfer = findViewById(R.id.navTransfer);
+        btnTransferMobile = findViewById(R.id.btnTransferMobile);
+        btnTransferBank = findViewById(R.id.btnTransferBank);
+        btnTransferSelf = findViewById(R.id.btnTransferSelf);
+        btnCheckBalance = findViewById(R.id.btnCheckBalance);
+
+        btnWalletCard = findViewById(R.id.btnWalletCard);
+        btnMyQrCard = findViewById(R.id.btnMyQrCard);
+        btnChatCard = findViewById(R.id.btnChatCard);
+
+        btnMobileRecharge = findViewById(R.id.btnMobileRecharge);
+        btnFastag = findViewById(R.id.btnFastag);
+        btnDth = findViewById(R.id.btnDth);
+        btnElectricity = findViewById(R.id.btnElectricity);
+
+        navBank = findViewById(R.id.navBank);
         navCards = findViewById(R.id.navCards);
+        navLoans = findViewById(R.id.navLoans);
         navPassbook = findViewById(R.id.navPassbook);
 
-        if (btnSendMoney != null) {
-            btnSendMoney.setOnClickListener(v -> startActivity(new Intent(this, TransferActivity.class)));
-        }
+        // Set Click Listeners
+        if (btnTransferMobile != null) btnTransferMobile.setOnClickListener(v -> startActivity(new Intent(this, TransferActivity.class)));
+        if (btnTransferBank != null) btnTransferBank.setOnClickListener(v -> startActivity(new Intent(this, TransferActivity.class)));
+        if (btnTransferSelf != null) btnTransferSelf.setOnClickListener(v -> startActivity(new Intent(this, TransferActivity.class)));
+        if (btnCheckBalance != null) btnCheckBalance.setOnClickListener(v -> toggleBalance());
 
-        if (btnQrPay != null) {
-            btnQrPay.setOnClickListener(v -> startActivity(new Intent(this, QrScannerActivity.class)));
-        }
+        if (btnCentralScanPay != null) btnCentralScanPay.setOnClickListener(v -> startActivity(new Intent(this, QrScannerActivity.class)));
 
-        if (btnMyQr != null) {
-            btnMyQr.setOnClickListener(v -> startActivity(new Intent(this, MyQrActivity.class)));
-        }
+        if (btnWalletCard != null) btnWalletCard.setOnClickListener(v -> Toast.makeText(this, "SK Bank Wallet Active", Toast.LENGTH_SHORT).show());
+        if (btnMyQrCard != null) btnMyQrCard.setOnClickListener(v -> startActivity(new Intent(this, MyQrActivity.class)));
+        if (btnChatCard != null) btnChatCard.setOnClickListener(v -> startActivity(new Intent(this, ChatActivity.class)));
 
-        if (btnChat != null) {
-            btnChat.setOnClickListener(v -> startActivity(new Intent(this, ChatActivity.class)));
-        }
-
-        if (btnPassbook != null) {
-            btnPassbook.setOnClickListener(v -> startActivity(new Intent(this, PassbookActivity.class)));
-        }
-
-        if (btnCards != null) {
-            btnCards.setOnClickListener(v -> startActivity(new Intent(this, CardsActivity.class)));
-        }
-
-        if (btnLoans != null) {
-            btnLoans.setOnClickListener(v -> startActivity(new Intent(this, LoansActivity.class)));
-        }
-
-        if (btnBills != null) {
-            btnBills.setOnClickListener(v -> Toast.makeText(this, "Utility Bill Payments & Mobile Recharge Active", Toast.LENGTH_SHORT).show());
+        if (btnMobileRecharge != null || btnFastag != null || btnDth != null || btnElectricity != null) {
+            android.view.View.OnClickListener billListener = v -> Toast.makeText(this, "Utility Bill Payments & Recharge Active", Toast.LENGTH_SHORT).show();
+            if (btnMobileRecharge != null) btnMobileRecharge.setOnClickListener(billListener);
+            if (btnFastag != null) btnFastag.setOnClickListener(billListener);
+            if (btnDth != null) btnDth.setOnClickListener(billListener);
+            if (btnElectricity != null) btnElectricity.setOnClickListener(billListener);
         }
 
         if (btnLogout != null) {
@@ -102,8 +106,9 @@ public class DashboardActivity extends AppCompatActivity {
         }
 
         // Bottom Navigation Listeners
-        if (navTransfer != null) navTransfer.setOnClickListener(v -> startActivity(new Intent(this, TransferActivity.class)));
+        if (navBank != null) navBank.setOnClickListener(v -> fetchAccountsFromBackend());
         if (navCards != null) navCards.setOnClickListener(v -> startActivity(new Intent(this, CardsActivity.class)));
+        if (navLoans != null) navLoans.setOnClickListener(v -> startActivity(new Intent(this, LoansActivity.class)));
         if (navPassbook != null) navPassbook.setOnClickListener(v -> startActivity(new Intent(this, PassbookActivity.class)));
 
         fetchAccountsFromBackend();
@@ -174,13 +179,13 @@ public class DashboardActivity extends AppCompatActivity {
                 if (response.isSuccessful() && response.body() != null && response.body().isSuccess()) {
                     JsonObject data = response.body().getData().getAsJsonObject();
                     int latestCode = data.has("latestVersionCode") ? data.get("latestVersionCode").getAsInt() : 1;
-                    String latestName = data.has("latestVersionName") ? data.get("latestVersionName").getAsString() : "1.1.0";
+                    String latestName = data.has("latestVersionName") ? data.get("latestVersionName").getAsString() : "1.3.0";
                     String notes = data.has("releaseNotes") ? data.get("releaseNotes").getAsString() : "New features and performance improvements.";
                     String downloadUrl = data.has("downloadUrl") ? data.get("downloadUrl").getAsString() : ApiClient.WEBSITE_DOWNLOAD_URL;
                     boolean mandatory = data.has("mandatoryUpdate") && data.get("mandatoryUpdate").getAsBoolean();
 
-                    if (latestCode > getInstalledVersionCode()) {
-                        showInAppUpdateDialog(latestName, notes, downloadUrl, mandatory);
+                    if (latestCode > getInstalledVersionCode() && latestCode > sessionManager.getDismissedUpdateVersionCode()) {
+                        showInAppUpdateDialog(latestName, notes, downloadUrl, mandatory, latestCode);
                     }
                 }
             }
@@ -192,19 +197,23 @@ public class DashboardActivity extends AppCompatActivity {
         });
     }
 
-    private void showInAppUpdateDialog(String versionName, String releaseNotes, String downloadUrl, boolean mandatory) {
+    private void showInAppUpdateDialog(String versionName, String releaseNotes, String downloadUrl, boolean mandatory, int latestCode) {
         if (isFinishing()) return;
         AlertDialog.Builder builder = new AlertDialog.Builder(this)
                 .setTitle("New Update Available (v" + versionName + ")")
                 .setMessage("SK Payment Bank has a new version available. Update now to get the latest features and improvements.\n\nWhat's New:\n" + releaseNotes)
                 .setCancelable(!mandatory)
                 .setPositiveButton("Update Now", (dialog, which) -> {
+                    sessionManager.setDismissedUpdateVersionCode(latestCode);
                     Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(downloadUrl));
                     startActivity(intent);
                 });
 
         if (!mandatory) {
-            builder.setNegativeButton("Later", (dialog, which) -> dialog.dismiss());
+            builder.setNegativeButton("Later", (dialog, which) -> {
+                sessionManager.setDismissedUpdateVersionCode(latestCode);
+                dialog.dismiss();
+            });
         }
 
         builder.show();

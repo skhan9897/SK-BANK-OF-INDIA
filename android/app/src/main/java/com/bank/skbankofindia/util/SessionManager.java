@@ -44,6 +44,14 @@ public class SessionManager {
     public String getBalance() { return prefs.getString(KEY_BALANCE, "10000.00"); }
     public String getUsername() { return prefs.getString(KEY_USERNAME, "Customer"); }
 
+    public void setDismissedUpdateVersionCode(int versionCode) {
+        prefs.edit().putInt("dismissed_update_version_code", versionCode).apply();
+    }
+
+    public int getDismissedUpdateVersionCode() {
+        return prefs.getInt("dismissed_update_version_code", 0);
+    }
+
     public void clearSession() {
         prefs.edit().clear().apply();
     }

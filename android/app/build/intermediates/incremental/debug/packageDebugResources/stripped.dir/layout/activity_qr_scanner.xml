@@ -2,30 +2,62 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#0A192F">
+    android:background="@color/sk_dark_bg">
 
-    <!-- Camera Viewport Overlay Frame -->
-    <LinearLayout
+    <!-- Top Header Bar -->
+    <RelativeLayout
+        android:id="@+id/headerScanner"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:gravity="center"
-        android:padding="20dp">
+        android:layout_height="56dp"
+        android:background="@color/sk_dark_bg"
+        android:paddingHorizontal="16dp"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:id="@+id/btnBackScanner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="←"
+            android:textColor="#FFFFFF"
+            android:textSize="24sp"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Align QR Code within Frame"
+            android:text="Scan any QR"
             android:textColor="#FFFFFF"
             android:textSize="18sp"
             android:textStyle="bold"
-            android:layout_marginBottom="24dp" />
+            android:layout_centerInParent="true" />
 
-        <!-- Scanner Square Frame with Live Camera SurfaceView -->
+        <TextView
+            android:id="@+id/btnHelpScanner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="❓"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true" />
+
+    </RelativeLayout>
+
+    <!-- Main Scanner Viewfinder Area -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/headerScanner"
+        android:layout_above="@id/bottomSheetDrawer"
+        android:orientation="vertical"
+        android:gravity="center">
+
+        <!-- Purple Border Frame with SurfaceView -->
         <FrameLayout
-            android:layout_width="260dp"
-            android:layout_height="260dp"
-            android:background="@android:drawable/dialog_holo_light_frame"
+            android:layout_width="280dp"
+            android:layout_height="280dp"
+            android:background="@color/sk_card_bg"
             android:padding="4dp"
             android:layout_marginBottom="24dp">
 
@@ -34,47 +66,234 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
 
+            <!-- Scanner Line -->
             <View
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
-                android:background="#FF9933"
+                android:background="@color/sk_purple_glow"
                 android:layout_gravity="center" />
 
         </FrameLayout>
 
+        <!-- Gallery & Flashlight Action Controls -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/btnPickGallery"
+                android:layout_width="52dp"
+                android:layout_height="52dp"
+                android:background="@color/sk_card_bg"
+                android:text="🖼️"
+                android:gravity="center"
+                android:textSize="22sp"
+                android:textColor="#FFFFFF"
+                android:layout_marginEnd="20dp" />
+
+            <TextView
+                android:id="@+id/btnToggleFlash"
+                android:layout_width="52dp"
+                android:layout_height="52dp"
+                android:background="@color/sk_card_bg"
+                android:text="⚡"
+                android:gravity="center"
+                android:textSize="22sp"
+                android:textColor="#FFFFFF" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <!-- Bottom Sheet Drawer (Quick Send) -->
+    <LinearLayout
+        android:id="@+id/bottomSheetDrawer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical"
+        android:background="@color/sk_card_bg"
+        android:padding="20dp">
+
+        <!-- Pull Handle -->
+        <View
+            android:layout_width="40dp"
+            android:layout_height="4dp"
+            android:background="@color/sk_text_muted"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Search Mobile Number or Name Box -->
+        <EditText
+            android:id="@+id/etSearchContact"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:hint="Enter mobile number or name"
+            android:textColorHint="@color/sk_text_muted"
+            android:textColor="#FFFFFF"
+            android:textSize="14sp"
+            android:paddingHorizontal="16dp"
+            android:background="@color/sk_card_light"
+            android:layout_marginBottom="20dp" />
+
+        <!-- Quick Send Section -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="SK Bank of India Scan &amp; Pay Engine Active"
-            android:textColor="#FF9933"
-            android:textSize="12sp"
-            android:layout_marginBottom="28dp" />
+            android:text="Quick Send"
+            android:textColor="#FFFFFF"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="14dp" />
 
-        <LinearLayout
+        <!-- Horizontal Contacts Avatars -->
+        <HorizontalScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center">
+            android:scrollbars="none">
 
-            <Button
-                android:id="@+id/btnToggleFlash"
+            <LinearLayout
                 android:layout_width="wrap_content"
-                android:layout_height="48dp"
-                android:text="Flash On/Off 💡"
-                android:backgroundTint="#0052CC"
-                android:textColor="#FFFFFF"
-                android:layout_marginEnd="10dp" />
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
 
-            <Button
-                android:id="@+id/btnSimulateScan"
-                android:layout_width="wrap_content"
-                android:layout_height="48dp"
-                android:text="Scan Test QR 🔍"
-                android:backgroundTint="#FF9933"
-                android:textColor="#000000"
-                android:textStyle="bold" />
+                <LinearLayout
+                    android:id="@+id/contactJuan"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:layout_marginEnd="16dp">
 
-        </LinearLayout>
+                    <TextView
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:background="#00D2FF"
+                        android:text="JA"
+                        android:textColor="#FFFFFF"
+                        android:textStyle="bold"
+                        android:gravity="center"
+                        android:textSize="16sp"
+                        android:layout_marginBottom="4dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Juan"
+                        android:textColor="#FFFFFF"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/contactMaria"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:layout_marginEnd="16dp">
+
+                    <TextView
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:background="#E91E63"
+                        android:text="MA"
+                        android:textColor="#FFFFFF"
+                        android:textStyle="bold"
+                        android:gravity="center"
+                        android:textSize="16sp"
+                        android:layout_marginBottom="4dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Maria"
+                        android:textColor="#FFFFFF"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/contactManual"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:layout_marginEnd="16dp">
+
+                    <TextView
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:background="@color/sk_gold"
+                        android:text="MG"
+                        android:textColor="#000000"
+                        android:textStyle="bold"
+                        android:gravity="center"
+                        android:textSize="16sp"
+                        android:layout_marginBottom="4dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Manual"
+                        android:textColor="#FFFFFF"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/contactMarta"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:layout_marginEnd="16dp">
+
+                    <TextView
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:background="#9C27B0"
+                        android:text="MR"
+                        android:textColor="#FFFFFF"
+                        android:textStyle="bold"
+                        android:gravity="center"
+                        android:textSize="16sp"
+                        android:layout_marginBottom="4dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Marta"
+                        android:textColor="#FFFFFF"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/contactJose"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center">
+
+                    <TextView
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:background="#00BFA5"
+                        android:text="JS"
+                        android:textColor="#FFFFFF"
+                        android:textStyle="bold"
+                        android:gravity="center"
+                        android:textSize="16sp"
+                        android:layout_marginBottom="4dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Jose Diaz"
+                        android:textColor="#FFFFFF"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
+            </LinearLayout>
+        </HorizontalScrollView>
 
     </LinearLayout>
 
