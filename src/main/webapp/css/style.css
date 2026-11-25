@@ -1,0 +1,198 @@
+/* ==============================================================================
+   SK BANK OF INDIA - PREMIUM BANKING STYLESHEET
+   ============================================================================== */
+
+:root {
+    --sk-primary: #0A192F;
+    --sk-secondary: #0052CC;
+    --sk-accent: #D4AF37;
+    --sk-success: #00B8D9;
+    --sk-bg-light: #F4F6F9;
+    --sk-card-bg: #FFFFFF;
+    --sk-text-dark: #172B4D;
+    --sk-text-muted: #6B778C;
+    --sk-font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+body {
+    font-family: var(--sk-font-family);
+    background-color: var(--sk-bg-light);
+    color: var(--sk-text-dark);
+    margin: 0;
+    padding: 0;
+}
+
+/* Navbar */
+.sk-navbar {
+    background-color: var(--sk-primary);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.sk-navbar .navbar-brand {
+    font-weight: 700;
+    font-size: 1.4rem;
+    color: #FFFFFF !important;
+    letter-spacing: 0.5px;
+}
+
+.sk-navbar .navbar-brand span {
+    color: var(--sk-accent);
+}
+
+.sk-navbar .nav-link {
+    color: rgba(255, 255, 255, 0.85) !important;
+    font-weight: 500;
+    margin: 0 5px;
+    transition: all 0.2s ease;
+}
+
+.sk-navbar .nav-link:hover, .sk-navbar .nav-link.active {
+    color: var(--sk-accent) !important;
+}
+
+/* Hero Section */
+.sk-hero {
+    background: linear-gradient(135deg, #0A192F 0%, #0052CC 100%);
+    color: #FFFFFF;
+    padding: 80px 0;
+    border-bottom: 4px solid var(--sk-accent);
+}
+
+.sk-hero h1 {
+    font-weight: 800;
+    font-size: 2.8rem;
+    line-height: 1.2;
+}
+
+/* Cards & Widgets */
+.sk-card {
+    background: var(--sk-card-bg);
+    border-radius: 12px;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+    padding: 24px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.sk-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+.sk-credit-card {
+    background: linear-gradient(135deg, #0A192F 0%, #1A365D 100%);
+    color: #FFFFFF;
+    border-radius: 16px;
+    padding: 25px;
+    box-shadow: 0 10px 25px rgba(10, 25, 47, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.sk-credit-card::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -20%;
+    width: 250px;
+    height: 250px;
+    background: radial-gradient(circle, rgba(212, 175, 55, 0.15) 0%, transparent 70%);
+    border-radius: 50%;
+}
+
+.sk-credit-card .chip {
+    width: 45px;
+    height: 32px;
+    background: #D4AF37;
+    border-radius: 6px;
+    margin-bottom: 20px;
+}
+
+/* Buttons */
+.btn-sk-primary {
+    background-color: var(--sk-secondary);
+    color: #FFFFFF;
+    font-weight: 600;
+    border-radius: 8px;
+    padding: 10px 24px;
+    border: none;
+    transition: background-color 0.2s ease;
+}
+
+.btn-sk-primary:hover {
+    background-color: #003D99;
+    color: #FFFFFF;
+}
+
+.btn-sk-accent {
+    background-color: var(--sk-accent);
+    color: var(--sk-primary);
+    font-weight: 700;
+    border-radius: 8px;
+    padding: 10px 24px;
+    border: none;
+}
+
+.btn-sk-accent:hover {
+    background-color: #B59326;
+    color: var(--sk-primary);
+}
+
+/* Tables */
+.sk-table {
+    background: #FFFFFF;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.sk-table th {
+    background-color: #F8FAFC;
+    color: var(--sk-text-muted);
+    font-weight: 600;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-bottom: 1px solid #E2E8F0;
+    padding: 14px 18px;
+}
+
+.sk-table td {
+    padding: 14px 18px;
+    vertical-align: middle;
+    border-bottom: 1px solid #F1F5F9;
+    font-size: 0.95rem;
+}
+
+/* Badges */
+.badge-debit {
+    background-color: #FFEBE6;
+    color: #DE350B;
+    font-weight: 600;
+    padding: 6px 12px;
+    border-radius: 20px;
+}
+
+.badge-credit {
+    background-color: #E3FCEF;
+    color: #006644;
+    font-weight: 600;
+    padding: 6px 12px;
+    border-radius: 20px;
+}
+
+/* Footer */
+footer {
+    background-color: var(--sk-primary);
+    color: rgba(255, 255, 255, 0.7);
+    padding: 40px 0 20px;
+    margin-top: 60px;
+}
+
+footer a {
+    color: rgba(255, 255, 255, 0.85);
+    text-decoration: none;
+}
+
+footer a:hover {
+    color: var(--sk-accent);
+}
