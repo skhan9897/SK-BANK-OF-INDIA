@@ -20,6 +20,7 @@ com\bank\skbankofindia\service\AdminService.class
 com\bank\skbankofindia\util\JsonResponse.class
 com\bank\skbankofindia\dao\CustomerDAO.class
 com\bank\skbankofindia\service\AuthService.class
+com\bank\skbankofindia\config\AppEventListener.class
 com\bank\skbankofindia\servlet\AppServlet.class
 com\bank\skbankofindia\servlet\NotificationServlet.class
 com\bank\skbankofindia\servlet\AuthServlet.class
@@ -33,3 +34,4 @@ com\bank\skbankofindia\dao\UserDAO.class
 com\bank\skbankofindia\model\Transaction.class
 com\bank\skbankofindia\servlet\ApkDownloadServlet.class
 com\bank\skbankofindia\util\IDGenerator.class
+com\bank\skbankofindia\servlet\HealthServlet.class

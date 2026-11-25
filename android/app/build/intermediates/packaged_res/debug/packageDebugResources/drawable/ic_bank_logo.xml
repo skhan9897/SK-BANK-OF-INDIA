@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="120dp"
+    android:height="120dp"
+    android:viewportWidth="100"
+    android:viewportHeight="100">
+
+    <!-- Outer Circular Tricolor Wave Background -->
+    <!-- Saffron Top Wave -->
+    <path
+        android:fillColor="#FF9933"
+        android:pathData="M10,50 A40,40 0 0,1 90,50 Z" />
+
+    <!-- Green Bottom Wave -->
+    <path
+        android:fillColor="#138808"
+        android:pathData="M10,50 A40,40 0 0,0 90,50 Z" />
+
+    <!-- White Middle Wave Band -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M15,40 C35,30 65,70 85,60 C85,50 85,50 85,40 Z" />
+
+    <!-- Center Navy Ring -->
+    <path
+        android:fillColor="#0A192F"
+        android:pathData="M50,50m-30,0a30,30 0 1,1 60,0a30,30 0 1,1 -60,0" />
+
+    <!-- Gold Bank Pillars Emblem -->
+    <!-- Pediment (Roof) -->
+    <path
+        android:fillColor="#D4AF37"
+        android:pathData="M50,30 L32,40 L68,40 Z" />
+
+    <!-- 4 Pillars -->
+    <path
+        android:fillColor="#D4AF37"
+        android:pathData="M35,42 H39 V62 H35 Z M45,42 H49 V62 H45 Z M55,42 H59 V62 H55 Z M65,42 H69 V62 H65 Z" />
+
+    <!-- Base -->
+    <path
+        android:fillColor="#D4AF37"
+        android:pathData="M30,64 H70 V68 H30 Z" />
+
+</vector>

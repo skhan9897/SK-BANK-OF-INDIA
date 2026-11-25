@@ -18,24 +18,27 @@ android {
 
     signingConfigs {
         release {
-            storeFile file('skbank_release.keystore')
-            storePassword 'SKBankReleaseKey2025!'
-            keyAlias 'skbank_official'
-            keyPassword 'SKBankReleaseKey2025!'
-            v1SigningEnabled true
-            v2SigningEnabled true
+            if (file('skbank_release.keystore').exists()) {
+                storeFile file('skbank_release.keystore')
+                storePassword 'SKBankReleaseKey2025!'
+                keyAlias 'skbank_official'
+                keyPassword 'SKBankReleaseKey2025!'
+                v1SigningEnabled true
+                v2SigningEnabled true
+            }
         }
     }
 
     buildTypes {
         release {
-            minifyEnabled true
-            shrinkResources true
-            signingConfig signingConfigs.release
+            minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            if (file('skbank_release.keystore').exists()) {
+                signingConfig signingConfigs.release
+            }
         }
         debug {
-            signingConfig signingConfigs.release
+            // uses default debug signing
         }
     }
 

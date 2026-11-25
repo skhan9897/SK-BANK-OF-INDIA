@@ -1,0 +1,34 @@
+[
+    {
+        "merged": "com.bank.skbankofindia.app-mergeDebugResources-39:/layout/activity_loans.xml",
+        "source": "com.bank.skbankofindia.app-main-42:/layout/activity_loans.xml"
+    },
+    {
+        "merged": "com.bank.skbankofindia.app-mergeDebugResources-39:/layout/activity_cards.xml",
+        "source": "com.bank.skbankofindia.app-main-42:/layout/activity_cards.xml"
+    },
+    {
+        "merged": "com.bank.skbankofindia.app-mergeDebugResources-39:/layout/activity_transfer.xml",
+        "source": "com.bank.skbankofindia.app-main-42:/layout/activity_transfer.xml"
+    },
+    {
+        "merged": "com.bank.skbankofindia.app-mergeDebugResources-39:/layout/activity_splash.xml",
+        "source": "com.bank.skbankofindia.app-main-42:/layout/activity_splash.xml"
+    },
+    {
+        "merged": "com.bank.skbankofindia.app-mergeDebugResources-39:/layout/activity_dashboard.xml",
+        "source": "com.bank.skbankofindia.app-main-42:/layout/activity_dashboard.xml"
+    },
+    {
+        "merged": "com.bank.skbankofindia.app-mergeDebugResources-39:/layout/activity_login.xml",
+        "source": "com.bank.skbankofindia.app-main-42:/layout/activity_login.xml"
+    },
+    {
+        "merged": "com.bank.skbankofindia.app-mergeDebugResources-39:/layout/activity_register.xml",
+        "source": "com.bank.skbankofindia.app-main-42:/layout/activity_register.xml"
+    },
+    {
+        "merged": "com.bank.skbankofindia.app-mergeDebugResources-39:/layout/activity_passbook.xml",
+        "source": "com.bank.skbankofindia.app-main-42:/layout/activity_passbook.xml"
+    }
+]
