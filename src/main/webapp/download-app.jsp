@@ -84,7 +84,9 @@ function triggerPwaInstall() {
             deferredPrompt = null;
         });
     } else {
-        alert('To Install: Tap your browser menu (3 dots) and select "Add to Home screen" or "Install app".');
+        if (confirm('PWA Instant Install prompt is supported on Android Mobile browsers.\n\nTo install Instant Web App manually: Tap browser menu (3 dots) -> "Add to Home screen" / "Install app".\n\nWould you like to download the direct Android APK file (SKBankOfIndia.apk) now instead?')) {
+            window.location.href = '${pageContext.request.contextPath}/downloads/SKBankOfIndia.apk';
+        }
     }
 }
 </script>
