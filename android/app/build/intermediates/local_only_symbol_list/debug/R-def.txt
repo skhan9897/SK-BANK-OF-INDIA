@@ -46,6 +46,7 @@ id btnFastag
 id btnFinalRegister
 id btnFingerprintLogin
 id btnGenerateOtp
+id btnGeneratePin
 id btnHeaderNotif
 id btnHeaderSearch
 id btnHelpScanner

@@ -260,7 +260,7 @@ async function handleFundTransfer() {
     try {
         const payload = {
             sourceAccountId: sourceAccountId,
-            destinationAccountId: 1, // Default receiver in sandbox
+            destinationAccount: destinationAccount,
             amount: amount,
             paymentMethod: method,
             remarks: remarks || "Instant Transfer"

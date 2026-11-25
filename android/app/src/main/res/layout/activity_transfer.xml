@@ -48,8 +48,18 @@
         android:id="@+id/btnConfirm"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:text="Confirm &amp; Authorize"
-        android:backgroundTint="#0052CC"
+        android:text="Confirm &amp; Authorize Payment"
+        android:backgroundTint="#FF9933"
+        android:textColor="#000000"
+        android:textStyle="bold"
+        android:layout_marginBottom="12dp" />
+
+    <Button
+        android:id="@+id/btnGeneratePin"
+        android:layout_width="match_parent"
+        android:layout_height="46dp"
+        android:text="🔑 Generate / Set Transaction PIN"
+        android:backgroundTint="#0B1F3A"
         android:textColor="#FFFFFF" />
 
 </LinearLayout>

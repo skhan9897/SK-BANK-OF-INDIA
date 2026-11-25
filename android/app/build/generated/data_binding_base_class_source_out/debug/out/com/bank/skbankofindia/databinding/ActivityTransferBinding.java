@@ -24,6 +24,9 @@ public final class ActivityTransferBinding implements ViewBinding {
   public final Button btnConfirm;
 
   @NonNull
+  public final Button btnGeneratePin;
+
+  @NonNull
   public final EditText etAmount;
 
   @NonNull
@@ -33,9 +36,11 @@ public final class ActivityTransferBinding implements ViewBinding {
   public final EditText etPin;
 
   private ActivityTransferBinding(@NonNull LinearLayout rootView, @NonNull Button btnConfirm,
-      @NonNull EditText etAmount, @NonNull EditText etDestination, @NonNull EditText etPin) {
+      @NonNull Button btnGeneratePin, @NonNull EditText etAmount, @NonNull EditText etDestination,
+      @NonNull EditText etPin) {
     this.rootView = rootView;
     this.btnConfirm = btnConfirm;
+    this.btnGeneratePin = btnGeneratePin;
     this.etAmount = etAmount;
     this.etDestination = etDestination;
     this.etPin = etPin;
@@ -74,6 +79,12 @@ public final class ActivityTransferBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.btnGeneratePin;
+      Button btnGeneratePin = ViewBindings.findChildViewById(rootView, id);
+      if (btnGeneratePin == null) {
+        break missingId;
+      }
+
       id = R.id.etAmount;
       EditText etAmount = ViewBindings.findChildViewById(rootView, id);
       if (etAmount == null) {
@@ -92,8 +103,8 @@ public final class ActivityTransferBinding implements ViewBinding {
         break missingId;
       }
 
-      return new ActivityTransferBinding((LinearLayout) rootView, btnConfirm, etAmount,
-          etDestination, etPin);
+      return new ActivityTransferBinding((LinearLayout) rootView, btnConfirm, btnGeneratePin,
+          etAmount, etDestination, etPin);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

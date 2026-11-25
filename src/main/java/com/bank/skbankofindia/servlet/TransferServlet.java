@@ -1,7 +1,10 @@
 package com.bank.skbankofindia.servlet;
 
+import com.bank.skbankofindia.dao.BankAccountDAO;
+import com.bank.skbankofindia.model.BankAccount;
 import com.bank.skbankofindia.model.Transaction;
 import com.bank.skbankofindia.service.LedgerService;
+import com.bank.skbankofindia.service.UpiService;
 import com.bank.skbankofindia.util.JsonResponse;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -36,12 +39,42 @@ public class TransferServlet extends HttpServlet {
             Map<String, Object> body = parseJsonBody(req);
 
             long sourceAccountId = Long.parseLong(body.get("sourceAccountId").toString());
-            long destinationAccountId = Long.parseLong(body.get("destinationAccountId").toString());
             BigDecimal amount = new BigDecimal(body.get("amount").toString());
             String paymentMethod = (String) body.getOrDefault("paymentMethod", "INTERNAL");
             String remarks = (String) body.getOrDefault("remarks", "Fund Transfer");
 
-            Transaction txn = ledgerService.processFundTransfer(sourceAccountId, destinationAccountId, amount, paymentMethod, remarks, userId);
+            String destInput = body.containsKey("destinationAccount") ? body.get("destinationAccount").toString().trim() :
+                    (body.containsKey("destinationAccountNo") ? body.get("destinationAccountNo").toString().trim() : null);
+
+            Transaction txn;
+
+            if ("UPI".equalsIgnoreCase(paymentMethod) || (destInput != null && destInput.contains("@"))) {
+                UpiService upiService = new UpiService();
+                txn = upiService.processQrPayment(userId, destInput != null ? destInput : "priya@skbank", amount, remarks);
+            } else {
+                long destinationAccountId = 0L;
+                if (body.containsKey("destinationAccountId") && body.get("destinationAccountId") != null) {
+                    try {
+                        destinationAccountId = Long.parseLong(body.get("destinationAccountId").toString());
+                    } catch (Exception ignored) {}
+                }
+
+                if (destinationAccountId == 0L && destInput != null) {
+                    BankAccountDAO bankAccountDAO = new BankAccountDAO();
+                    BankAccount destAcc = bankAccountDAO.findByAccountNumber(destInput);
+                    if (destAcc != null) {
+                        destinationAccountId = destAcc.getAccountId();
+                    } else {
+                        throw new IllegalArgumentException("Destination bank account not found: " + destInput);
+                    }
+                }
+
+                if (destinationAccountId == 0L) {
+                    throw new IllegalArgumentException("Destination account ID or number is required.");
+                }
+
+                txn = ledgerService.processFundTransfer(sourceAccountId, destinationAccountId, amount, paymentMethod, remarks, userId);
+            }
 
             resp.setStatus(HttpServletResponse.SC_OK);
             resp.getWriter().write(objectMapper.writeValueAsString(JsonResponse.success("Fund transfer executed successfully", txn)));
