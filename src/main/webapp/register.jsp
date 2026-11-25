@@ -256,7 +256,7 @@ async function sendOtpAndProceed() {
     if (!validateStep(3)) return;
 
     const email = document.getElementById('regEmail').value.trim();
-    showTricolorLoadingOverlay("Sending Verification OTP...");
+    showLoadingOverlay("Sending Instant Verification OTP...");
 
     try {
         const response = await fetch('/SKBankOfIndia/api/v1/auth/send-otp', {
@@ -300,7 +300,7 @@ async function handleFinalAccountOpening() {
         pincode: document.getElementById('regPincode').value.trim()
     };
 
-    showTricolorLoadingOverlay("Verifying OTP & Generating Savings Account...");
+    showLoadingOverlay("Verifying OTP & Opening Savings Account...");
 
     try {
         const response = await fetch('/SKBankOfIndia/api/v1/auth/register', {
@@ -329,26 +329,8 @@ async function handleFinalAccountOpening() {
         }
     } catch (err) {
         hideLoadingOverlay();
-        alertDiv.innerText = "Network failure while opening account. Please try again.";
+        alertDiv.innerText = "Network connection timeout while opening account. Please try again.";
         alertDiv.classList.remove('d-none');
-    }
-}
-
-function showTricolorLoadingOverlay(msg) {
-    let overlay = document.getElementById('skTricolorLoadingOverlay');
-    if (!overlay) {
-        overlay = document.createElement('div');
-        overlay.id = 'skTricolorLoadingOverlay';
-        overlay.className = 'sk-loading-overlay';
-        overlay.innerHTML = `
-            <div class="tricolor-spinner mb-3"></div>
-            <h4 class="fw-bold text-white mb-2" id="skTricolorTitle">${msg}</h4>
-            <p class="text-warning small mb-0"><i class="fa-solid fa-shield-halved me-1"></i> SK Bank Digital Ledger Processing...</p>
-        `;
-        document.body.appendChild(overlay);
-    } else {
-        document.getElementById('skTricolorTitle').innerText = msg;
-        overlay.style.display = 'flex';
     }
 }
 </script>

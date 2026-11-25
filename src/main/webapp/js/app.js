@@ -49,7 +49,7 @@ function showLoadingOverlay(message = "Processing Transaction...") {
         overlay.id = 'skLoadingOverlay';
         overlay.className = 'sk-loading-overlay';
         overlay.innerHTML = `
-            <div class="sk-spinner mb-3"></div>
+            <div class="tricolor-spinner mb-3"></div>
             <h4 class="fw-bold text-white mb-2" id="skLoadingTitle">Processing Transaction</h4>
             <p class="text-warning small mb-0" id="skLoadingSub"><i class="fa-solid fa-lock me-1"></i> Securing Double-Entry Ledger Entry...</p>
         `;
@@ -58,12 +58,21 @@ function showLoadingOverlay(message = "Processing Transaction...") {
         document.getElementById('skLoadingTitle').innerText = message;
         overlay.style.display = 'flex';
     }
+
+    // Safety timeout: Auto-hide after 5 seconds max if backend responds slowly
+    setTimeout(() => {
+        hideLoadingOverlay();
+    }, 5000);
 }
 
 function hideLoadingOverlay() {
     const overlay = document.getElementById('skLoadingOverlay');
     if (overlay) {
         overlay.style.display = 'none';
+    }
+    const tricolorOverlay = document.getElementById('skTricolorLoadingOverlay');
+    if (tricolorOverlay) {
+        tricolorOverlay.style.display = 'none';
     }
 }
 
