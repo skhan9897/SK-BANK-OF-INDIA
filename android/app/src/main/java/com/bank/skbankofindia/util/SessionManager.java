@@ -59,4 +59,17 @@ public class SessionManager {
     public boolean isLoggedIn() {
         return getAuthToken() != null;
     }
+
+    public void savePin(String pin) {
+        prefs.edit().putString("user_pin", pin).apply();
+    }
+    public String getPin() {
+        return prefs.getString("user_pin", null);
+    }
+    public void setBiometricEnabled(boolean enabled) {
+        prefs.edit().putBoolean("biometric_enabled", enabled).apply();
+    }
+    public boolean isBiometricEnabled() {
+        return prefs.getBoolean("biometric_enabled", false);
+    }
 }

@@ -3,13 +3,17 @@ package com.bank.skbankofindia.ui;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.biometric.BiometricPrompt;
+import androidx.core.content.ContextCompat;
 
 import com.bank.skbankofindia.R;
 import com.bank.skbankofindia.api.ApiClient;
@@ -45,9 +49,18 @@ public class LoginActivity extends AppCompatActivity {
         etIdentifier = findViewById(R.id.etIdentifier);
         etPassword = findViewById(R.id.etPassword);
         btnLogin = findViewById(R.id.btnLogin);
+        Button btnOtpLogin = findViewById(R.id.btnOtpLogin);
+        Button btnFingerprintLogin = findViewById(R.id.btnFingerprintLogin);
         tvGoRegister = findViewById(R.id.tvGoRegister);
 
         btnLogin.setOnClickListener(v -> performLogin());
+        btnOtpLogin.setOnClickListener(v -> startActivity(new Intent(this, OtpLoginActivity.class)));
+
+        if (sessionManager.isBiometricEnabled()) {
+            btnFingerprintLogin.setVisibility(View.VISIBLE);
+            btnFingerprintLogin.setOnClickListener(v -> authenticateWithFingerprint());
+        }
+
         if (tvGoRegister != null) {
             tvGoRegister.setOnClickListener(v -> startActivity(new Intent(this, RegisterActivity.class)));
         }
@@ -138,5 +151,32 @@ public class LoginActivity extends AppCompatActivity {
                 Toast.makeText(LoginActivity.this, "Unable to connect to SK Bank server: " + t.getMessage(), Toast.LENGTH_LONG).show();
             }
         });
+    }
+
+    private void authenticateWithFingerprint() {
+        BiometricPrompt.PromptInfo promptInfo = new BiometricPrompt.PromptInfo.Builder()
+                .setTitle("SK Bank Fingerprint Login")
+                .setSubtitle("Touch the fingerprint sensor to log in securely")
+                .setNegativeButtonText("Cancel")
+                .build();
+
+        BiometricPrompt biometricPrompt = new BiometricPrompt(this, ContextCompat.getMainExecutor(this), new BiometricPrompt.AuthenticationCallback() {
+            @Override
+            public void onAuthenticationSucceeded(@NonNull BiometricPrompt.AuthenticationResult result) {
+                super.onAuthenticationSucceeded(result);
+                Toast.makeText(LoginActivity.this, "Fingerprint Login Successful!", Toast.LENGTH_SHORT).show();
+                sessionManager.saveAuthToken("demo_token_biometric");
+                startActivity(new Intent(LoginActivity.this, DashboardActivity.class));
+                finish();
+            }
+
+            @Override
+            public void onAuthenticationFailed() {
+                super.onAuthenticationFailed();
+                Toast.makeText(LoginActivity.this, "Fingerprint authentication failed", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        biometricPrompt.authenticate(promptInfo);
     }
 }

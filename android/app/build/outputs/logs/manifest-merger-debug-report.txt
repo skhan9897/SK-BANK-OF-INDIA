@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\Sajid Khan\OneDrive\Documents\NetBeansProjects\SKBankOfIndia\android\app\src\main\AndroidManifest.xml:2:1-52:12
-INJECTED from C:\Users\Sajid Khan\OneDrive\Documents\NetBeansProjects\SKBankOfIndia\android\app\src\main\AndroidManifest.xml:2:1-52:12
-INJECTED from C:\Users\Sajid Khan\OneDrive\Documents\NetBeansProjects\SKBankOfIndia\android\app\src\main\AndroidManifest.xml:2:1-52:12
-INJECTED from C:\Users\Sajid Khan\OneDrive\Documents\NetBeansProjects\SKBankOfIndia\android\app\src\main\AndroidManifest.xml:2:1-52:12
+ADDED from C:\Users\Sajid Khan\OneDrive\Documents\NetBeansProjects\SKBankOfIndia\android\app\src\main\AndroidManifest.xml:2:1-54:12
+INJECTED from C:\Users\Sajid Khan\OneDrive\Documents\NetBeansProjects\SKBankOfIndia\android\app\src\main\AndroidManifest.xml:2:1-54:12
+INJECTED from C:\Users\Sajid Khan\OneDrive\Documents\NetBeansProjects\SKBankOfIndia\android\app\src\main\AndroidManifest.xml:2:1-54:12
+INJECTED from C:\Users\Sajid Khan\OneDrive\Documents\NetBeansProjects\SKBankOfIndia\android\app\src\main\AndroidManifest.xml:2:1-54:12
 MERGED from [androidx.databinding:viewbinding:8.2.2] C:\Users\Sajid Khan\.gradle\caches\transforms-3\6e283455aa44dde7a12b4aba9d25f127\transformed\jetified-viewbinding-8.2.2\AndroidManifest.xml:2:1-7:12
 MERGED from [com.google.android.material:material:1.11.0] C:\Users\Sajid Khan\.gradle\caches\transforms-3\2b09c2cd4192fe4b7b686a651ae8eff3\transformed\material-1.11.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.constraintlayout:constraintlayout:2.1.4] C:\Users\Sajid Khan\.gradle\caches\transforms-3\80bc2211690f56e6063d66d7e4cf0117\transformed\constraintlayout-2.1.4\AndroidManifest.xml:2:1-11:12
@@ -118,8 +118,8 @@ MERGED from [com.google.firebase:firebase-messaging:23.4.0] C:\Users\Sajid Khan\
 	android:name
 		ADDED from C:\Users\Sajid Khan\OneDrive\Documents\NetBeansProjects\SKBankOfIndia\android\app\src\main\AndroidManifest.xml:8:22-74
 application
-ADDED from C:\Users\Sajid Khan\OneDrive\Documents\NetBeansProjects\SKBankOfIndia\android\app\src\main\AndroidManifest.xml:10:5-50:19
-INJECTED from C:\Users\Sajid Khan\OneDrive\Documents\NetBeansProjects\SKBankOfIndia\android\app\src\main\AndroidManifest.xml:10:5-50:19
+ADDED from C:\Users\Sajid Khan\OneDrive\Documents\NetBeansProjects\SKBankOfIndia\android\app\src\main\AndroidManifest.xml:10:5-52:19
+INJECTED from C:\Users\Sajid Khan\OneDrive\Documents\NetBeansProjects\SKBankOfIndia\android\app\src\main\AndroidManifest.xml:10:5-52:19
 MERGED from [com.google.android.material:material:1.11.0] C:\Users\Sajid Khan\.gradle\caches\transforms-3\2b09c2cd4192fe4b7b686a651ae8eff3\transformed\material-1.11.0\AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.material:material:1.11.0] C:\Users\Sajid Khan\.gradle\caches\transforms-3\2b09c2cd4192fe4b7b686a651ae8eff3\transformed\material-1.11.0\AndroidManifest.xml:22:5-20
 MERGED from [androidx.constraintlayout:constraintlayout:2.1.4] C:\Users\Sajid Khan\.gradle\caches\transforms-3\80bc2211690f56e6063d66d7e4cf0117\transformed\constraintlayout-2.1.4\AndroidManifest.xml:9:5-20
@@ -212,72 +212,84 @@ ADDED from C:\Users\Sajid Khan\OneDrive\Documents\NetBeansProjects\SKBankOfIndia
 		ADDED from C:\Users\Sajid Khan\OneDrive\Documents\NetBeansProjects\SKBankOfIndia\android\app\src\main\AndroidManifest.xml:30:55-79
 	android:name
 		ADDED from C:\Users\Sajid Khan\OneDrive\Documents\NetBeansProjects\SKBankOfIndia\android\app\src\main\AndroidManifest.xml:30:19-54
+activity#com.bank.skbankofindia.ui.OtpLoginActivity
+ADDED from C:\Users\Sajid Khan\OneDrive\Documents\NetBeansProjects\SKBankOfIndia\android\app\src\main\AndroidManifest.xml:31:9-82
+	android:exported
+		ADDED from C:\Users\Sajid Khan\OneDrive\Documents\NetBeansProjects\SKBankOfIndia\android\app\src\main\AndroidManifest.xml:31:55-79
+	android:name
+		ADDED from C:\Users\Sajid Khan\OneDrive\Documents\NetBeansProjects\SKBankOfIndia\android\app\src\main\AndroidManifest.xml:31:19-54
+activity#com.bank.skbankofindia.ui.SetPinActivity
+ADDED from C:\Users\Sajid Khan\OneDrive\Documents\NetBeansProjects\SKBankOfIndia\android\app\src\main\AndroidManifest.xml:32:9-80
+	android:exported
+		ADDED from C:\Users\Sajid Khan\OneDrive\Documents\NetBeansProjects\SKBankOfIndia\android\app\src\main\AndroidManifest.xml:32:53-77
+	android:name
+		ADDED from C:\Users\Sajid Khan\OneDrive\Documents\NetBeansProjects\SKBankOfIndia\android\app\src\main\AndroidManifest.xml:32:19-52
 activity#com.bank.skbankofindia.ui.DashboardActivity
-ADDED from C:\Users\Sajid Khan\OneDrive\Documents\NetBeansProjects\SKBankOfIndia\android\app\src\main\AndroidManifest.xml:31:9-83
+ADDED from C:\Users\Sajid Khan\OneDrive\Documents\NetBeansProjects\SKBankOfIndia\android\app\src\main\AndroidManifest.xml:33:9-83
 	android:exported
-		ADDED from C:\Users\Sajid Khan\OneDrive\Documents\NetBeansProjects\SKBankOfIndia\android\app\src\main\AndroidManifest.xml:31:56-80
+		ADDED from C:\Users\Sajid Khan\OneDrive\Documents\NetBeansProjects\SKBankOfIndia\android\app\src\main\AndroidManifest.xml:33:56-80
 	android:name
-		ADDED from C:\Users\Sajid Khan\OneDrive\Documents\NetBeansProjects\SKBankOfIndia\android\app\src\main\AndroidManifest.xml:31:19-55
+		ADDED from C:\Users\Sajid Khan\OneDrive\Documents\NetBeansProjects\SKBankOfIndia\android\app\src\main\AndroidManifest.xml:33:19-55
 activity#com.bank.skbankofindia.ui.TransferActivity
-ADDED from C:\Users\Sajid Khan\OneDrive\Documents\NetBeansProjects\SKBankOfIndia\android\app\src\main\AndroidManifest.xml:32:9-82
-	android:exported
-		ADDED from C:\Users\Sajid Khan\OneDrive\Documents\NetBeansProjects\SKBankOfIndia\android\app\src\main\AndroidManifest.xml:32:55-79
-	android:name
-		ADDED from C:\Users\Sajid Khan\OneDrive\Documents\NetBeansProjects\SKBankOfIndia\android\app\src\main\AndroidManifest.xml:32:19-54
-activity#com.bank.skbankofindia.ui.CardsActivity
-ADDED from C:\Users\Sajid Khan\OneDrive\Documents\NetBeansProjects\SKBankOfIndia\android\app\src\main\AndroidManifest.xml:33:9-79
-	android:exported
-		ADDED from C:\Users\Sajid Khan\OneDrive\Documents\NetBeansProjects\SKBankOfIndia\android\app\src\main\AndroidManifest.xml:33:52-76
-	android:name
-		ADDED from C:\Users\Sajid Khan\OneDrive\Documents\NetBeansProjects\SKBankOfIndia\android\app\src\main\AndroidManifest.xml:33:19-51
-activity#com.bank.skbankofindia.ui.PassbookActivity
 ADDED from C:\Users\Sajid Khan\OneDrive\Documents\NetBeansProjects\SKBankOfIndia\android\app\src\main\AndroidManifest.xml:34:9-82
 	android:exported
 		ADDED from C:\Users\Sajid Khan\OneDrive\Documents\NetBeansProjects\SKBankOfIndia\android\app\src\main\AndroidManifest.xml:34:55-79
 	android:name
 		ADDED from C:\Users\Sajid Khan\OneDrive\Documents\NetBeansProjects\SKBankOfIndia\android\app\src\main\AndroidManifest.xml:34:19-54
-activity#com.bank.skbankofindia.ui.LoansActivity
+activity#com.bank.skbankofindia.ui.CardsActivity
 ADDED from C:\Users\Sajid Khan\OneDrive\Documents\NetBeansProjects\SKBankOfIndia\android\app\src\main\AndroidManifest.xml:35:9-79
 	android:exported
 		ADDED from C:\Users\Sajid Khan\OneDrive\Documents\NetBeansProjects\SKBankOfIndia\android\app\src\main\AndroidManifest.xml:35:52-76
 	android:name
 		ADDED from C:\Users\Sajid Khan\OneDrive\Documents\NetBeansProjects\SKBankOfIndia\android\app\src\main\AndroidManifest.xml:35:19-51
+activity#com.bank.skbankofindia.ui.PassbookActivity
+ADDED from C:\Users\Sajid Khan\OneDrive\Documents\NetBeansProjects\SKBankOfIndia\android\app\src\main\AndroidManifest.xml:36:9-82
+	android:exported
+		ADDED from C:\Users\Sajid Khan\OneDrive\Documents\NetBeansProjects\SKBankOfIndia\android\app\src\main\AndroidManifest.xml:36:55-79
+	android:name
+		ADDED from C:\Users\Sajid Khan\OneDrive\Documents\NetBeansProjects\SKBankOfIndia\android\app\src\main\AndroidManifest.xml:36:19-54
+activity#com.bank.skbankofindia.ui.LoansActivity
+ADDED from C:\Users\Sajid Khan\OneDrive\Documents\NetBeansProjects\SKBankOfIndia\android\app\src\main\AndroidManifest.xml:37:9-79
+	android:exported
+		ADDED from C:\Users\Sajid Khan\OneDrive\Documents\NetBeansProjects\SKBankOfIndia\android\app\src\main\AndroidManifest.xml:37:52-76
+	android:name
+		ADDED from C:\Users\Sajid Khan\OneDrive\Documents\NetBeansProjects\SKBankOfIndia\android\app\src\main\AndroidManifest.xml:37:19-51
 activity#com.bank.skbankofindia.ui.QrScannerActivity
-ADDED from C:\Users\Sajid Khan\OneDrive\Documents\NetBeansProjects\SKBankOfIndia\android\app\src\main\AndroidManifest.xml:36:9-83
+ADDED from C:\Users\Sajid Khan\OneDrive\Documents\NetBeansProjects\SKBankOfIndia\android\app\src\main\AndroidManifest.xml:38:9-83
 	android:exported
-		ADDED from C:\Users\Sajid Khan\OneDrive\Documents\NetBeansProjects\SKBankOfIndia\android\app\src\main\AndroidManifest.xml:36:56-80
+		ADDED from C:\Users\Sajid Khan\OneDrive\Documents\NetBeansProjects\SKBankOfIndia\android\app\src\main\AndroidManifest.xml:38:56-80
 	android:name
-		ADDED from C:\Users\Sajid Khan\OneDrive\Documents\NetBeansProjects\SKBankOfIndia\android\app\src\main\AndroidManifest.xml:36:19-55
+		ADDED from C:\Users\Sajid Khan\OneDrive\Documents\NetBeansProjects\SKBankOfIndia\android\app\src\main\AndroidManifest.xml:38:19-55
 activity#com.bank.skbankofindia.ui.MyQrActivity
-ADDED from C:\Users\Sajid Khan\OneDrive\Documents\NetBeansProjects\SKBankOfIndia\android\app\src\main\AndroidManifest.xml:37:9-78
-	android:exported
-		ADDED from C:\Users\Sajid Khan\OneDrive\Documents\NetBeansProjects\SKBankOfIndia\android\app\src\main\AndroidManifest.xml:37:51-75
-	android:name
-		ADDED from C:\Users\Sajid Khan\OneDrive\Documents\NetBeansProjects\SKBankOfIndia\android\app\src\main\AndroidManifest.xml:37:19-50
-activity#com.bank.skbankofindia.ui.ScanPayConfirmActivity
-ADDED from C:\Users\Sajid Khan\OneDrive\Documents\NetBeansProjects\SKBankOfIndia\android\app\src\main\AndroidManifest.xml:38:9-88
-	android:exported
-		ADDED from C:\Users\Sajid Khan\OneDrive\Documents\NetBeansProjects\SKBankOfIndia\android\app\src\main\AndroidManifest.xml:38:61-85
-	android:name
-		ADDED from C:\Users\Sajid Khan\OneDrive\Documents\NetBeansProjects\SKBankOfIndia\android\app\src\main\AndroidManifest.xml:38:19-60
-activity#com.bank.skbankofindia.ui.ChatActivity
 ADDED from C:\Users\Sajid Khan\OneDrive\Documents\NetBeansProjects\SKBankOfIndia\android\app\src\main\AndroidManifest.xml:39:9-78
 	android:exported
 		ADDED from C:\Users\Sajid Khan\OneDrive\Documents\NetBeansProjects\SKBankOfIndia\android\app\src\main\AndroidManifest.xml:39:51-75
 	android:name
 		ADDED from C:\Users\Sajid Khan\OneDrive\Documents\NetBeansProjects\SKBankOfIndia\android\app\src\main\AndroidManifest.xml:39:19-50
-service#com.bank.skbankofindia.util.MyFirebaseMessagingService
-ADDED from C:\Users\Sajid Khan\OneDrive\Documents\NetBeansProjects\SKBankOfIndia\android\app\src\main\AndroidManifest.xml:42:9-48:19
+activity#com.bank.skbankofindia.ui.ScanPayConfirmActivity
+ADDED from C:\Users\Sajid Khan\OneDrive\Documents\NetBeansProjects\SKBankOfIndia\android\app\src\main\AndroidManifest.xml:40:9-88
 	android:exported
-		ADDED from C:\Users\Sajid Khan\OneDrive\Documents\NetBeansProjects\SKBankOfIndia\android\app\src\main\AndroidManifest.xml:44:13-37
+		ADDED from C:\Users\Sajid Khan\OneDrive\Documents\NetBeansProjects\SKBankOfIndia\android\app\src\main\AndroidManifest.xml:40:61-85
 	android:name
-		ADDED from C:\Users\Sajid Khan\OneDrive\Documents\NetBeansProjects\SKBankOfIndia\android\app\src\main\AndroidManifest.xml:43:13-60
+		ADDED from C:\Users\Sajid Khan\OneDrive\Documents\NetBeansProjects\SKBankOfIndia\android\app\src\main\AndroidManifest.xml:40:19-60
+activity#com.bank.skbankofindia.ui.ChatActivity
+ADDED from C:\Users\Sajid Khan\OneDrive\Documents\NetBeansProjects\SKBankOfIndia\android\app\src\main\AndroidManifest.xml:41:9-78
+	android:exported
+		ADDED from C:\Users\Sajid Khan\OneDrive\Documents\NetBeansProjects\SKBankOfIndia\android\app\src\main\AndroidManifest.xml:41:51-75
+	android:name
+		ADDED from C:\Users\Sajid Khan\OneDrive\Documents\NetBeansProjects\SKBankOfIndia\android\app\src\main\AndroidManifest.xml:41:19-50
+service#com.bank.skbankofindia.util.MyFirebaseMessagingService
+ADDED from C:\Users\Sajid Khan\OneDrive\Documents\NetBeansProjects\SKBankOfIndia\android\app\src\main\AndroidManifest.xml:44:9-50:19
+	android:exported
+		ADDED from C:\Users\Sajid Khan\OneDrive\Documents\NetBeansProjects\SKBankOfIndia\android\app\src\main\AndroidManifest.xml:46:13-37
+	android:name
+		ADDED from C:\Users\Sajid Khan\OneDrive\Documents\NetBeansProjects\SKBankOfIndia\android\app\src\main\AndroidManifest.xml:45:13-60
 intent-filter#action:name:com.google.firebase.MESSAGING_EVENT
-ADDED from C:\Users\Sajid Khan\OneDrive\Documents\NetBeansProjects\SKBankOfIndia\android\app\src\main\AndroidManifest.xml:45:13-47:29
+ADDED from C:\Users\Sajid Khan\OneDrive\Documents\NetBeansProjects\SKBankOfIndia\android\app\src\main\AndroidManifest.xml:47:13-49:29
 action#com.google.firebase.MESSAGING_EVENT
-ADDED from C:\Users\Sajid Khan\OneDrive\Documents\NetBeansProjects\SKBankOfIndia\android\app\src\main\AndroidManifest.xml:46:17-78
+ADDED from C:\Users\Sajid Khan\OneDrive\Documents\NetBeansProjects\SKBankOfIndia\android\app\src\main\AndroidManifest.xml:48:17-78
 	android:name
-		ADDED from C:\Users\Sajid Khan\OneDrive\Documents\NetBeansProjects\SKBankOfIndia\android\app\src\main\AndroidManifest.xml:46:25-75
+		ADDED from C:\Users\Sajid Khan\OneDrive\Documents\NetBeansProjects\SKBankOfIndia\android\app\src\main\AndroidManifest.xml:48:25-75
 uses-sdk
 INJECTED from C:\Users\Sajid Khan\OneDrive\Documents\NetBeansProjects\SKBankOfIndia\android\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from C:\Users\Sajid Khan\OneDrive\Documents\NetBeansProjects\SKBankOfIndia\android\app\src\main\AndroidManifest.xml

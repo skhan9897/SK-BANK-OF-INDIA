@@ -22,7 +22,13 @@ public final class ActivityLoginBinding implements ViewBinding {
   private final LinearLayout rootView;
 
   @NonNull
+  public final Button btnFingerprintLogin;
+
+  @NonNull
   public final Button btnLogin;
+
+  @NonNull
+  public final Button btnOtpLogin;
 
   @NonNull
   public final EditText etIdentifier;
@@ -33,11 +39,13 @@ public final class ActivityLoginBinding implements ViewBinding {
   @NonNull
   public final TextView tvGoRegister;
 
-  private ActivityLoginBinding(@NonNull LinearLayout rootView, @NonNull Button btnLogin,
-      @NonNull EditText etIdentifier, @NonNull EditText etPassword,
-      @NonNull TextView tvGoRegister) {
+  private ActivityLoginBinding(@NonNull LinearLayout rootView, @NonNull Button btnFingerprintLogin,
+      @NonNull Button btnLogin, @NonNull Button btnOtpLogin, @NonNull EditText etIdentifier,
+      @NonNull EditText etPassword, @NonNull TextView tvGoRegister) {
     this.rootView = rootView;
+    this.btnFingerprintLogin = btnFingerprintLogin;
     this.btnLogin = btnLogin;
+    this.btnOtpLogin = btnOtpLogin;
     this.etIdentifier = etIdentifier;
     this.etPassword = etPassword;
     this.tvGoRegister = tvGoRegister;
@@ -70,9 +78,21 @@ public final class ActivityLoginBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
+      id = R.id.btnFingerprintLogin;
+      Button btnFingerprintLogin = ViewBindings.findChildViewById(rootView, id);
+      if (btnFingerprintLogin == null) {
+        break missingId;
+      }
+
       id = R.id.btnLogin;
       Button btnLogin = ViewBindings.findChildViewById(rootView, id);
       if (btnLogin == null) {
+        break missingId;
+      }
+
+      id = R.id.btnOtpLogin;
+      Button btnOtpLogin = ViewBindings.findChildViewById(rootView, id);
+      if (btnOtpLogin == null) {
         break missingId;
       }
 
@@ -94,8 +114,8 @@ public final class ActivityLoginBinding implements ViewBinding {
         break missingId;
       }
 
-      return new ActivityLoginBinding((LinearLayout) rootView, btnLogin, etIdentifier, etPassword,
-          tvGoRegister);
+      return new ActivityLoginBinding((LinearLayout) rootView, btnFingerprintLogin, btnLogin,
+          btnOtpLogin, etIdentifier, etPassword, tvGoRegister);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

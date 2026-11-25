@@ -3234,6 +3234,7 @@ id bounceBoth
 id bounceEnd
 id bounceStart
 id btnApplyLoan
+id btnAuthorizeFingerprint
 id btnAutoFillOtp
 id btnBackScanner
 id btnBannerCheck
@@ -3241,6 +3242,7 @@ id btnCentralScanPay
 id btnChatCard
 id btnChatSendMoney
 id btnCheckBalance
+id btnCompleteSetup
 id btnConfirm
 id btnConfirmPay
 id btnDownloadQr
@@ -3248,6 +3250,8 @@ id btnDth
 id btnElectricity
 id btnFastag
 id btnFinalRegister
+id btnFingerprintLogin
+id btnGenerateOtp
 id btnHeaderNotif
 id btnHeaderSearch
 id btnHelpScanner
@@ -3256,6 +3260,7 @@ id btnLogin
 id btnLogout
 id btnMobileRecharge
 id btnMyQrCard
+id btnOtpLogin
 id btnPickGallery
 id btnReceiptDone
 id btnReceiptDownload
@@ -3277,6 +3282,7 @@ id btnTransferBank
 id btnTransferMobile
 id btnTransferSelf
 id btnUpiBar
+id btnVerifyOtp
 id btnWalletCard
 id buttonPanel
 id cache_measures
@@ -3369,6 +3375,7 @@ id etAddress
 id etAmount
 id etChatMessage
 id etCity
+id etConfirmPin
 id etDestination
 id etDob
 id etEmail
@@ -3376,6 +3383,8 @@ id etFirstName
 id etIdentifier
 id etLastName
 id etMiddleName
+id etMobileNumber
+id etOtp
 id etOtpCode
 id etPan
 id etPassword
@@ -3448,6 +3457,7 @@ id jumpToEnd
 id jumpToStart
 id labeled
 id layout
+id layoutOtpSection
 id left
 id leftToRight
 id legacy
@@ -3708,6 +3718,7 @@ id triangle
 id tvChatPartnerName
 id tvDashAccountNo
 id tvDashBalance
+id tvFingerprintStatus
 id tvGoRegister
 id tvLoadingSub
 id tvLoadingTitle
@@ -3875,10 +3886,12 @@ layout activity_dashboard
 layout activity_loans
 layout activity_login
 layout activity_my_qr
+layout activity_otp_login
 layout activity_passbook
 layout activity_qr_scanner
 layout activity_register
 layout activity_scan_pay_confirm
+layout activity_set_pin
 layout activity_splash
 layout activity_transfer
 layout custom_dialog

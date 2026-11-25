@@ -53,6 +53,12 @@
             android:name="com.bank.skbankofindia.ui.RegisterActivity"
             android:exported="false" />
         <activity
+            android:name="com.bank.skbankofindia.ui.OtpLoginActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.bank.skbankofindia.ui.SetPinActivity"
+            android:exported="false" />
+        <activity
             android:name="com.bank.skbankofindia.ui.DashboardActivity"
             android:exported="false" />
         <activity

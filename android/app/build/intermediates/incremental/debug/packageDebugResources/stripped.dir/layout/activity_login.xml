@@ -42,7 +42,27 @@
         android:layout_height="50dp"
         android:text="Login"
         android:backgroundTint="#0052CC"
-        android:textColor="#FFFFFF" />
+        android:textColor="#FFFFFF"
+        android:layout_marginBottom="12dp" />
+
+    <Button
+        android:id="@+id/btnOtpLogin"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="Login with Mobile Number &amp; OTP"
+        android:backgroundTint="#00875A"
+        android:textColor="#FFFFFF"
+        android:layout_marginBottom="12dp" />
+
+    <Button
+        android:id="@+id/btnFingerprintLogin"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="Login with Fingerprint 👆"
+        android:backgroundTint="#333333"
+        android:textColor="#FFFFFF"
+        android:visibility="gone"
+        android:layout_marginBottom="12dp" />
 
     <TextView
         android:id="@+id/tvGoRegister"
@@ -51,6 +71,6 @@
         android:text="Don't have an account? Register"
         android:textColor="#0052CC"
         android:textSize="14sp"
-        android:layout_marginTop="16dp" />
+        android:layout_marginTop="8dp" />
 
 </LinearLayout>
