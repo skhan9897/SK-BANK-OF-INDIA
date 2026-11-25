@@ -12,6 +12,7 @@
                     <li class="mb-2"><a href="${pageContext.request.contextPath}/transfers.jsp"><i class="fa-solid fa-angle-right me-1"></i> UPI & IMPS Transfer</a></li>
                     <li class="mb-2"><a href="${pageContext.request.contextPath}/loans.jsp"><i class="fa-solid fa-angle-right me-1"></i> Instant Loans</a></li>
                     <li class="mb-2"><a href="${pageContext.request.contextPath}/cards.jsp"><i class="fa-solid fa-angle-right me-1"></i> Virtual Debit Cards</a></li>
+                    <li class="mb-2"><a href="${pageContext.request.contextPath}/download-app.jsp" class="text-warning fw-bold"><i class="fa-brands fa-android me-1"></i> Download Mobile App (v1.0.0)</a></li>
                 </ul>
             </div>
             <div class="col-md-5">

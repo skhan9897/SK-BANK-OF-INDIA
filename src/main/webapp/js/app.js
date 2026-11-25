@@ -1,5 +1,6 @@
 /* ==============================================================================
    SK BANK OF INDIA - CLIENT APPLICATION ENGINE
+   Includes Professional Loading Overlay & Real-Time Voice Feedback
    ============================================================================== */
 
 const API_BASE_URL = '/SKBankOfIndia/api/v1';
@@ -38,8 +39,77 @@ function logout() {
     window.location.href = 'login.jsp';
 }
 
-function showToast(message, isError = false) {
-    alert((isError ? "Error: " : "Success: ") + message);
+/* ==============================================================================
+   PROFESSIONAL LOADING OVERLAY UI
+   ============================================================================== */
+function showLoadingOverlay(message = "Processing Transaction...") {
+    let overlay = document.getElementById('skLoadingOverlay');
+    if (!overlay) {
+        overlay = document.createElement('div');
+        overlay.id = 'skLoadingOverlay';
+        overlay.className = 'sk-loading-overlay';
+        overlay.innerHTML = `
+            <div class="sk-spinner mb-3"></div>
+            <h4 class="fw-bold text-white mb-2" id="skLoadingTitle">Processing Transaction</h4>
+            <p class="text-warning small mb-0" id="skLoadingSub"><i class="fa-solid fa-lock me-1"></i> Securing Double-Entry Ledger Entry...</p>
+        `;
+        document.body.appendChild(overlay);
+    } else {
+        document.getElementById('skLoadingTitle').innerText = message;
+        overlay.style.display = 'flex';
+    }
+}
+
+function hideLoadingOverlay() {
+    const overlay = document.getElementById('skLoadingOverlay');
+    if (overlay) {
+        overlay.style.display = 'none';
+    }
+}
+
+/* ==============================================================================
+   TEXT-TO-SPEECH (TTS) REAL-TIME VOICE ANNOUNCEMENT ENGINE
+   ============================================================================== */
+function speakPaymentVoiceNotification(amount, type = 'SENT', payee = '') {
+    if (!('speechSynthesis' in window)) {
+        console.warn('Speech synthesis not supported on this browser.');
+        return;
+    }
+
+    // Cancel any ongoing speech
+    window.speechSynthesis.cancel();
+
+    let textToSpeak = "";
+    const formattedAmount = Number(amount).toLocaleString('en-IN');
+
+    if (type === 'SENT') {
+        textToSpeak = `SK Bank of India: Payment of ${formattedAmount} Rupees successfully sent!`;
+    } else if (type === 'RECEIVED') {
+        textToSpeak = `SK Bank of India: Payment of ${formattedAmount} Rupees successfully received in your account!`;
+    } else {
+        textToSpeak = `SK Bank of India: Transaction of ${formattedAmount} Rupees completed successfully!`;
+    }
+
+    const utterance = new SpeechSynthesisUtterance(textToSpeak);
+    utterance.rate = 0.95; // Natural speed
+    utterance.pitch = 1.0;
+    utterance.volume = 1.0;
+
+    // Try finding an English or Hindi voice
+    const voices = window.speechSynthesis.getVoices();
+    const preferredVoice = voices.find(v => v.lang.includes('en-IN') || v.lang.includes('hi-IN') || v.lang.includes('en-US'));
+    if (preferredVoice) {
+        utterance.voice = preferredVoice;
+    }
+
+    window.speechSynthesis.speak(utterance);
+}
+
+// Pre-load voices for browser compatibility
+if ('speechSynthesis' in window) {
+    window.speechSynthesis.onvoiceschanged = () => {
+        window.speechSynthesis.getVoices();
+    };
 }
 
 // Balance Mask / Unmask Toggle

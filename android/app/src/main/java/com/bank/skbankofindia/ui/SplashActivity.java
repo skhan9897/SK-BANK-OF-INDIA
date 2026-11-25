@@ -11,6 +11,8 @@ import com.bank.skbankofindia.R;
 
 public class SplashActivity extends AppCompatActivity {
 
+    private static final int SPLASH_DURATION_MS = 3000; // 3-Second Professional Splash Duration
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -19,6 +21,6 @@ public class SplashActivity extends AppCompatActivity {
         new Handler(Looper.getMainLooper()).postDelayed(() -> {
             startActivity(new Intent(SplashActivity.this, LoginActivity.class));
             finish();
-        }, 2000);
+        }, SPLASH_DURATION_MS);
     }
 }

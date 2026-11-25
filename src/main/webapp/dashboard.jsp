@@ -105,6 +105,19 @@
         </div>
 
         <div class="col-lg-4">
+            <!-- Mobile App Download & Update Widget -->
+            <div class="sk-card bg-navy text-white mb-4" style="background: linear-gradient(135deg, #0A192F 0%, #0052CC 100%);">
+                <div class="d-flex align-items-center mb-2">
+                    <i class="fa-brands fa-android text-warning fs-2 me-3"></i>
+                    <div>
+                        <h6 class="fw-bold text-white mb-0">SK Bank Mobile App</h6>
+                        <span class="badge bg-warning text-dark">v1.0.0 Update Available</span>
+                    </div>
+                </div>
+                <p class="small text-white-50 mt-2 mb-3">Install or update the official Android App for instant UPI transfers & biometric login.</p>
+                <a href="download-app.jsp" class="btn btn-sk-accent btn-sm fw-bold w-100"><i class="fa-solid fa-download me-1"></i> Download / Update App</a>
+            </div>
+
             <div class="sk-card mb-4">
                 <h5 class="fw-bold mb-3"><i class="fa-solid fa-bolt me-2 text-warning"></i> Quick Actions</h5>
                 <div class="d-grid gap-2">

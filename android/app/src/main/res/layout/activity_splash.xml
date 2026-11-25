@@ -3,25 +3,88 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#0A192F"
-    android:gravity="center">
+    android:padding="32dp">
 
-    <TextView
-        android:id="@+id/tvLogoTitle"
+    <!-- Center Content -->
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="SK Bank of India"
-        android:textColor="#FFFFFF"
-        android:textSize="28sp"
-        android:textStyle="bold" />
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:orientation="vertical">
 
-    <TextView
+        <ImageView
+            android:id="@+id/ivBankLogo"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:contentDescription="SK Bank Logo"
+            android:src="@android:drawable/ic_dialog_info"
+            android:layout_marginBottom="16dp" />
+
+        <TextView
+            android:id="@+id/tvLogoTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="SK Bank of India"
+            android:textColor="#FFFFFF"
+            android:textSize="26sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:background="#1A365D"
+            android:paddingHorizontal="16dp"
+            android:paddingVertical="6dp"
+            android:text="🇮🇳 PROUDLY LAUNCHED IN INDIA"
+            android:textColor="#D4AF37"
+            android:textSize="12sp"
+            android:textStyle="bold" />
+
+        <ProgressBar
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="180dp"
+            android:layout_height="6dp"
+            android:layout_marginTop="24dp"
+            android:indeterminate="true"
+            android:indeterminateTint="#D4AF37" />
+
+    </LinearLayout>
+
+    <!-- Bottom Credits -->
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/tvLogoTitle"
+        android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="8dp"
-        android:text="Secure Mobile Banking Portal"
-        android:textColor="#D4AF37"
-        android:textSize="14sp" />
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="DEVELOPED BY"
+            android:textColor="#8892B0"
+            android:textSize="11sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:text="SAJID KHAN"
+            android:textColor="#D4AF37"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="RBI Regulated Digital Banking Infrastructure"
+            android:textColor="#8892B0"
+            android:textSize="10sp" />
+
+    </LinearLayout>
 
 </RelativeLayout>

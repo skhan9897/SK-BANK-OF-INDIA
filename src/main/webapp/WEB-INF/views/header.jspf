@@ -28,10 +28,11 @@
                 <li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/index.jsp"><i class="fa-solid fa-house me-1"></i> Home</a></li>
                 <li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/dashboard.jsp"><i class="fa-solid fa-gauge me-1"></i> Dashboard</a></li>
                 <li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/accounts.jsp"><i class="fa-solid fa-wallet me-1"></i> Accounts</a></li>
-                <li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/transfers.jsp"><i class="fa-solid fa-money-bill-transfer me-1"></i> Fund Transfers</a></li>
+                <li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/transfers.jsp"><i class="fa-solid fa-money-bill-transfer me-1"></i> Transfers</a></li>
                 <li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/cards.jsp"><i class="fa-regular fa-credit-card me-1"></i> Cards</a></li>
                 <li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/loans.jsp"><i class="fa-solid fa-hand-holding-dollar me-1"></i> Loans</a></li>
                 <li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/services.jsp"><i class="fa-solid fa-sliders me-1"></i> Services</a></li>
+                <li class="nav-item"><a class="nav-link text-warning fw-bold" href="${pageContext.request.contextPath}/download-app.jsp"><i class="fa-brands fa-android me-1"></i> Mobile App</a></li>
 
                 <li class="nav-item ms-lg-3" id="navAuthButtons">
                     <a href="${pageContext.request.contextPath}/login.jsp" class="btn btn-outline-light btn-sm me-2"><i class="fa-solid fa-right-to-bracket me-1"></i> Login</a>

@@ -107,6 +107,10 @@ public class LedgerService {
 
             conn.commit();
             LOGGER.info("Successfully executed double-entry transfer. TxnRef: " + txnRef);
+
+            // Dispatch dual-sided payment alerts (Sender SMS/Push & Receiver SMS/Push)
+            new NotificationService().sendTransactionAlerts(txn);
+
             return txn;
 
         } catch (Exception e) {

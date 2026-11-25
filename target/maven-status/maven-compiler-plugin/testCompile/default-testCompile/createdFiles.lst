@@ -1,6 +1,7 @@
 com\bank\skbankofindia\AccountServiceTest.class
 com\bank\skbankofindia\IDGeneratorTest.class
 com\bank\skbankofindia\ValidationUtilTest.class
+com\bank\skbankofindia\NotificationServiceTest.class
 com\bank\skbankofindia\LedgerTransferTest.class
 com\bank\skbankofindia\JwtUtilTest.class
 com\bank\skbankofindia\PasswordUtilTest.class

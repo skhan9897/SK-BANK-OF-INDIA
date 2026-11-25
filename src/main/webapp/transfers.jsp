@@ -6,7 +6,7 @@
         <!-- Transfer Form -->
         <div class="col-lg-7">
             <div class="sk-card">
-                <h4 class="fw-bold mb-3"><i class="fa-solid fa-paper-plane me-2 text-primary"></i> Initiate Fund Transfer</h4>
+                <h4 class="fw-bold mb-3"><i class="fa-solid fa-paper-plane me-2 text-primary"></i> Initiate Instant Fund Transfer</h4>
 
                 <div id="transferAlert" class="alert alert-danger d-none"></div>
 
@@ -56,8 +56,8 @@
                         <input type="text" id="transferRemarks" class="form-control" placeholder="e.g. Rent, Bill payment, Family support">
                     </div>
 
-                    <button type="submit" class="btn btn-sk-primary w-100 py-2 fs-6">
-                        <i class="fa-solid fa-lock me-2"></i> Confirm & Authorize Transfer
+                    <button type="submit" id="btnTransferSubmit" class="btn btn-sk-primary w-100 py-2 fs-6">
+                        <i class="fa-solid fa-bolt me-2 text-warning"></i> Instant Confirm & Send Money
                     </button>
                 </form>
             </div>
@@ -91,6 +91,32 @@
     </div>
 </div>
 
+<!-- Success Modal -->
+<div class="modal fade" id="paymentSuccessModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content text-center p-4">
+            <div class="mb-3">
+                <div class="sound-wave-icon d-inline-block p-3 rounded-circle bg-success bg-opacity-10 text-success">
+                    <i class="fa-solid fa-circle-check fs-1"></i>
+                </div>
+            </div>
+            <h3 class="fw-bold text-success mb-1">Payment Successful!</h3>
+            <p class="text-muted mb-3" id="succTxnRef">Ref: TXN202511250001</p>
+            <div class="p-3 bg-light rounded-3 mb-4 text-start">
+                <div class="d-flex justify-content-between mb-2">
+                    <span class="text-muted">Amount Paid:</span>
+                    <strong class="fs-5 text-dark" id="succAmount">₹ 0.00</strong>
+                </div>
+                <div class="d-flex justify-content-between">
+                    <span class="text-muted">Paid To:</span>
+                    <strong id="succPayee">Account Number</strong>
+                </div>
+            </div>
+            <button class="btn btn-sk-primary w-100" data-bs-dismiss="modal">Done & Close</button>
+        </div>
+    </div>
+</div>
+
 <script>
 document.addEventListener('DOMContentLoaded', () => {
     checkAuthAndRedirect();
@@ -109,7 +135,7 @@ async function loadSourceAccounts() {
             data.data.forEach(acc => {
                 const opt = document.createElement('option');
                 opt.value = acc.accountId;
-                opt.innerText = acc.accountNumber + " (Bal: ₹ " + acc.availableBalance + ")";
+                opt.innerText = acc.accountNumber + " (Bal: ₹ " + Number(acc.availableBalance).toLocaleString('en-IN') + ")";
                 sel.appendChild(opt);
             });
         }
@@ -123,7 +149,59 @@ function populatePayee(accountNo) {
 }
 
 async function handleFundTransfer() {
-    alert("Fund Transfer Initiated! Authorizing double-entry transaction against backend ledger...");
+    const sourceAccountId = document.getElementById('transferSourceAccount').value;
+    const destinationAccount = document.getElementById('transferDestinationAccount').value.trim();
+    const amount = document.getElementById('transferAmount').value;
+    const remarks = document.getElementById('transferRemarks').value.trim();
+    const alertDiv = document.getElementById('transferAlert');
+    alertDiv.classList.add('d-none');
+
+    let method = "INTERNAL";
+    const selectedMethod = document.querySelector('input[name="payMethod"]:checked');
+    if (selectedMethod) method = selectedMethod.value;
+
+    showLoadingOverlay("Executing Ultra-Fast Payment...");
+
+    try {
+        const payload = {
+            sourceAccountId: sourceAccountId,
+            destinationAccountId: 1, // Default receiver in sandbox
+            amount: amount,
+            paymentMethod: method,
+            remarks: remarks || "Instant Transfer"
+        };
+
+        const response = await fetch('/SKBankOfIndia/api/v1/protected/transfers/internal', {
+            method: 'POST',
+            headers: getAuthHeaders(),
+            body: JSON.stringify(payload)
+        });
+
+        hideLoadingOverlay();
+        const data = await response.json();
+
+        if (data.success) {
+            // Trigger Voice Announcement!
+            speakPaymentVoiceNotification(amount, 'SENT', destinationAccount);
+
+            document.getElementById('succTxnRef').innerText = "Txn Ref: " + (data.data.transactionRef || "TXN_SUCCESS");
+            document.getElementById('succAmount').innerText = "₹ " + Number(amount).toLocaleString('en-IN', { minimumFractionDigits: 2 });
+            document.getElementById('succPayee').innerText = destinationAccount;
+
+            const modal = new bootstrap.Modal(document.getElementById('paymentSuccessModal'));
+            modal.show();
+
+            document.getElementById('transferForm').reset();
+            loadSourceAccounts();
+        } else {
+            alertDiv.innerText = data.message;
+            alertDiv.classList.remove('d-none');
+        }
+    } catch (e) {
+        hideLoadingOverlay();
+        alertDiv.innerText = "Network connection timeout during transaction.";
+        alertDiv.classList.remove('d-none');
+    }
 }
 </script>
 

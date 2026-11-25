@@ -13,12 +13,15 @@ com\bank\skbankofindia\config\DatabaseConfig.class
 com\bank\skbankofindia\dao\TransactionDAO.class
 com\bank\skbankofindia\servlet\AccountServlet.class
 com\bank\skbankofindia\resources\JavaEE8Resource.class
+com\bank\skbankofindia\service\NotificationService.class
 com\bank\skbankofindia\util\ValidationUtil.class
 com\bank\skbankofindia\dao\BankAccountDAO.class
 com\bank\skbankofindia\service\AdminService.class
 com\bank\skbankofindia\util\JsonResponse.class
 com\bank\skbankofindia\dao\CustomerDAO.class
 com\bank\skbankofindia\service\AuthService.class
+com\bank\skbankofindia\servlet\AppServlet.class
+com\bank\skbankofindia\servlet\NotificationServlet.class
 com\bank\skbankofindia\servlet\AuthServlet.class
 com\bank\skbankofindia\util\JwtUtil.class
 com\bank\skbankofindia\model\LedgerEntry.class
