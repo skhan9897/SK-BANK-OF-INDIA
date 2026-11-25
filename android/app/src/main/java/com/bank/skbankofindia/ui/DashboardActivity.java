@@ -114,6 +114,7 @@ public class DashboardActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         fetchAccountsFromBackend();
+        checkForAppUpdate();
     }
 
     private int getInstalledVersionCode() {
