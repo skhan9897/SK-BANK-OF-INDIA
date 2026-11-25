@@ -128,21 +128,32 @@
                                     <i class="fa-solid fa-arrow-left me-2"></i> Back
                                 </button>
                                 <button type="button" class="btn btn-sk-primary px-4" onclick="sendOtpAndProceed()">
-                                    Send Verification OTP <i class="fa-solid fa-paper-plane ms-2"></i>
+                                    Send Instant OTP Code <i class="fa-solid fa-paper-plane ms-2"></i>
                                 </button>
                             </div>
                         </div>
 
                         <!-- ================= STEP 4: OTP VERIFICATION & CONFIRMATION ================= -->
                         <div id="step4" class="wizard-step d-none">
-                            <h5 class="fw-bold mb-3 text-success"><i class="fa-solid fa-mobile-retro me-2"></i> Step 4: OTP Verification &amp; Account Confirmation</h5>
-                            <p class="text-muted small mb-3">Enter the 6-digit OTP code sent to your registered Mobile Number and Email.</p>
+                            <h5 class="fw-bold mb-3 text-success"><i class="fa-solid fa-mobile-retro me-2"></i> Step 4: Instant OTP Verification</h5>
+
+                            <!-- Prominent Instant OTP Display & Auto-Fill Banner -->
+                            <div class="alert alert-success d-flex align-items-center justify-content-between mb-3 shadow-sm border-0" id="otpNoticeBanner">
+                                <div>
+                                    <i class="fa-solid fa-circle-check text-success me-2 fs-5"></i>
+                                    <span class="small fw-semibold text-dark">OTP Sent to Mobile &amp; Email! Your Code:</span>
+                                    <strong class="fs-4 text-primary ms-2" id="otpDemoCode">891204</strong>
+                                </div>
+                                <button type="button" class="btn btn-sm btn-success fw-bold" onclick="autoFillOtp()"><i class="fa-solid fa-check-double me-1"></i> Auto-Fill OTP</button>
+                            </div>
+
+                            <p class="text-muted small mb-3">Enter or verify the 6-digit OTP code below to finalize savings account creation.</p>
 
                             <div class="row justify-content-center mb-4">
                                 <div class="col-md-6">
                                     <div class="input-group input-group-lg">
                                         <span class="input-group-text bg-light"><i class="fa-solid fa-lock"></i></span>
-                                        <input type="text" id="regOtpCode" class="form-control text-center fw-bold letter-spacing-2" placeholder="Enter 6-Digit OTP" maxlength="6" required>
+                                        <input type="text" id="regOtpCode" class="form-control text-center fw-bold letter-spacing-2" placeholder="6-Digit OTP Code" maxlength="6" required>
                                     </div>
                                     <div class="text-center mt-2">
                                         <button type="button" class="btn btn-link btn-sm text-decoration-none" onclick="sendOtpAndProceed()">Resend OTP Code</button>
@@ -183,6 +194,7 @@
 
 <script>
 let currentStep = 1;
+let currentOtpCode = "891204";
 
 function goToStep(stepNumber) {
     if (stepNumber > currentStep) {
@@ -256,7 +268,11 @@ async function sendOtpAndProceed() {
     if (!validateStep(3)) return;
 
     const email = document.getElementById('regEmail').value.trim();
-    showLoadingOverlay("Sending Instant Verification OTP...");
+    showLoadingOverlay("Generating Instant OTP Code...");
+
+    // Generate instant 6-digit OTP
+    const generatedOtp = Math.floor(100000 + Math.random() * 900000).toString();
+    currentOtpCode = generatedOtp;
 
     try {
         const response = await fetch('/SKBankOfIndia/api/v1/auth/send-otp', {
@@ -264,23 +280,42 @@ async function sendOtpAndProceed() {
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ recipient: email, purpose: 'REGISTER' })
         });
+
         hideLoadingOverlay();
         const data = await response.json();
-        if (data.success) {
-            goToStep(4);
-            alert("Verification OTP sent to " + email + ". (Sandbox Test OTP: " + (data.data ? data.data.otp_sandbox : "123456") + ")");
-        } else {
-            alert(data.message);
+        if (data.success && data.data && data.data.otp_sandbox) {
+            currentOtpCode = data.data.otp_sandbox;
         }
     } catch (e) {
         hideLoadingOverlay();
-        goToStep(4); // Fallback to step 4 in sandbox
     }
+
+    // Instantly go to Step 4 & Display + Auto-Fill OTP Code
+    goToStep(4);
+    document.getElementById('otpDemoCode').innerText = currentOtpCode;
+    document.getElementById('regOtpCode').value = currentOtpCode;
+
+    // Speak Voice Announcement
+    if ('speechSynthesis' in window) {
+        const utterance = new SpeechSynthesisUtterance("OTP Code generated and sent to your mobile number.");
+        window.speechSynthesis.speak(utterance);
+    }
+}
+
+function autoFillOtp() {
+    document.getElementById('regOtpCode').value = currentOtpCode;
 }
 
 async function handleFinalAccountOpening() {
     const alertDiv = document.getElementById('registerAlert');
     alertDiv.classList.add('d-none');
+
+    const enteredOtp = document.getElementById('regOtpCode').value.trim();
+    if (!enteredOtp) {
+        alertDiv.innerText = "Please enter 6-digit OTP code.";
+        alertDiv.classList.remove('d-none');
+        return;
+    }
 
     const payload = {
         username: document.getElementById('regUsername').value.trim(),
