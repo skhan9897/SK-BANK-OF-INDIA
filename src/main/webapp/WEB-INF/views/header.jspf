@@ -32,11 +32,11 @@
                 <li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/cards.jsp"><i class="fa-regular fa-credit-card me-1"></i> Cards</a></li>
                 <li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/loans.jsp"><i class="fa-solid fa-hand-holding-dollar me-1"></i> Loans</a></li>
                 <li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/services.jsp"><i class="fa-solid fa-sliders me-1"></i> Services</a></li>
-                <li class="nav-item"><a class="nav-link text-warning fw-bold" href="${pageContext.request.contextPath}/download-app.jsp"><i class="fa-brands fa-android me-1"></i> Mobile App</a></li>
+                <li class="nav-item me-3"><a class="nav-link text-warning fw-bold" href="${pageContext.request.contextPath}/download-app.jsp"><i class="fa-brands fa-android me-1"></i> Mobile App</a></li>
 
-                <li class="nav-item ms-lg-3" id="navAuthButtons">
-                    <a href="${pageContext.request.contextPath}/login.jsp" class="btn btn-outline-light btn-sm me-2"><i class="fa-solid fa-right-to-bracket me-1"></i> Login</a>
-                    <a href="${pageContext.request.contextPath}/register.jsp" class="btn btn-sk-accent btn-sm"><i class="fa-solid fa-user-plus me-1"></i> Register</a>
+                <li class="nav-item d-flex align-items-center gap-2" id="navAuthButtons">
+                    <a href="${pageContext.request.contextPath}/login.jsp" class="nav-auth-btn-login"><i class="fa-solid fa-right-to-bracket me-1"></i> Login</a>
+                    <a href="${pageContext.request.contextPath}/register.jsp" class="nav-auth-btn-register"><i class="fa-solid fa-user-plus me-1"></i> Register</a>
                 </li>
             </ul>
         </div>

@@ -11,8 +11,16 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.bank.skbankofindia.R;
+import com.bank.skbankofindia.api.ApiClient;
+import com.bank.skbankofindia.model.ApiResponse;
+import com.bank.skbankofindia.model.TransferRequest;
+import com.bank.skbankofindia.util.SessionManager;
 
 import java.util.Locale;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class TransferActivity extends AppCompatActivity implements TextToSpeech.OnInitListener {
 
@@ -20,11 +28,14 @@ public class TransferActivity extends AppCompatActivity implements TextToSpeech.
     private Button btnConfirm;
     private TextToSpeech ttsEngine;
     private boolean isTtsReady = false;
+    private SessionManager sessionManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_transfer);
+
+        sessionManager = new SessionManager(this);
 
         etDestination = findViewById(R.id.etDestination);
         etAmount = findViewById(R.id.etAmount);
@@ -52,17 +63,34 @@ public class TransferActivity extends AppCompatActivity implements TextToSpeech.
         progressDialog.setCancelable(false);
         progressDialog.show();
 
-        // Simulate ultra-fast API processing (500ms delay)
-        btnConfirm.postDelayed(() -> {
-            progressDialog.dismiss();
+        String token = sessionManager.getAuthToken();
+        long sourceAccountId = sessionManager.getAccountId();
 
-            Toast.makeText(this, "Payment Successful!", Toast.LENGTH_LONG).show();
+        TransferRequest req = new TransferRequest(sourceAccountId, 1L, amountStr, "INTERNAL", "Mobile Transfer to " + destination);
 
-            // Speak Voice Announcement!
-            speakVoiceAnnouncement(amountStr);
+        ApiClient.getApiService().processFundTransfer(token, req).enqueue(new Callback<ApiResponse>() {
+            @Override
+            public void onResponse(Call<ApiResponse> call, Response<ApiResponse> response) {
+                progressDialog.dismiss();
+                if (response.isSuccessful() && response.body() != null && response.body().isSuccess()) {
+                    Toast.makeText(TransferActivity.this, "Payment Successful!", Toast.LENGTH_LONG).show();
 
-            finish();
-        }, 600);
+                    // Speak Real-Time Voice Announcement!
+                    speakVoiceAnnouncement(amountStr);
+
+                    finish();
+                } else {
+                    String msg = response.body() != null ? response.body().getMessage() : "Transfer failed";
+                    Toast.makeText(TransferActivity.this, msg, Toast.LENGTH_LONG).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ApiResponse> call, Throwable t) {
+                progressDialog.dismiss();
+                Toast.makeText(TransferActivity.this, "Connection error: " + t.getMessage(), Toast.LENGTH_LONG).show();
+            }
+        });
     }
 
     private void speakVoiceAnnouncement(String amountStr) {

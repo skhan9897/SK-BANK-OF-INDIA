@@ -1,6 +1,6 @@
 /* ==============================================================================
    SK BANK OF INDIA - PREMIUM BANKING STYLESHEET
-   Includes Professional Loading Overlay & Animated Payment Success Modal
+   Includes Indian Flag Tricolor Wave Background & Multi-Step Wizard Styles
    ============================================================================== */
 
 :root {
@@ -12,6 +12,8 @@
     --sk-card-bg: #FFFFFF;
     --sk-text-dark: #172B4D;
     --sk-text-muted: #6B778C;
+    --sk-saffron: #FF9933;
+    --sk-green: #138808;
     --sk-font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
 }
 
@@ -23,10 +25,28 @@ body {
     padding: 0;
 }
 
+/* Indian Flag Tricolor Wave Background */
+.tricolor-wave-bg {
+    background: linear-gradient(-45deg, #0A192F 0%, rgba(255,153,51,0.25) 30%, rgba(255,255,255,0.2) 60%, rgba(19,136,8,0.25) 100%),
+                radial-gradient(circle at top right, rgba(255,153,51,0.3), transparent 60%),
+                radial-gradient(circle at bottom left, rgba(19,136,8,0.3), transparent 60%),
+                #0A192F;
+    background-size: 200% 200%;
+    animation: waveMotion 12s ease infinite;
+    min-height: 100vh;
+}
+
+@keyframes waveMotion {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
 /* Navbar */
 .sk-navbar {
     background-color: var(--sk-primary);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    padding: 12px 0;
 }
 
 .sk-navbar .navbar-brand {
@@ -51,6 +71,49 @@ body {
     color: var(--sk-accent) !important;
 }
 
+/* Navbar Auth Buttons Layer */
+.nav-auth-btn-login {
+    border: 1.5px solid rgba(255, 255, 255, 0.4);
+    color: #FFFFFF !important;
+    font-weight: 600;
+    font-size: 0.88rem;
+    padding: 7px 18px;
+    border-radius: 20px;
+    transition: all 0.25s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    text-decoration: none;
+}
+
+.nav-auth-btn-login:hover {
+    border-color: #D4AF37;
+    color: #D4AF37 !important;
+    background: rgba(212, 175, 55, 0.1);
+}
+
+.nav-auth-btn-register {
+    background: linear-gradient(135deg, #D4AF37 0%, #FF9933 100%);
+    color: #0A192F !important;
+    font-weight: 700;
+    font-size: 0.88rem;
+    padding: 8px 20px;
+    border-radius: 20px;
+    border: none;
+    box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3);
+    transition: all 0.25s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    text-decoration: none;
+}
+
+.nav-auth-btn-register:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 16px rgba(212, 175, 55, 0.5);
+    color: #0A192F !important;
+}
+
 /* Hero Section */
 .sk-hero {
     background: linear-gradient(135deg, #0A192F 0%, #0052CC 100%);
@@ -68,16 +131,16 @@ body {
 /* Cards & Widgets */
 .sk-card {
     background: var(--sk-card-bg);
-    border-radius: 12px;
-    border: 1px solid rgba(0, 0, 0, 0.06);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
-    padding: 24px;
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+    padding: 28px;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .sk-card:hover {
     transform: translateY(-2px);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
 }
 
 .sk-credit-card {
@@ -139,6 +202,56 @@ body {
     color: var(--sk-primary);
 }
 
+/* Multi-Step Wizard Progress Dots */
+.step-wizard-indicator {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    margin-bottom: 30px;
+}
+
+.step-wizard-indicator::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: #E2E8F0;
+    z-index: 1;
+    transform: translateY(-50%);
+}
+
+.step-dot {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: #FFFFFF;
+    border: 3px solid #E2E8F0;
+    color: var(--sk-text-muted);
+    font-weight: 700;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+    transition: all 0.3s ease;
+}
+
+.step-dot.active {
+    border-color: var(--sk-saffron);
+    background: var(--sk-saffron);
+    color: #FFFFFF;
+    box-shadow: 0 0 12px rgba(255, 153, 51, 0.5);
+}
+
+.step-dot.completed {
+    border-color: var(--sk-green);
+    background: var(--sk-green);
+    color: #FFFFFF;
+}
+
 /* Tables */
 .sk-table {
     background: #FFFFFF;
@@ -198,15 +311,15 @@ footer a:hover {
     color: var(--sk-accent);
 }
 
-/* Professional Glassmorphic Loading Overlay */
+/* Professional Glassmorphic Loading Overlay with Indian Flag Wave Spinner */
 .sk-loading-overlay {
     position: fixed;
     top: 0;
     left: 0;
     width: 100vw;
     height: 100vh;
-    background: rgba(10, 25, 47, 0.85);
-    backdrop-filter: blur(8px);
+    background: rgba(10, 25, 47, 0.88);
+    backdrop-filter: blur(10px);
     z-index: 9999;
     display: flex;
     flex-direction: column;
@@ -216,16 +329,19 @@ footer a:hover {
     transition: opacity 0.3s ease;
 }
 
-.sk-spinner {
-    width: 65px;
-    height: 65px;
-    border: 5px solid rgba(212, 175, 55, 0.2);
-    border-top: 5px solid var(--sk-accent);
+.tricolor-spinner {
+    width: 70px;
+    height: 70px;
+    border: 5px solid transparent;
+    border-top: 5px solid var(--sk-saffron);
+    border-right: 5px solid #FFFFFF;
+    border-bottom: 5px solid var(--sk-green);
     border-radius: 50%;
-    animation: spin 0.8s linear infinite;
+    animation: tricolorSpin 0.9s linear infinite;
+    box-shadow: 0 0 20px rgba(255, 153, 51, 0.3);
 }
 
-@keyframes spin {
+@keyframes tricolorSpin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
 }

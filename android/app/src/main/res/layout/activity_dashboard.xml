@@ -1,53 +1,130 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="20dp"
-    android:background="#F4F6F9">
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Dashboard"
-        android:textColor="#0A192F"
-        android:textSize="22sp"
-        android:textStyle="bold"
-        android:layout_marginBottom="16dp" />
+    android:background="#F4F6F9"
+    android:padding="16dp">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:background="#0A192F"
-        android:padding="20dp"
-        android:layout_marginBottom="20dp">
+        android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/tvAccountNo"
-            android:layout_width="wrap_content"
+        <!-- Top Header -->
+        <RelativeLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="1001••••••••9812"
-            android:textColor="#D4AF37"
-            android:textSize="14sp" />
+            android:layout_marginBottom="16dp">
 
-        <TextView
-            android:id="@+id/tvBalance"
-            android:layout_width="wrap_content"
+            <TextView
+                android:id="@+id/tvWelcomeUser"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="SK Payment Bank"
+                android:textColor="#0A192F"
+                android:textSize="22sp"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/btnLogout"
+                android:layout_width="wrap_content"
+                android:layout_height="36dp"
+                android:layout_alignParentEnd="true"
+                android:text="Logout"
+                android:textSize="11sp"
+                android:backgroundTint="#DE350B"
+                android:textColor="#FFFFFF" />
+        </RelativeLayout>
+
+        <!-- Primary Bank Account Card (Website Style) -->
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="₹ 10,000.00"
+            android:orientation="vertical"
+            android:background="#0A192F"
+            android:padding="20dp"
+            android:layout_marginBottom="20dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="PRIMARY SAVINGS ACCOUNT"
+                    android:textColor="#8892B0"
+                    android:textSize="11sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:text="SAVINGS"
+                    android:textColor="#D4AF37"
+                    android:textSize="11sp"
+                    android:textStyle="bold" />
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/tvAccountNo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="10018877665544"
+                android:textColor="#FFFFFF"
+                android:textSize="15sp" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Available Balance"
+                        android:textColor="#8892B0"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/tvBalance"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="••••••••"
+                        android:textColor="#FFFFFF"
+                        android:textSize="26sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <ImageButton
+                    android:id="@+id/btnToggleBalance"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:contentDescription="Toggle Balance"
+                    android:src="@android:drawable/ic_menu_view"
+                    android:background="?attr/selectableItemBackgroundBorderless" />
+            </RelativeLayout>
+
+        </LinearLayout>
+
+        <!-- Actions -->
+        <Button
+            android:id="@+id/btnSendMoney"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:text="Send Money (UPI / IMPS)"
+            android:backgroundTint="#0052CC"
             android:textColor="#FFFFFF"
-            android:textSize="28sp"
-            android:textStyle="bold"
-            android:layout_marginTop="8dp" />
+            android:layout_marginBottom="12dp" />
+
     </LinearLayout>
-
-    <Button
-        android:id="@+id/btnSendMoney"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:text="Send Money (UPI / IMPS)"
-        android:backgroundTint="#0052CC"
-        android:textColor="#FFFFFF" />
-
-</LinearLayout>
+</ScrollView>
