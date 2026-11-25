@@ -63,4 +63,8 @@ public interface ApiService {
 
     @POST("protected/chat/pay")
     Call<ApiResponse> executeChatPayment(@Header("Authorization") String token, @Body Map<String, Object> body);
+
+    // Transaction PIN Endpoint
+    @POST("protected/accounts/pin/generate")
+    Call<ApiResponse> updateTransactionPin(@Header("Authorization") String token, @Body Map<String, String> body);
 }

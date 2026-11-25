@@ -105,6 +105,13 @@ public class AccountServlet extends HttpServlet {
                     resp.setStatus(HttpServletResponse.SC_OK);
                     resp.getWriter().write(objectMapper.writeValueAsString(JsonResponse.success("Nominee added successfully")));
                     break;
+                case "/pin/generate":
+                case "/pin/update":
+                    String newPin = (String) body.get("pin");
+                    accountService.updateTransactionPin(userId, newPin);
+                    resp.setStatus(HttpServletResponse.SC_OK);
+                    resp.getWriter().write(objectMapper.writeValueAsString(JsonResponse.success("Transaction PIN updated successfully!")));
+                    break;
                 default:
                     sendError(resp, HttpServletResponse.SC_NOT_FOUND, "Endpoint not found: " + pathInfo);
                     break;

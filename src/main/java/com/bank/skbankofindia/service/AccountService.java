@@ -10,6 +10,7 @@ import com.bank.skbankofindia.model.Customer;
 import com.bank.skbankofindia.model.LedgerEntry;
 import com.bank.skbankofindia.model.Transaction;
 import com.bank.skbankofindia.util.IDGenerator;
+import com.bank.skbankofindia.util.PasswordUtil;
 
 import java.math.BigDecimal;
 import java.sql.Connection;
@@ -153,6 +154,20 @@ public class AccountService {
             stmt.setBoolean(1, freeze);
             stmt.setString(2, status);
             stmt.setLong(3, account.getAccountId());
+            stmt.executeUpdate();
+        }
+    }
+
+    public void updateTransactionPin(long userId, String newPin) throws Exception {
+        if (newPin == null || !newPin.matches("\\d{4,6}")) {
+            throw new IllegalArgumentException("Transaction PIN must be 4 to 6 numeric digits.");
+        }
+        String pinHash = PasswordUtil.hashPassword(newPin);
+        String sql = "UPDATE users SET transaction_pin_hash = ? WHERE user_id = ?";
+        try (Connection conn = DatabaseConfig.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.setString(1, pinHash);
+            stmt.setLong(2, userId);
             stmt.executeUpdate();
         }
     }
