@@ -20,6 +20,30 @@
     <meta property="og:site_name" content="SK Bank of India">
     <meta property="og:type" content="website">
 
+    <!-- Google Search Console Verification -->
+    <meta name="google-site-verification" content="googlef2958b68be7e8178" />
+    <meta name="google-site-verification" content="SKBankOfIndiaOfficialRender2026GoogleConsoleVerificationTag" />
+
+    <!-- Google Analytics 4 (GA4) Global Site Tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-SKBANK2026"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-SKBANK2026', {
+        'site_speed_sample_rate': 100,
+        'anonymize_ip': true
+      });
+
+      // Custom Event Helper for Google Analytics Tracking
+      function trackGaEvent(eventName, eventParams) {
+        if (typeof gtag === 'function') {
+          gtag('event', eventName, eventParams || {});
+        }
+      }
+    </script>
+
     <!-- Schema.org JSON-LD Google Rich Search Indexing -->
     <script type="application/ld+json">
     {
